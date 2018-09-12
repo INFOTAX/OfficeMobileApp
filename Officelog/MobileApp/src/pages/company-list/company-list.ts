@@ -22,10 +22,15 @@ export class CompanyListPage {
   fromDate : Date;
   toDate : Date;
   id: number = null;
-  visitorType:any[];
-  serviceProvided:any[];
-  queryHandling:any[];
-  cols: any[];
+  contactNumber:string;
+  queryHandling:string;
+  serviceProvided :string;
+  visitorType:string;
+  softwareInterested:string;
+  rateUs:string;
+  rateUsForNo:string;
+  suggestionForYes:string;
+  suggestionForNo:string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
       private companyProvider : CompanyProvider   ) {

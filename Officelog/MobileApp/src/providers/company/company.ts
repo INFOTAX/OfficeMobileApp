@@ -29,7 +29,17 @@ export class CompanyProvider extends ServiceBase<ICompany> {
   intializeObject(): ICompany {
     return {
       id : 0,
-      name : ''
+      name : '',
+      contactNumber:'',
+      queryHandling:'',
+      serviceProvided :'',
+      visitorType:'',
+      softwareInterested:'',
+      rateUs:'',
+      rateUsForNo:'',
+      suggestionForYes:'',
+      suggestionForNo:'',
+      date : new Date()
     }
   }
   
@@ -40,6 +50,16 @@ export class CompanyProvider extends ServiceBase<ICompany> {
 export interface ICompany{
   id: number;
   name: string;
+ contactNumber:string;
+  queryHandling:string;
+  serviceProvided :string;
+  visitorType:string;
+  softwareInterested:string;
+  rateUs:string;
+  rateUsForNo:string;
+  suggestionForYes:string;
+  suggestionForNo:string;
+  date:Date;
 }
 
 
