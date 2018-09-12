@@ -1,0 +1,55 @@
+<form [formGroup]="userProfileForm"  (ngSubmit)="onSave()"
+style="margin-left: 220px; margin-right: 220px; margin-top:35px">
+    <p-panel>
+        <p-header  style="text-align:center;">
+            <div class="ui-helper-clearfix">
+            <span class="ui-panel-title pan">User Profile</span>
+            </div>
+        </p-header>
+
+<div class="ui-g ui-fluid">
+    <div class="ui-sm-4  ui-g-4" style="margin-top: 10px">
+        <label for="name"> Name:</label>
+      </div>
+      <div class="ui-sm-6  ui-g-6">
+        <input  formControlName="name"  pInputText>
+      </div>
+      <div class="ui-sm-4  ui-g-4" style="margin-top: 10px">
+          <label for="contactNumber">Contact:</label>
+        </div>
+        <div class="ui-sm-6  ui-g-6">
+          <input  formControlName="contactNumber"  pInputText>
+        </div>
+        <div class="ui-sm-4  ui-g-4" style="margin-top: 10px">
+            <label for="designation">Desigination:</label>
+          </div>
+          <div class="ui-sm-6  ui-g-6">
+            <input  formControlName="designation"  pInputText>
+          </div>
+
+</div>
+    
+
+
+
+        <p-footer>
+          
+          <div class="ui-g-1"  *ngIf="action=='edit'"  style="position:center">
+            <button pButton type="submit"  [disabled]="userProfileForm.invalid" label="Save" class="ui-button-success"></button>
+          </div>
+          <div class="ui-g-1" *ngIf="action=='detail'">
+            
+            <button pButton type="button" label="Edit" class="ui-button-success" [routerLink]="['/authenticated/user_log','edit']"></button>
+          </div>
+          <div class="ui-g-1">
+            <button pButton type="button" label="Back" class="ui-button-info" [routerLink]="['/authenticated/dashboard_log']"></button>
+          </div>
+          </p-footer>
+
+
+      </p-panel>
+
+</form>
+<br>
+<br>
+{{userProfileForm.value |json}}

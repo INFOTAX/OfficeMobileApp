@@ -1,0 +1,29 @@
+
+
+
+.c{
+    margin-top: 10%;
+    margin-left:10%;
+}
+
+.container{
+    margin-top: 10%;
+    margin-left:16%;
+}
+.card1{
+    width: 270px;
+    height: 250px;
+    background: #efefef;
+   box-shadow: 9px 5px 12px 10px #917e909c;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.card2{
+    width: 270px;
+    height: 250px;
+    background: wheat;
+    box-shadow: 9px 5px 12px 10px #917e909c;
+    border-radius: 30px;
+    margin-left:18%;
+    cursor: pointer;
+}

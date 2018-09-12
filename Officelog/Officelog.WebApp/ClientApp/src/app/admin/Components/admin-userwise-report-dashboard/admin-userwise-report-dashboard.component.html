@@ -1,0 +1,44 @@
+<br>
+<br>
+<br>
+
+<div class="row ">
+  <div class="col-md-4">
+  </div>
+  <div class="col-md-5">
+    <h2>Welcome To User Wise Reporting</h2>
+  </div>
+</div>
+
+
+<div class="ui-g">
+  <div class="ui-g-4 ui-md-offset-3">
+    <div class="ui-g-6 ui-sm-6-ui-md-6 c">
+      <p-card title="&nbsp;" [style]="{width: '460px',height:'250px',background:'#222222',borderRadius:'25px', boxShadow: '10px 10px 13px #531f5c87'}" styleClass="ui-card-shadow">
+        <div>
+          <label class="userlabel">
+              <i  class="fa fa-user" aria-hidden="true" style="font-size:25px;color: #c5b4c9;"></i> &nbsp;&nbsp;User:</label>
+
+          <p-dropdown [style]="{'width': '175px'}" [options]="usersSelectList" [(ngModel)]="userName" placeholder="   Select " filter="true">
+            <ng-template let-option pTemplate="item">
+              <div translate> {{option.label}}</div>
+            </ng-template>
+
+          </p-dropdown>
+          <p>&nbsp;</p>
+        </div>
+        <div class="ui-g bt1">
+          <div class="ui-g-6 ui-sm-6 ui-md-6">
+
+            <p-button label="Company Report" button type="button" (onClick)="adminUserProfileCompanyReporting()" icon="fa fa-fw fa-arrow-right"
+              class="ui-button-rounded ui-button-success"></p-button>
+          </div>
+          <div class="ui-g-6 ui-sm-6 ui-md-6">
+            <p-button label="Marketing Report" button type="button" (onClick)="adminUserMarketingCompanyReporting()" icon="fa fa-fw fa-arrow-right" class="ui-button-rounded ui-button-danger"></p-button>
+          </div>
+        </div>
+
+      </p-card>
+    </div>
+  </div>
+</div>

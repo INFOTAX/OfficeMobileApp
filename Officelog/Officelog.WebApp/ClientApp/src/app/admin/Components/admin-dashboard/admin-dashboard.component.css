@@ -1,0 +1,31 @@
+.container{
+    margin-top: 10%;
+    margin-left:20%;
+}
+.card1{
+    width: 270px;
+    height: 250px;
+    background: #efefef;
+    box-shadow: 9px 5px 12px 10px #917e909c;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.card2{
+    width: 270px;
+    height: 250px;
+    background: wheat;
+    box-shadow: 9px 5px 12px 10px #917e909c;
+    border-radius: 30px;
+    margin-left:18%;
+    cursor: pointer;
+}
+
+
+h2{
+    
+    color:rgb(43, 30, 88);
+    font-size: 42px;
+    font-weight: 700;
+    /* text-shadow: -2px 2px 5px #3d3c3d; */
+
+}

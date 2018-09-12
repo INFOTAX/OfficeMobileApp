@@ -1,0 +1,42 @@
+:host ::ng-deep .ui-panelmenu{
+    background: #005b9f1c;
+}
+
+    
+
+:host ::ng-deep.ui-panelmenu .ui-panelmenu-content .ui-menuitem .ui-menuitem-link:hover {
+    background-color: #e2e51f59;
+}
+:host ::ng-deep .ui-panelmenu .ui-panelmenu-content .ui-menuitem .ui-menuitem-link {
+    padding: 0.714em 0.857em;
+    color: #138263;}
+
+    :host ::ng-deep.ui-panelmenu .ui-panelmenu-header:not(.ui-state-active) > a:hover {
+        outline: 0 none;
+        
+        background-color: #99699f61;
+        border-radius: 5px;
+        color: #333333;
+        background-image: linear-gradient(90deg,#ffffff52 ,#0000ff6b);
+    }
+
+        .xyz{
+           /* background-image: linear-gradient(90deg,#ffffff52 ,#0000ff6b);*/
+            background-color:#101010;
+            height:100%;
+            width:225px;
+        }
+     
+        
+       
+        :host ::ng-deep.ui-panelmenu .ui-panelmenu-header > a {
+            border: 1px solid #101010;
+           /* background-image: linear-gradient(90deg,#ffffff52 ,#0000ff6b);*/
+           background:#101010;
+            color:silver;
+            padding: 0.714em 0.857em;
+            font-weight: 400;
+            position: static;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }

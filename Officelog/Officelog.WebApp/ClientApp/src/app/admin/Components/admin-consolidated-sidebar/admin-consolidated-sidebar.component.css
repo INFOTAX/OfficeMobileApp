@@ -1,0 +1,17 @@
+a{
+    text-decoration: none;
+    color: #25252b;
+    
+    background: #b4ccd7;
+}
+
+a:visited {
+    background:skyblue;
+    color: #25252b;
+}
+
+.active,a:hover {
+    background-color: #666;
+    color: white;
+    position: static;
+}

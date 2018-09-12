@@ -1,0 +1,24 @@
+<ion-item>
+    <ion-label>From</ion-label>
+    <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="fromDate"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>ToDate</ion-label>
+    <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="toDate"></ion-datetime>
+  </ion-item> 
+<table>
+   <thead>
+       <tr>
+           <th>
+               Name
+           </th>
+       </tr>
+   </thead> 
+   <tbody>
+       <tr *ngFor = "let a of companies">
+           <td>
+             {{a.name}}
+           </td>
+       </tr>
+   </tbody>
+</table>

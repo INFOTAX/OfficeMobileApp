@@ -1,0 +1,207 @@
+<br>
+<form [formGroup]="userForm" (ngSubmit)="saveCompanyLog()" style="margin-left: 120px; margin-right: 120px; margin-top:05px">
+
+  <p-button label="Back" button type="button" (onClick)="companyLogList()" icon="fa fa-fw fa-arrow-left" class="ui-button-rounded ui-button-success"></p-button>
+  <p>&nbsp;</p>
+  <p-fieldset legend="Comany Log">
+    
+    
+  
+  
+    <div class="ui-g">
+
+      <div class="ui-sm-4  ui-g-4" style="margin-top: 10px">
+          <label for="date">Date:</label>
+      </div>
+      <div class="ui-sm-8  ui-g-8">
+          <p-calendar formControlName="date" [showIcon]="true" editable="false" disabled="true" dateFormat="dd.mm.yy"> </p-calendar>
+      </div>
+
+      <div class="ui-sm-4  ui-g-4" style="margin-top: 10px">
+        <label for="name">Trade Name:</label>
+      </div>
+      <div class="ui-sm-4  ui-g-4">
+        <input  pKeyFilter="alphanum" id="name" formControlName="name" type="text" class="ng-dirty ng-invalid ng-touched" pInputText>
+      </div>
+      <div class="ui-sm-4  ui-g-4">
+      <div  *ngIf="userForm.get('name').touched && userForm.get('name').invalid">
+          <p-message severity="error" text="Field is required"></p-message>
+      </div>
+    </div>
+
+
+
+      <div class="ui-sm-4  ui-g-4" style="margin-top: 10px">
+        <label for="contact">Contact Number:</label>
+      </div>
+      <div class="ui-sm-4  ui-g-4">
+          <span class="ui-inputgroup-addon num">+91</span>
+        <input id="contact" pKeyFilter="int" formControlName="contactNumber" class="ng-dirty ng-invalid" type="text" pInputText>
+      </div>
+      <div class="ui-sm-4  ui-g-4">
+        <div *ngIf="userForm.get('contactNumber').touched && userForm.get('contactNumber').invalid">
+            <p-message severity="error" text="Field is required"></p-message></div>
+            <div *ngIf="userForm.get('contactNumber').hasError('minlength')">
+              <p-message severity="error" text="Input 10 digit number"></p-message>
+            </div>
+            <div *ngIf="userForm.get('contactNumber').hasError('maxlength')">
+                <p-message severity="error" text="Maximum 10 digit ,Input again"></p-message>
+              </div>
+       
+      </div>
+
+
+
+      <div class="ui-sm-4  ui-g-4" style="margin-top: 15px">
+        <label for="queryHandling">Query Handling:</label>
+      </div>
+      <div class="ui-sm-8  ui-g-8 nopad" style="width: 500px;">
+        <div class="ui-sm-3  ui-g-3 nopad">
+          <p-radioButton name="group1" formControlName="queryHandling" value="Bad" label="Bad"></p-radioButton>
+        </div>
+        <div class="ui-sm-3  ui-g-3 nopad">
+          <p-radioButton name="group1" formControlName="queryHandling" value="Good" label="Good"></p-radioButton>
+        </div>
+        <div class="ui-sm-3  ui-g-3 nopad">
+          <p-radioButton name="group1" formControlName="queryHandling" value="Very Good" label="Very Good"></p-radioButton>
+        </div>
+        <div class="ui-sm-3  ui-g-3 nopad">
+          <p-radioButton name="group1" formControlName="queryHandling" value="Excellent" label="Excellent"></p-radioButton>
+        </div>
+      </div>
+      <div class="ui-sm-4  ui-g-4 ui-md-offset-4" *ngIf="userForm.get('queryHandling').touched && userForm.get('queryHandling').invalid">
+        <div class="ui-message ui-messages-error ng-dirty ng-invalid ng-touched" >
+            <p-message severity="error" text="Field is required"></p-message>
+        </div>
+      </div>
+
+      <div class="ui-sm-4  ui-g-4" style="margin-top: 10px">
+        <label for="serviceProvided">Service Provided:</label>
+      </div>
+      <div class="ui-sm-8  ui-g-8" style="width: 500px;">
+        <div class="ui-sm-3  ui-g-3 nopad">
+          <p-radioButton name="group2" formControlName="serviceProvided" value="Bad" label="Bad"></p-radioButton>
+        </div>
+        <div class="ui-sm-3   ui-g-3 nopad">
+          <p-radioButton name="group2" formControlName="serviceProvided" value="Good" label="Good"></p-radioButton>
+        </div>
+        <div class="ui-sm-3  ui-g-3  nopad">
+          <p-radioButton name="group2" formControlName="serviceProvided" value="Very Good" label="Very Good"></p-radioButton>
+        </div>
+        <div class="ui-sm-3   ui-g-3 nopad">
+          <p-radioButton name="group2" formControlName="serviceProvided" value="Excellent" label="Excellent"></p-radioButton>
+        </div>
+      </div>
+      <div class="ui-sm-4  ui-g-4 ui-md-offset-4" *ngIf="userForm.get('serviceProvided').touched && userForm.get('serviceProvided').invalid">
+        <div class="ui-message ui-messages-error ng-dirty ng-invalid ng-touched">
+            <p-message severity="error" text="Field is required"></p-message>
+        </div>
+      </div>
+
+      <div class="ui-sm-4  ui-g-4" style="margin-top: 10px">
+        <label for="visitorType">Visitor Type:</label>
+      </div>
+      <div class="ui-g-8">
+      <div class="ui-sm-6  ui-g-6 ui-fluid">
+        <p-dropdown [style]="{'width': '197px'}" [options]="visitorType" placeholder="Select a Type" formControlName="visitorType"
+          filter="true"></p-dropdown>
+      </div>
+      <div class="ui-sm-6  ui-g-6" *ngIf="userForm.get('visitorType').touched && userForm.get('visitorType').invalid">
+        <div class="ui-message ui-messages-error ng-dirty ng-invalid ng-touched" >
+            <p-message severity="error" text="Field is required"></p-message>
+        </div>
+      </div>
+    </div>
+
+      <div class="ui-sm-4  ui-g-4" style="margin-top: 10px">
+        <label for="rateUs">Are you interested in our software?</label>
+      </div>
+      <div class="ui-sm-8  ui-g-8">
+        <div class="ui-sm-4  ui-g-4 nopad">
+          <p-radioButton name="group3" formControlName="softwareInterested" value="Yes" label="Yes" (onClick)="softwareInterestedYes();"></p-radioButton>
+
+        </div>
+        <div class="ui-sm-4  ui-g-4 nopad">
+          <p-radioButton name="group3" formControlName="softwareInterested" value="No" label="No" (onClick)="softwareInterestedNo();"></p-radioButton>
+        </div>
+        <div class="ui-sm-4  ui-g-4" *ngIf="userForm.get('softwareInterested').touched && userForm.get('softwareInterested').invalid">
+          <div class="ui-message ui-messages-error ng-dirty ng-invalid ng-touched">
+              <p-message severity="error" text="Field is required"></p-message>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="ui-sm-12  ui-g-12" *ngIf="blockPreviewYes">
+        <div class="ui-sm-8  ui-g-8 ui-md-offset-4">
+          <p-panel>
+            <p-header>
+              <div class="ui-helper-clearfix">
+                <span class="ui-panel-title">Please rate us.</span>
+              </div>
+            </p-header>
+            <div class="ui-g">
+              <div class="ui-sm-12  ui-g-12">
+                <div class="ui-sm-3  ui-g-3 nopad">
+                  <p-radioButton name="group4" formControlName="rateUs" value="Bad" label="Bad"></p-radioButton>
+                </div>
+                <div class="ui-sm-3  ui-g-3 nopad">
+                  <p-radioButton name="group4" formControlName="rateUs" value="Good" label="Good"></p-radioButton>
+                </div>
+                <div class="ui-sm-3  ui-g-3 nopad">
+                  <p-radioButton name="group4" formControlName="rateUs" value="Very Good" label="Very Good"></p-radioButton>
+                </div>
+                <div class="ui-sm-3 ui-g-3 nopad">
+                  <p-radioButton name="group4" formControlName="rateUs" value="Excellent" label="Excellent"></p-radioButton>
+                </div>
+              </div>
+            </div>
+            <div class="ui-g">
+              <div class="ui-sm-12 ui-g-12">
+                <label for="anySuggestion">Any suggestion?</label>
+              </div>
+              <div class="ui-sm-12 ui-g-12">
+                <textarea id="anySuggestion" rows="5" cols="45" pInputTextarea formControlName="suggestionForYes" autoResize="autoResize"></textarea>
+              </div>
+
+            </div>
+          </p-panel>
+        </div>
+      </div>
+
+      <div class="ui-sm-12 ui-g-12" *ngIf="blockPreviewNo">
+        <div class="ui-sm-8 ui-g-8 ui-md-offset-4">
+          <p-panel>
+            <p-header>
+              <div class="ui-helper-clearfix">
+                <span class="ui-panel-title">Please give reasons and suggestion, so that we can improve.</span>
+              </div>
+            </p-header>
+            <div class="ui-g">
+              <div class="ui-sm-4 ui-g-4 nopad">
+                <p-radioButton name="group6" formControlName="rateUsForNo" value="alreadyHave" label="Already have" (onClick)="closeOtherReason();"></p-radioButton>
+              </div>
+              <div class="ui-sm-4 ui-g-4 nopad">
+                <p-radioButton name="group6" formControlName="rateUsForNo" value="notFriendly" label="Not Friendly" (onClick)="closeOtherReason();"></p-radioButton>
+              </div>
+              <div class="ui-sm-3 ui-g-3 nopad">
+                <p-radioButton name="group6" formControlName="rateUsForNo" value="others" label="others" (onClick)="otherReason();"></p-radioButton>
+              </div>
+              <div class="ui-sm-12 ui-g-12" *ngIf="ifOther">
+                <span>Please give suggestion to improvise</span>
+                <br>
+                <textarea id="anySuggestion" rows="5" cols="45" formControlName="suggestionForNo" pInputTextarea autoResize="autoResize"></textarea>
+              </div>
+            </div>
+          </p-panel>
+        </div>
+      </div>
+    </div>
+    <p-footer>
+      <button pButton type="submit" label="Submit" class="ui-button-success" [disabled]="userForm.invalid" style="margin-left:42%;"></button>
+    </p-footer>
+  </p-fieldset>
+</form>
+<br>
+<br>
+{{userForm.value |json}}

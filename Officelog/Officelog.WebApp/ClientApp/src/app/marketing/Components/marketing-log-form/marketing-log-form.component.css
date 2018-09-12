@@ -1,0 +1,33 @@
+label{
+    font-weight: bold;
+}
+th{
+    text-align:left;
+}
+:host ::ng-deep .ui-fieldset {
+    border: 1px solid #c8c8c8;
+    background-color: #efefef;
+    color: #333333;
+}
+:host ::ng-deep legend{
+    text-align:center;
+    border-bottom: 2px solid #e5e5e5;
+    background: whitesmoke;
+     width:auto; margin-bottom: 0px;
+     font-weight: bold; color: #1f497d;
+}
+:host ::ng-deep.ui-fieldset .ui-fieldset-legend-text {
+    font-size: 25px;
+    vertical-align: middle;
+}
+:host ::ng-deep.ui-calendar.ui-calendar-w-btn .ui-inputtext {
+    width: 163px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0 none;
+}
+.num{
+    font-weight:700;
+    margin-left:-28px;
+    margin-right: 3px;
+    }

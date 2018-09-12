@@ -1,0 +1,22 @@
+import { Component } from '@angular/core';
+
+import { AboutPage } from '../about/about';
+import { ContactPage } from '../contact/contact';
+import { HomePage } from '../home/home';
+import { CompanyListPage } from '../company-list/company-list';
+// import { CompanyFormPage } from '../company-form/company-form';
+
+@Component({
+  templateUrl: 'tabs.html'
+})
+export class TabsPage {
+
+  tab1Root = HomePage;
+  tab2Root = AboutPage;
+  tab3Root = ContactPage;
+  tab4Root = CompanyListPage;
+
+  constructor() {
+
+  }
+}
