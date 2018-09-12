@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CompanyProvider, ICompany } from '../../providers/company/company';
 import { HttpClient } from '@angular/common/http';
 import { RequestOptions } from '@angular/http';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 /**
  * Generated class for the CompanyListPage page.
@@ -20,6 +21,11 @@ export class CompanyListPage {
   companies : ICompany[];
   fromDate : Date;
   toDate : Date;
+  id: number = null;
+  visitorType:any[];
+  serviceProvided:any[];
+  queryHandling:any[];
+  cols: any[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
       private companyProvider : CompanyProvider   ) {

@@ -8,10 +8,25 @@
   </ion-item> 
 <table>
    <thead>
-       <tr>
+       <tr style="overflow:auto;">
            <th>
                Name
            </th>
+           <th>
+          Contact
+        </th>
+        <th>
+           Visitor Type
+        </th>
+        <th>
+           Query Rating
+        </th>
+        <th>
+           Service Rating
+        </th>
+        <th style="padding-left:25px;padding-right:25px;">
+            Delete
+        </th>
        </tr>
    </thead> 
    <tbody>
@@ -19,6 +34,21 @@
            <td>
              {{a.name}}
            </td>
+           <td>
+            {{a.contactNumber}}
+          </td>
+          <td>
+            {{a.visitorType}}
+          </td>
+          <td>
+            {{a.queryHandling}}
+          </td>
+          <td>
+            {{a.serviceProvided}}
+          </td>
+          <td>
+            DELETE
+          </td>
        </tr>
    </tbody>
 </table>
