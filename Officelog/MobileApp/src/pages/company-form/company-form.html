@@ -23,40 +23,48 @@
 
 
 <ion-content padding>
+  <ion-grid>
+    <ion-row wrap>
+      <ion-col width-70>
+          <ion-list>
 
-  <ion-list>
-
-    
-    <ion-item>
-      <ion-label fixed>Date</ion-label>
-      <ion-input type="text" value="" ></ion-input>
-    </ion-item>
-  
-    <ion-item>
-      <ion-label fixed>Area</ion-label>
-      <ion-input type="password"></ion-input>
-    </ion-item>
-   
-    <ion-item>
-      <ion-label fixed>Trade Name</ion-label>
-      <ion-input type="password"></ion-input>
-    </ion-item>
-
-
-    
-        <!-- Real floating action button, fixed. It will not scroll with the content -->
-
-   
-    <ion-item>
-      <ion-label fixed>Contact No.</ion-label>
-      <ion-input type="password"></ion-input>
-    </ion-item>
-
-  <ion-item>
-    <ion-icon name="heart"></ion-icon>
-  </ion-item>
-    
-  </ion-list>
+              <ion-item>
+                <ion-label  floating>Tradename</ion-label>
+                <ion-input type="text"></ion-input>
+              </ion-item>
+            
+              <ion-item>
+                <ion-label  floating>Contact no.</ion-label>
+                <ion-input type="text"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label  floating>Query Handling</ion-label>
+                  <ion-input type="text"></ion-input>
+                </ion-item>
+              
+                <ion-item>
+                  <ion-label  floating>Service Provided</ion-label>
+                  <ion-input type="text"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label  floating>Visitor type</ion-label>
+                    <ion-input type="text"></ion-input>
+                  </ion-item>
+                  
+            </ion-list>
+          
+           
+            
+      </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col width-70 offset-4 >
+        
+            <button ion-fab mini><ion-icon name="add"></ion-icon></button>
+        
+      </ion-col >
+    </ion-row>
+  </ion-grid>
 </ion-content>
 
 
