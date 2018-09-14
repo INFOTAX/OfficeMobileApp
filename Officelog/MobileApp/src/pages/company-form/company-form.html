@@ -27,7 +27,10 @@
     <ion-row wrap>
       <ion-col width-70>
           <ion-list>
-
+              <ion-item>
+                  <ion-label> Date</ion-label>
+                  <ion-datetime displayFormat="MMM DD YYYY"></ion-datetime>
+                </ion-item>
               <ion-item>
                 <ion-label  floating>Tradename</ion-label>
                 <ion-input type="text"></ion-input>
@@ -37,19 +40,70 @@
                 <ion-label  floating>Contact no.</ion-label>
                 <ion-input type="text"></ion-input>
               </ion-item>
-              <ion-item>
-                  <ion-label  floating>Query Handling</ion-label>
-                  <ion-input type="text"></ion-input>
-                </ion-item>
+             
+            </ion-list> 
+                  <ion-list radio-group>
+                      <ion-list-header>
+                         Querry Handling
+                        </ion-list-header>
+                      <ion-item>
+                        <ion-label>BAD</ion-label>
+                        <ion-radio value="bad"></ion-radio>
+                      </ion-item>
+                    
+                      <ion-item>
+                        <ion-label>GOOD</ion-label>
+                        <ion-radio checked="true" value="good"></ion-radio>
+                      </ion-item>
+                    
+                      <ion-item>
+                        <ion-label>VERY GOOD</ion-label>
+                        <ion-radio value="verygood"></ion-radio>
+                      </ion-item>
+                      <ion-item>
+                          <ion-label>EXCELLENT</ion-label>
+                          <ion-radio value="excellent"></ion-radio>
+                          
+                        </ion-item>
+                       
+                    </ion-list>
+                    <ion-list radio-group>
+                        <ion-list-header>
+                           Service provided
+                          </ion-list-header>
+                        <ion-item>
+                          <ion-label>BAD</ion-label>
+                          <ion-radio value="bad"></ion-radio>
+                        </ion-item>
+                      
+                        <ion-item>
+                          <ion-label>GOOD</ion-label>
+                          <ion-radio checked="true" value="good"></ion-radio>
+                        </ion-item>
+                      
+                        <ion-item>
+                          <ion-label>VERY GOOD</ion-label>
+                          <ion-radio value="verygood"></ion-radio>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>EXCELLENT</ion-label>
+                            <ion-radio value="excellent"></ion-radio>
+                          </ion-item>
+                      </ion-list>
+                      
+                
+                    <ion-list>
+                        <ion-item>
+                            <ion-label>Visitor typer</ion-label>
+                            <ion-select [(ngModel)]="toppings">
+                              <ion-option>First</ion-option>
+                              <ion-option>Second or third</ion-option>
+                              <ion-option>Franchise</ion-option>
+                              <ion-option>Clients</ion-option>
+                             
+                            </ion-select>
+                          </ion-item>
               
-                <ion-item>
-                  <ion-label  floating>Service Provided</ion-label>
-                  <ion-input type="text"></ion-input>
-                </ion-item>
-                <ion-item>
-                    <ion-label  floating>Visitor type</ion-label>
-                    <ion-input type="text"></ion-input>
-                  </ion-item>
                   
             </ion-list>
           
@@ -58,7 +112,7 @@
       </ion-col>
     </ion-row>
     <ion-row>
-        <ion-col width-70 offset-4 >
+        <ion-col width-70 offset-4>
         
             <button ion-fab mini><ion-icon name="add"></ion-icon></button>
         
