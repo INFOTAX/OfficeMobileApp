@@ -29,20 +29,52 @@
       <ion-grid>
         <ion-row>
           <ion-list radio-group>
-            <ion-list-header>
+            <ion-label>
                 Are you interested in our service?
-            </ion-list-header>
-          <ion-col col-6>
-            <ion-label>Yes</ion-label>
-            <ion-radio value="Yes"></ion-radio>
-          </ion-col>
-          <ion-col col-6>
-            <ion-label>No</ion-label>
-            <ion-radio value="No"></ion-radio>
-          </ion-col>
+            </ion-label>
+
+            <ion-grid>
+                <ion-row>
+                  <ion-col>
+                      <ion-item>
+                        <ion-label>Yes</ion-label>
+                        <ion-radio value="Yes"></ion-radio>
+                      </ion-item>
+                  </ion-col>
+                  <ion-col>
+                        <ion-item>
+                            <ion-label>No</ion-label>
+                            <ion-radio value="No"></ion-radio>
+                        </ion-item>
+                  </ion-col>
+                </ion-row>
+            </ion-grid>
+        
         </ion-list>
         </ion-row>
       </ion-grid>
+      <ion-item>
+        <ion-item>
+            <ion-list radio-group>
+              <ion-item>
+                  <ion-label>Bad</ion-label>
+                  <ion-radio value="bad"></ion-radio>
+              </ion-item>
+              <ion-item>
+                  <ion-label>Good</ion-label>
+                  <ion-radio value="good"></ion-radio>
+              </ion-item>
+              <ion-item>
+                  <ion-label>Very Good</ion-label>
+                  <ion-radio value="Very Good"></ion-radio>
+              </ion-item>
+              <ion-item>
+                  <ion-label>No</ion-label>
+                  <ion-radio value="Excellent"></ion-radio>
+              </ion-item>
+            </ion-list>
+        </ion-item>
+      </ion-item>
     
     </ion-list>
   </ion-navbar>
