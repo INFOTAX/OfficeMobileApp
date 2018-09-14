@@ -4,7 +4,7 @@ import { CompanyProvider, ICompany } from '../../providers/company/company';
 import { HttpClient } from '@angular/common/http';
 import { RequestOptions } from '@angular/http';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
-
+import { CompanyFormPage} from '../company-form/company-form';
 /**
  * Generated class for the CompanyListPage page.
  *
@@ -36,7 +36,9 @@ export class CompanyListPage {
       private companyProvider : CompanyProvider   ) {
   }
 
-  
+  companyform(){
+    this.navCtrl.push(CompanyFormPage);
+  }
 
   ionViewDidLoad() {
     this.fromDate = new Date();
