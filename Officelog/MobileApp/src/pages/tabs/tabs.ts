@@ -4,6 +4,7 @@ import { AboutPage } from '../about/about';
 import { ContactPage } from '../contact/contact';
 import { HomePage } from '../home/home';
 import { CompanyListPage } from '../company-list/company-list';
+import { MarketingLogFormPage } from '../marketing-log-form/marketing-log-form';
 // import { CompanyFormPage } from '../company-form/company-form';
 
 @Component({
@@ -15,6 +16,7 @@ export class TabsPage {
   tab2Root = AboutPage;
   tab3Root = ContactPage;
   tab4Root = CompanyListPage;
+  tab5Root = MarketingLogFormPage;
 
   constructor() {
 

@@ -15,6 +15,7 @@ import { CompanyListPage } from '../pages/company-list/company-list';
 import { HttpClientModule } from '@angular/common/http';
 import {HttpModule} from '@angular/http';
 import { CompanyFormPage } from '../pages/company-form/company-form';
+import { MarketingLogFormPage } from '../pages/marketing-log-form/marketing-log-form';
 @NgModule({
   declarations: [
     MyApp,
@@ -23,7 +24,8 @@ import { CompanyFormPage } from '../pages/company-form/company-form';
     HomePage,
     CompanyListPage,
     CompanyFormPage,
-    TabsPage
+    TabsPage,
+    MarketingLogFormPage
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,7 @@ import { CompanyFormPage } from '../pages/company-form/company-form';
     TabsPage,
     CompanyListPage,
     CompanyFormPage,
+    MarketingLogFormPage
   ],
   providers: [
     StatusBar,
