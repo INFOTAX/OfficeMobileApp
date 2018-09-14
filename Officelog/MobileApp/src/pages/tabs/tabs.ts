@@ -13,10 +13,8 @@ import { MarketingLogFormPage } from '../marketing-log-form/marketing-log-form';
 export class TabsPage {
 
   tab1Root = HomePage;
-  tab2Root = AboutPage;
-  tab3Root = ContactPage;
-  tab4Root = CompanyListPage;
-  tab5Root = MarketingLogFormPage;
+  tab2Root = CompanyListPage;
+  tab3Root = MarketingLogFormPage;
 
   constructor() {
 
