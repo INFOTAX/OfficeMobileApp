@@ -41,13 +41,14 @@ export class CompanyListPage {
   }
 
   ionViewDidLoad() {
-    this.fromDate = new Date();
-    this.toDate = new Date();
-    this.companyProvider.getCompanies(this.fromDate,this.toDate).subscribe(response=> {
-      this.companies = response;
-      
-    })
     
+    
+    
+    
+  }
+
+  searchByDate(){
+     this.companyProvider.getCompanies(this.fromDate,this.toDate).subscribe(res => this.companies = res);
   }
 }
 

@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import  'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
@@ -22,7 +22,11 @@ export class CompanyProvider extends ServiceBase<ICompany> {
   }
 
   getCompanies(fromDate : Date,toDate : Date):Observable<ICompany[]>{
-        return this.http.get<ICompany[]>(`${this.baseUrl}?fromDate=${fromDate.toDateString()}&toDate=${toDate.toDateString()}`);
+        return this.http.get<ICompany[]>(`${this.baseUrl}?fromDate=${fromDate}&toDate=${toDate}`);
+  }
+
+  createCompany(company : ICompany):Observable<ICompany>{
+    return this.http.post<ICompany>(`${this.baseUrl}`,company);
   }
   
 

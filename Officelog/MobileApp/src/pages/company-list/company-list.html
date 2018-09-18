@@ -16,12 +16,15 @@
 <button ion-button (click)="companyform();"> Add to form</button>
 <ion-item>
     <ion-label>From</ion-label>
-    <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="fromDate"></ion-datetime>
+    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fromDate"></ion-datetime>
   </ion-item>
   <ion-item>
     <ion-label>ToDate</ion-label>
-    <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="toDate"></ion-datetime>
-  </ion-item> 
+    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="toDate"></ion-datetime>
+  </ion-item>
+  <ion-item>
+  <button ion-button (click)="searchByDate()"> Search</button> 
+</ion-item>
 <table>
    <thead>
        <tr style="overflow:auto;">
