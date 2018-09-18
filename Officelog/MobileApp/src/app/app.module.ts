@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {HttpModule} from '@angular/http';
 import { CompanyFormPage } from '../pages/company-form/company-form';
 import { MarketingLogFormPage } from '../pages/marketing-log-form/marketing-log-form';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     MyApp,
@@ -32,6 +33,8 @@ import { MarketingLogFormPage } from '../pages/marketing-log-form/marketing-log-
     IonicModule.forRoot(MyApp),
     HttpModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -47,8 +50,9 @@ import { MarketingLogFormPage } from '../pages/marketing-log-form/marketing-log-
   providers: [
     StatusBar,
     SplashScreen,
+    CompanyProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    CompanyProvider
+    
   ]
 })
 export class AppModule {}
