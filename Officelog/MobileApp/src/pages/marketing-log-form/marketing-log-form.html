@@ -8,8 +8,10 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>marketing-log-form</ion-title>
+    <ion-title>Marketing</ion-title>
+    </ion-navbar>
 
+    <ion-grid>
     <ion-list>
 
         <ion-item>
@@ -27,9 +29,8 @@
         <ion-input type="number"></ion-input>
       </ion-item>
       <ion-grid>
-        <ion-row>
           <ion-list radio-group>
-            <ion-label>
+            <ion-label style="margin-left: 3%">
                 Are you interested in our service?
             </ion-label>
 
@@ -37,50 +38,64 @@
                 <ion-row>
                   <ion-col>
                       <ion-item>
-                        <ion-label>Yes</ion-label>
+                        
                         <ion-radio value="Yes"></ion-radio>
+                        <ion-label>Yes</ion-label>
                       </ion-item>
                   </ion-col>
                   <ion-col>
                         <ion-item>
-                            <ion-label>No</ion-label>
+                            
                             <ion-radio value="No"></ion-radio>
+                            <ion-label>No</ion-label>
                         </ion-item>
                   </ion-col>
                 </ion-row>
             </ion-grid>
         
         </ion-list>
-        </ion-row>
       </ion-grid>
-      <ion-item>
-        <ion-item>
+        
+      <ion-grid>
+          <ion-label style="margin-left: 3%">
+              Please rate us.
+            </ion-label>
             <ion-list radio-group>
-              <ion-item>
-                  <ion-label>Bad</ion-label>
-                  <ion-radio value="bad"></ion-radio>
-              </ion-item>
-              <ion-item>
-                  <ion-label>Good</ion-label>
-                  <ion-radio value="good"></ion-radio>
-              </ion-item>
-              <ion-item>
-                  <ion-label>Very Good</ion-label>
-                  <ion-radio value="Very Good"></ion-radio>
-              </ion-item>
-              <ion-item>
-                  <ion-label>No</ion-label>
-                  <ion-radio value="Excellent"></ion-radio>
-              </ion-item>
+              
+              <ion-grid>
+                  <ion-row>
+                      <ion-col>
+                          <ion-item>
+                              <ion-label>Bad</ion-label>
+                              <ion-radio value="bad"></ion-radio>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col>
+                          <ion-item>
+                              <ion-label>Good</ion-label>
+                              <ion-radio value="good"></ion-radio>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col>
+                          <ion-item>
+                              <ion-label>Very Good</ion-label>
+                              <ion-radio value="Very Good"></ion-radio>
+                          </ion-item>
+                        </ion-col>
+                        <ion-col>
+                            <ion-item>
+                                <ion-label>Excellent</ion-label>
+                                <ion-radio value="Excellent"></ion-radio>
+                            </ion-item>
+                          </ion-col>
+                    </ion-row>
+              </ion-grid>  
             </ion-list>
-        </ion-item>
-      </ion-item>
+      </ion-grid>
     
     </ion-list>
-  </ion-navbar>
-
+  </ion-grid>
 </ion-header>
-
 
 <ion-content padding>
 
