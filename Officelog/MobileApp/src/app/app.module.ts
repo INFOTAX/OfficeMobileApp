@@ -17,6 +17,7 @@ import {HttpModule} from '@angular/http';
 import { CompanyFormPage } from '../pages/company-form/company-form';
 import { MarketingLogFormPage } from '../pages/marketing-log-form/marketing-log-form';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MarketingListPage } from '../pages/marketing-list/marketing-list';
 @NgModule({
   declarations: [
     MyApp,
@@ -26,7 +27,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     CompanyListPage,
     CompanyFormPage,
     TabsPage,
-    MarketingLogFormPage
+    MarketingLogFormPage,
+    MarketingListPage
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     TabsPage,
     CompanyListPage,
     CompanyFormPage,
-    MarketingLogFormPage
+    MarketingLogFormPage,
+    MarketingListPage
   ],
   providers: [
     StatusBar,

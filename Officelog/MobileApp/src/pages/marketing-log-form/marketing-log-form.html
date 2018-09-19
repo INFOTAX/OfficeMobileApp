@@ -4,100 +4,234 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<form>
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Marketing</ion-title>
+    <ion-navbar>
+        <ion-title>Marketing</ion-title>
     </ion-navbar>
 
-    <ion-grid>
-    <ion-list>
-
-        <ion-item>
-            <ion-label>Date</ion-label>
-            <ion-datetime displayFormat="MMM DD YYYY"></ion-datetime>
-          </ion-item>
-
-      <ion-item>
-        <ion-label floating>Trade Name</ion-label>
-        <ion-input type="text"></ion-input>
-      </ion-item>
-    
-      <ion-item>
-        <ion-label floating>Contact</ion-label>
-        <ion-input type="number"></ion-input>
-      </ion-item>
-      <ion-grid>
-          <ion-list radio-group>
-            <ion-label style="margin-left: 3%">
-                Are you interested in our service?
-            </ion-label>
-
-            <ion-grid>
-                <ion-row>
-                  <ion-col>
-                      <ion-item>
-                        
-                        <ion-radio value="Yes"></ion-radio>
-                        <ion-label>Yes</ion-label>
-                      </ion-item>
-                  </ion-col>
-                  <ion-col>
-                        <ion-item>
-                            
-                            <ion-radio value="No"></ion-radio>
-                            <ion-label>No</ion-label>
-                        </ion-item>
-                  </ion-col>
-                </ion-row>
-            </ion-grid>
-        
-        </ion-list>
-      </ion-grid>
-        
-      <ion-grid>
-          <ion-label style="margin-left: 3%">
-              Please rate us.
-            </ion-label>
-            <ion-list radio-group>
-              
-              <ion-grid>
-                  <ion-row>
-                      <ion-col>
-                          <ion-item>
-                              <ion-label>Bad</ion-label>
-                              <ion-radio value="bad"></ion-radio>
-                          </ion-item>
-                      </ion-col>
-                      <ion-col>
-                          <ion-item>
-                              <ion-label>Good</ion-label>
-                              <ion-radio value="good"></ion-radio>
-                          </ion-item>
-                      </ion-col>
-                      <ion-col>
-                          <ion-item>
-                              <ion-label>Very Good</ion-label>
-                              <ion-radio value="Very Good"></ion-radio>
-                          </ion-item>
-                        </ion-col>
-                        <ion-col>
-                            <ion-item>
-                                <ion-label>Excellent</ion-label>
-                                <ion-radio value="Excellent"></ion-radio>
-                            </ion-item>
-                          </ion-col>
-                    </ion-row>
-              </ion-grid>  
-            </ion-list>
-      </ion-grid>
-    
-    </ion-list>
-  </ion-grid>
 </ion-header>
 
 <ion-content padding>
+    <form [formGroup]="marketingForm" (ngSubmit)="saveMarketingForm()">
+
+        <ion-grid>
+            <ion-list>
+
+                <ion-item>
+                    <ion-label floating>Date</ion-label>
+                    <ion-datetime formControlName="date" displayFormat="MMM DD YYYY"></ion-datetime>
+                </ion-item>
+
+                        <ion-item>
+                          <ion-label floating>Area</ion-label>
+                          <ion-select formControlName="area" >
+                            <ion-option>Nala Road</ion-option>
+                            <ion-option>Kankarbagh</ion-option>
+                            <ion-option>Rajendra Nagar</ion-option>
+                            <ion-option>Kadamkuan</ion-option>
+                            <ion-option>Frazer Road</ion-option>
+                            <ion-option>Anisabad</ion-option>
+                          </ion-select>
+                        </ion-item>
+
+                <ion-item>
+                    <ion-label floating>Trade Name</ion-label>
+                    <ion-input type="text" formControlName="name" ></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label floating>Contact</ion-label>
+                    <ion-input type="text" formControlName="contactNumber" ></ion-input>
+                </ion-item>
+                <br>
+                <ion-label style="margin-left: 3%; font-weight: bold">
+                    <h5>Are you interested in our service?</h5>
+                </ion-label>
+                <ion-list radio-group formControlName="serviceInterested">
+
+                    <ion-row>
+                        <ion-col>
+                            <ion-item>
+                                <ion-label>Yes</ion-label>
+                                <ion-radio value="Yes"(click)="serviceInterestedYes()"></ion-radio>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col>
+                            <ion-item>
+                                <ion-label>No</ion-label>
+                                <ion-radio value="No" (click)="serviceInterestedNo()"></ion-radio>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                </ion-list>
+
+                <ion-card *ngIf="serviceNo">
+                    <table class="table">
+                        <thead>
+                            <th>
+                                Current Scenario:
+                            </th>
+                        </thead>
+                        <tbody>
+                            <td>
+                                <select class="form-control"  formControlName="currentScenario" >
+                                    <option>CA</option>
+                                    <option>ADVOCATE</option>
+                                    <option>ACCOUNTANT</option>
+                                    <option>SELF</option>
+                                    <option>UNREGISTERED</option>
+                                </select>
+                            </td>
+                        </tbody>
+                    </table>
+                </ion-card>
+
+
+
+                <ion-card *ngIf="serviceYes">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Service Type</th>
+                                <th>Rate</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody >
+                            <li>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <!-- <button type="button" class="btn btn-danger" (click)="deleteServiceType(rowIndex)">
+                                    Delete</button> -->
+                                </td>
+                            </li>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>
+                                    <select class="form-control" placeholder="Select a service" #type>
+                                        <option>Accounting</option>
+                                        <option>Income Tax Filing</option>
+                                        <option>TDS Filing</option>
+                                        <option>GST Filing</option>
+                                        <option>Consultancy</option>
+                                        <option>Company Related</option>
+                                        <option>Loan Documentation</option>
+                                    </select>
+                                </td>
+                                <td><input type="number" class="form-control" #rate></td>
+                                <td><button type="button" class="btn btn-primary" (click)="addNewServiceType(type,rate)">Add</button></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </ion-card>
+                <ion-label style="margin-left: 3%; font-weight: bold">
+                    <h5>Are you interested in our software?</h5>
+                </ion-label>
+                <ion-list radio-group formControlName="softwareInterested">
+
+                    <ion-row>
+                        <ion-col>
+                            <ion-item>
+                                <ion-label>Yes</ion-label>
+                                <ion-radio value="Yes"(click)="softwareInterestedYes()"></ion-radio>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col>
+                            <ion-item>
+                                <ion-label>No</ion-label>
+                                <ion-radio value="No"(click)="softwareInterestedNo()"></ion-radio>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                </ion-list>
+                <ion-card *ngIf="softwareYes">
+
+                    <ion-list radio-group>
+                        <ion-list-header>
+                            <h5>Please rate us.</h5>
+                        </ion-list-header>
+
+                        <ion-row>
+                            <ion-col>
+                                <ion-item>
+                                    <ion-label>Bad</ion-label>
+                                    <ion-radio formControlName="rateUs" value="bad"></ion-radio>
+                                </ion-item>
+                            </ion-col>
+                            <ion-col>
+                                <ion-item>
+                                    <ion-label>Good</ion-label>
+                                    <ion-radio formControlName="rateUs" value="good"></ion-radio>
+                                </ion-item>
+                            </ion-col>
+                            <ion-col>
+                                <ion-item>
+                                    <ion-label>Very Good</ion-label>
+                                    <ion-radio formControlName="rateUs" value="Very Good"></ion-radio>
+                                </ion-item>
+                            </ion-col>
+                            <ion-col>
+                                <ion-item>
+                                    <ion-label>Excellent</ion-label>
+                                    <ion-radio formControlName="rateUs" value="Excellent"></ion-radio>
+                                </ion-item>
+                            </ion-col>
+                        </ion-row>
+                    </ion-list>
+                    <ion-label style="font-weight:bold; font-size: 16px; margin: 3%">
+                        Any Suggestion?
+                    </ion-label>
+                    <ion-textarea rows="5" formControlName="suggestionForYes" style="border: 1px solid rgb(199, 199, 199)"></ion-textarea>
+                    <ion-label style="font-weight:bold; font-size: 16px; margin-left: 3%">
+                        Fee
+                    </ion-label>
+                    <ion-input type="number" formControlName="fee" style="border: 1px solid rgb(199, 199, 199)"></ion-input>
+                    <br>
+                </ion-card>
+                <ion-card *ngIf="softwareNo">
+                    <ion-list radio-group>
+                        <ion-list-header>
+                            <h5>Choose a reason:</h5>
+                        </ion-list-header>
+
+                        <ion-row>
+                            <ion-col>
+                                <ion-item>
+                                    <ion-label>Not Friendly</ion-label>
+                                    <ion-radio formControlName="rateUsForNo" value="notFriendly" (Click)="closeOtherReason();"></ion-radio>
+                                </ion-item>
+                            </ion-col>
+                            <ion-col>
+                                <ion-item>
+                                    <ion-label>Already Have</ion-label>
+                                    <ion-radio formControlName="rateUsForNo" value="alreadyHave" (Click)="closeOtherReason();"></ion-radio>
+                                </ion-item>
+                            </ion-col>
+                            <ion-col>
+                                <ion-item>
+                                    <ion-label>Others</ion-label>
+                                    <ion-radio formControlName="rateUsForNo" value="others" (click)="otherReason();"></ion-radio>
+                                </ion-item>
+                            </ion-col>
+                            <ion-card *ngIf="ifOther">
+                                    <ion-label style="font-weight:bold; font-size: 16px; margin: 3%">
+                                        Please give reasons and suggestion, so that we can improve.
+                                        </ion-label>
+                                        <ion-textarea rows="5" formControlName="suggestionForNo" style="border: 1px solid rgb(199, 199, 199)"></ion-textarea>
+                            </ion-card>
+                        </ion-row>
+                    </ion-list>
+                </ion-card>
+                
+
+            </ion-list>
+        </ion-grid>
+        <button type="submit" ion-fab mini><ion-icon name="add"></ion-icon></button>
+    </form>
 
 </ion-content>
-</form>
+
+<!-- {{marketingForm.value | json}} -->

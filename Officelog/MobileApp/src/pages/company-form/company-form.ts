@@ -21,6 +21,9 @@ export class CompanyFormPage implements OnInit{
   
   companyForm : FormGroup;
   company : ICompany;
+  softwareYes=false;
+  softwareNo=false;
+  ifOther = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private fb : FormBuilder,private companyProviders : CompanyProvider) {
   }
@@ -32,7 +35,12 @@ export class CompanyFormPage implements OnInit{
       queryHandling : [],
       serviceProvided : [],
       visitorType : [],
-      date : []
+      date : [],
+      softwareInterested: [''],
+      rateUsForNo:[''],
+      suggestionForNo:[''],
+      rateUs:[''],
+      suggestionForYes:['']
       
 
 
@@ -49,6 +57,22 @@ export class CompanyFormPage implements OnInit{
       let companyToSave = Object.assign({},this.company,this.companyForm.value);
       this.companyProviders.createCompany(companyToSave).subscribe(()=> this.navCtrl.push(CompanyListPage));
     }
+  }
+
+  softwareInterestedYes(){
+    this.softwareYes=true;
+    this.softwareNo=false;
+    this.ifOther=false;
+  }
+  softwareInterestedNo(){
+    this.softwareYes=false;
+    this.softwareNo=true;
+  }
+  otherReason() {
+    this.ifOther = true;
+  }
+  closeOtherReason() {
+    this.ifOther = false;
   }
 
 }

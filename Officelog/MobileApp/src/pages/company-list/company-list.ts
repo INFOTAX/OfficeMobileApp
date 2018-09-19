@@ -18,7 +18,7 @@ import { CompanyFormPage} from '../company-form/company-form';
   templateUrl: 'company-list.html',
 })
 export class CompanyListPage {
-  companies : ICompany[];
+  companies : ICompany[]; 
   fromDate : Date;
   toDate : Date;
   id: number = null;

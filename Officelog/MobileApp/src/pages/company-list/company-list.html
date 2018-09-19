@@ -25,7 +25,8 @@
   <ion-item>
   <button ion-button (click)="searchByDate()"> Search</button> 
 </ion-item>
-<table>
+<ion-scroll scrollX="true"  scrollY="true" style="height: 60%">
+<table class="table table-hover table-bordered">
    <thead>
        <tr style="overflow:auto;">
            <th>
@@ -48,6 +49,7 @@
         </th>
        </tr>
    </thead> 
+   
    <tbody>
        <tr *ngFor = "let a of companies">
            <td>
@@ -71,6 +73,7 @@
        </tr>
    </tbody>
 </table>
+</ion-scroll>
 </ion-col >
 </ion-row>
 </ion-grid>
