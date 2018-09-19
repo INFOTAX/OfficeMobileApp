@@ -18,6 +18,7 @@ import { CompanyFormPage } from '../pages/company-form/company-form';
 import { MarketingLogFormPage } from '../pages/marketing-log-form/marketing-log-form';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MarketingListPage } from '../pages/marketing-list/marketing-list';
+import { MarketingProvider } from '../providers/marketing/marketing';
 @NgModule({
   declarations: [
     MyApp,
@@ -55,6 +56,7 @@ import { MarketingListPage } from '../pages/marketing-list/marketing-list';
     SplashScreen,
     CompanyProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    MarketingProvider,
     
   ]
 })

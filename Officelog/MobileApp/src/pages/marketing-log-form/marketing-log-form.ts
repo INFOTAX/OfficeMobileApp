@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
-import { IMarketinglog } from '../../providers/marketing/marketing';
+import { IMarketinglog, MarketingProvider } from '../../providers/marketing/marketing';
 import { MarketingListPage } from '../marketing-list/marketing-list';
 
 export interface ServiceItems {
@@ -35,7 +35,8 @@ export class MarketingLogFormPage implements OnInit{
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private marketingProviders: MarketingProvider) {
   }
 
   ngOnInit(){
@@ -116,26 +117,11 @@ export class MarketingLogFormPage implements OnInit{
   saveMarketingForm():void {
     if(this.marketingForm.valid){
       let companyToSave = Object.assign({},this.marketing,this.marketingForm.value);
-      //this.companyProviders.createCompany(companyToSave).subscribe(()=> this.navCtrl.push(MarketingListPage));
+      this.marketingProviders.createMarketing(companyToSave).subscribe(()=> this.navCtrl.push(MarketingListPage));
     }
-
-    // if (this.marketingForm.valid) {
-  
-    //     let p = Object.assign({}, this.marketingLog, this.marketingForm.value);
-  
-    //      this.marketingLogService.save(p, this.id)
-    //         .subscribe(si=>{});
-    //       this.onSaveComplete()
-          
-    // }
-  
-  
-    // else if (!this.marketingForm.dirty) {
-    //     this.onSaveComplete();
-    // }
   }
-   onSaveComplete(){
-    this.navCtrl.push(MarketingListPage);
-  }
+  //  onSaveComplete(){
+  //   this.navCtrl.push(MarketingListPage);
+  // }
 
 }
