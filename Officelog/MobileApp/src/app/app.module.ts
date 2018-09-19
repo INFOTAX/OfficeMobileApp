@@ -55,8 +55,9 @@ import { MarketingProvider } from '../providers/marketing/marketing';
     StatusBar,
     SplashScreen,
     CompanyProvider,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
     MarketingProvider,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    
     
   ]
 })

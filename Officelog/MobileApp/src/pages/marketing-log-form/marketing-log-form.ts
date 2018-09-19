@@ -119,9 +119,6 @@ export class MarketingLogFormPage implements OnInit{
       let companyToSave = Object.assign({},this.marketing,this.marketingForm.value);
       this.marketingProviders.createMarketing(companyToSave).subscribe(()=> this.navCtrl.push(MarketingListPage));
     }
-  }
-  //  onSaveComplete(){
-  //   this.navCtrl.push(MarketingListPage);
-  // }
+  }  
 
 }
