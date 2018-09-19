@@ -1,16 +1,4 @@
-<!--
-  Generated template for the CompanyFormPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-
-<!--
-  Generated template for the CompanyListPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
@@ -69,8 +57,8 @@
 
           </ion-list>
           <ion-list radio-group formControlName="serviceProvided">
-            <ion-list-header>
-              Service provided
+            <ion-list-header style="font-size:16px; color:#085312;" >
+             <b> Service provided</b>
             </ion-list-header>
             <ion-item>
               <ion-label>BAD</ion-label>
@@ -95,7 +83,9 @@
 
           <ion-list>
             <ion-item>
-              <ion-label>Visitor type</ion-label>
+                <ion-label style="margin-left: 3%; font-weight: bold">
+                    <h5>Visitor Type</h5>
+                </ion-label>
               <ion-select formControlName="visitorType">
                 <ion-option>First</ion-option>
                 <ion-option>Second or third</ion-option>
@@ -110,20 +100,18 @@
           </ion-label>
           <ion-list radio-group formControlName="softwareInterested">
 
-              <ion-row>
-                  <ion-col>
+              
                       <ion-item>
                           <ion-label>Yes</ion-label>
                           <ion-radio value="Yes"(click)="softwareInterestedYes()"></ion-radio>
                       </ion-item>
-                  </ion-col>
-                  <ion-col>
+                  
                       <ion-item>
                           <ion-label>No</ion-label>
                           <ion-radio value="No"(click)="softwareInterestedNo()"></ion-radio>
                       </ion-item>
-                  </ion-col>
-              </ion-row>
+                  
+              
           </ion-list>
           <ion-card *ngIf="softwareYes">
 
@@ -132,37 +120,32 @@
                       <h5>Please rate us.</h5>
                   </ion-list-header>
 
-                  <ion-row>
-                      <ion-col>
+                  
                           <ion-item>
                               <ion-label>Bad</ion-label>
                               <ion-radio value="bad"></ion-radio>
                           </ion-item>
-                      </ion-col>
-                      <ion-col>
+                      
                           <ion-item>
                               <ion-label>Good</ion-label>
                               <ion-radio value="good"></ion-radio>
                           </ion-item>
-                      </ion-col>
-                      <ion-col>
+                    
                           <ion-item>
                               <ion-label>Very Good</ion-label>
                               <ion-radio value="Very Good"></ion-radio>
                           </ion-item>
-                      </ion-col>
-                      <ion-col>
+                     
                           <ion-item>
                               <ion-label>Excellent</ion-label>
                               <ion-radio value="Excellent"></ion-radio>
                           </ion-item>
-                      </ion-col>
-                  </ion-row>
+                      
               </ion-list>
               <ion-label style="font-weight:bold; font-size: 16px; margin: 3%">
                   Any Suggestion?
               </ion-label>
-              <ion-textarea rows="5" formControlName="suggestionForYes" style="border: 1px solid rgb(199, 199, 199)"></ion-textarea>
+              <ion-textarea rows="5" column="3" formControlName="suggestionForYes" style="border: 1px solid rgb(199, 199, 199)"></ion-textarea>
               <br>
           </ion-card>
           <ion-card *ngIf="softwareNo">

@@ -18,7 +18,7 @@ import { CompanyFormPage} from '../company-form/company-form';
   templateUrl: 'company-list.html',
 })
 export class CompanyListPage {
-  companies : ICompany[]; 
+  company : ICompany[]; 
   fromDate : Date;
   toDate : Date;
   id: number = null;
@@ -35,22 +35,31 @@ export class CompanyListPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
       private companyProvider : CompanyProvider   ) {
   }
+  ngOnInit() {
+    this.toDate=new Date();
+   this.fromDate=new Date();
+  this.searchByDate(this.fromDate,this.toDate);
+  
+}
 
-  companyform(){
-    this.navCtrl.push(CompanyFormPage);
-  }
 
+companyform(){
+  this.navCtrl.push(CompanyFormPage);
+}
   ionViewDidLoad() {
     
     
     
     
   }
+  searchByDate(fromDate:Date,toDate:Date){
+    this.companyProvider.getCompanies(this.fromDate,this.toDate).subscribe(companyList => {
+      this.company = companyList;
+    });
 
-  searchByDate(){
-     this.companyProvider.getCompanies(this.fromDate,this.toDate).subscribe(res => this.companies = res);
-  }
+ 
 }
 
   
 
+}
