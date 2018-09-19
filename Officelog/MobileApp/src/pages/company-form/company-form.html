@@ -105,7 +105,9 @@
               </ion-select>
             </ion-item>
           </ion-list>
-
+          <ion-label style="margin-left: 3%; font-weight: bold">
+              <h5>Are you interested in our software?</h5>
+          </ion-label>
           <ion-list radio-group formControlName="softwareInterested">
 
               <ion-row>
@@ -125,7 +127,7 @@
           </ion-list>
           <ion-card *ngIf="softwareYes">
 
-              <ion-list radio-group>
+              <ion-list radio-group formControlName="rateUs">
                   <ion-list-header>
                       <h5>Please rate us.</h5>
                   </ion-list-header>
@@ -134,25 +136,25 @@
                       <ion-col>
                           <ion-item>
                               <ion-label>Bad</ion-label>
-                              <ion-radio formControlName="rateUs" value="bad"></ion-radio>
+                              <ion-radio value="bad"></ion-radio>
                           </ion-item>
                       </ion-col>
                       <ion-col>
                           <ion-item>
                               <ion-label>Good</ion-label>
-                              <ion-radio formControlName="rateUs" value="good"></ion-radio>
+                              <ion-radio value="good"></ion-radio>
                           </ion-item>
                       </ion-col>
                       <ion-col>
                           <ion-item>
                               <ion-label>Very Good</ion-label>
-                              <ion-radio formControlName="rateUs" value="Very Good"></ion-radio>
+                              <ion-radio value="Very Good"></ion-radio>
                           </ion-item>
                       </ion-col>
                       <ion-col>
                           <ion-item>
                               <ion-label>Excellent</ion-label>
-                              <ion-radio formControlName="rateUs" value="Excellent"></ion-radio>
+                              <ion-radio value="Excellent"></ion-radio>
                           </ion-item>
                       </ion-col>
                   </ion-row>
@@ -164,7 +166,7 @@
               <br>
           </ion-card>
           <ion-card *ngIf="softwareNo">
-              <ion-list radio-group>
+              <ion-list radio-group formControlName="rateUsForNo">
                   <ion-list-header>
                       <h5>Choose a reason:</h5>
                   </ion-list-header>
@@ -173,19 +175,19 @@
                       <ion-col>
                           <ion-item>
                               <ion-label>Not Friendly</ion-label>
-                              <ion-radio formControlName="rateUsForNo" value="notFriendly" (Click)="closeOtherReason();"></ion-radio>
+                              <ion-radio value="notFriendly" (Click)="closeOtherReason();"></ion-radio>
                           </ion-item>
                       </ion-col>
                       <ion-col>
                           <ion-item>
                               <ion-label>Already Have</ion-label>
-                              <ion-radio formControlName="rateUsForNo" value="alreadyHave" (Click)="closeOtherReason();"></ion-radio>
+                              <ion-radio value="alreadyHave" (Click)="closeOtherReason();"></ion-radio>
                           </ion-item>
                       </ion-col>
                       <ion-col>
                           <ion-item>
                               <ion-label>Others</ion-label>
-                              <ion-radio formControlName="rateUsForNo" value="others" (click)="otherReason();"></ion-radio>
+                              <ion-radio value="others" (click)="otherReason();"></ion-radio>
                           </ion-item>
                       </ion-col>
                       <ion-card *ngIf="ifOther">

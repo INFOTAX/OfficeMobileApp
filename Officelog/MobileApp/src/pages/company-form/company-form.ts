@@ -25,7 +25,8 @@ export class CompanyFormPage implements OnInit{
   softwareNo=false;
   ifOther = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private fb : FormBuilder,private companyProviders : CompanyProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private fb : FormBuilder,
+              private companyProviders : CompanyProvider) {
   }
 
   ngOnInit() {

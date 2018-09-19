@@ -24,7 +24,7 @@ export interface ServiceItems {
 export class MarketingLogFormPage implements OnInit{
 
   public marketingForm: FormGroup;
-  marketingLog: IMarketinglog;
+  marketing: IMarketinglog;
   serviceYes=false;
   serviceNo=false;
   softwareYes=false;
@@ -114,6 +114,10 @@ export class MarketingLogFormPage implements OnInit{
   }
 
   saveMarketingForm():void {
+    if(this.marketingForm.valid){
+      let companyToSave = Object.assign({},this.marketing,this.marketingForm.value);
+      //this.companyProviders.createCompany(companyToSave).subscribe(()=> this.navCtrl.push(MarketingListPage));
+    }
 
     // if (this.marketingForm.valid) {
   
