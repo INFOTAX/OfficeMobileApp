@@ -42,6 +42,7 @@ export class MarketingLogFormPage implements OnInit{
   ngOnInit(){
     this.marketingForm = this.newForm();
     this.ServiceItems=[];
+  
   }
   newForm():FormGroup{
     return this.fb.group({

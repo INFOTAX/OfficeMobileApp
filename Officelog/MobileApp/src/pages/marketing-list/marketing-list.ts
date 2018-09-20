@@ -60,5 +60,9 @@ deleteList(index) {
 //   console.log(this.id)
 //   this.navCtrl.push( MarketingLogFormPage);
 // }
+edit(){
+  //this.navParams.get('MarketingLogFormPage');
+  this.navCtrl.push(MarketingLogFormPage,this.id);
+}
 
 }
