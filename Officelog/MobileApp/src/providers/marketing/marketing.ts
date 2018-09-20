@@ -29,7 +29,7 @@ createMarketing(marketing : IMarketinglog):Observable<IMarketinglog>{
 
   intializeObject(): IMarketinglog { 
     return {
-        id: 0,
+id: 0,
 name: '',
 contactNumber: 0,
 softwareInterested: '',

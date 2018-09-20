@@ -2,13 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MarketingProvider, IMarketinglog } from '../../providers/marketing/marketing';
 import { MarketingLogFormPage } from '../marketing-log-form/marketing-log-form';
+import { AlertController } from 'ionic-angular';
 
-/**
- * Generated class for the MarketingListPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -17,52 +13,64 @@ import { MarketingLogFormPage } from '../marketing-log-form/marketing-log-form';
 })
 export class MarketingListPage {
   marketing: IMarketinglog[];
-  selectedMarketingLog:IMarketinglog;
-  fromDate : Date;
-  toDate : Date;
+  selectedMarketingLog: IMarketinglog;
+  fromDate: Date;
+  toDate: Date;
   id: number;
-  // name: string;
-  // contactNumber:string;
-  // softwareInterested: string;
-  // rateUs: string;
-  // fee:number;
-  // serviceInterested: string;
-  // rateUsForNo: string;
-  // currentScenario: string;
-  // suggestionForNo: string;
-  // suggestionForYes: string;
-  // area: string; 
+ 
 
   constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              private marketingProvider: MarketingProvider) {
+    public navParams: NavParams,
+    public marketingProvider: MarketingProvider,
+    public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
-    
+
   }
 
-  searchByDate(){
-    this.marketingProvider.getMarketing(this.fromDate,this.toDate).subscribe(res => this.marketing = res);
- }
-marketingform(){
-  this.navCtrl.push(MarketingLogFormPage);
-}
-deleteList(index) {
-  this.selectedMarketingLog=index;
-  this.marketingProvider.delete(this.selectedMarketingLog.id).subscribe(() =>{
-    this.searchByDate();
+  searchByDate() {
+    this.marketingProvider.getMarketing(this.fromDate, this.toDate).subscribe(res => this.marketing = res);
     
-});
-}
-// onRowSelect(event) { 
-//   this.id = event.data.id;
-//   console.log(this.id)
-//   this.navCtrl.push( MarketingLogFormPage);
-// }
-edit(){
-  //this.navParams.get('MarketingLogFormPage');
-  this.navCtrl.push(MarketingLogFormPage,this.id);
-}
+  }
+  marketingform() {
+    this.id=0;
+    this.navCtrl.push(MarketingLogFormPage,{id: this.id});
+  }
+ 
+
+
+  deleteList(index) {
+    const confirm = this.alertCtrl.create({
+      title: 'Are you sure?',
+      message: 'This will delete your data',
+      buttons: [
+        {
+          text: 'Yes',
+          handler: () => {
+            this.selectedMarketingLog = index;
+            this.marketingProvider.delete(this.selectedMarketingLog.id).subscribe(() => {
+              this.searchByDate();
+            });
+          }
+        },
+        {
+          text: 'No',
+          handler: () => {
+
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
+  
+  edit(event) {
+    //this.navParams.get('MarketingLogFormPage');
+    this.id = event.id;
+    console.log(this.id)
+    this.navCtrl.push(MarketingLogFormPage,{id: this.id});
+  }
 
 }
