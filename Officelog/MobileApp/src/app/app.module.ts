@@ -19,9 +19,13 @@ import { MarketingLogFormPage } from '../pages/marketing-log-form/marketing-log-
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MarketingListPage } from '../pages/marketing-list/marketing-list';
 import { MarketingProvider } from '../providers/marketing/marketing';
+import { UserprofilePage } from '../pages/userprofile/userprofile';
+import { UserloginPage } from '../pages/userlogin/userlogin';
 @NgModule({
   declarations: [
     MyApp,
+    UserloginPage,
+    UserprofilePage,
     AboutPage,
     ContactPage,
     HomePage,
@@ -48,6 +52,8 @@ import { MarketingProvider } from '../providers/marketing/marketing';
     TabsPage,
     CompanyListPage,
     CompanyFormPage,
+    UserprofilePage,
+    UserloginPage,
     MarketingLogFormPage,
     MarketingListPage
   ],
