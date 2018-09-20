@@ -19,7 +19,7 @@ import { CompanyListPage } from '../company-list/company-list';
 export class CompanyFormPage implements OnInit{
 
   id:number;
-  companyForm : FormGroup;
+  public companyForm : FormGroup;
   company : ICompany;
   softwareYes : boolean=false;
   softwareNo : boolean=false;
@@ -55,7 +55,7 @@ export class CompanyFormPage implements OnInit{
     })
    
   }
-  private getCompany(id: number) {
+  public getCompany(id: number) {
     this.companyProviders.getOne(id).subscribe(
       (company: ICompany) => this.onCompanyLogRetrieved(
         company));
@@ -101,14 +101,14 @@ export class CompanyFormPage implements OnInit{
     if(this.companyForm.valid){
       let companyToSave = Object.assign({},this.company,this.companyForm.value);
       this.companyProviders.createCompany(companyToSave).subscribe(()=> this.navCtrl.push(CompanyListPage));
-   /* this.onSaveComplete();*/
+   this.onSaveComplete();
     }
-   /* else if (!this.companyForm.dirty) {
+    else if (!this.companyForm.dirty) {
       this.onSaveComplete();
-    }*/
+    }
   }
   private onSaveComplete():void{
-    const displayMsg = this.id == 0 ? 'Saved' : 'Updated';
+   // const displayMsg = this.id == 0 ? 'Saved' : 'Updated';
     this.navCtrl.push(CompanyListPage);
   }
 /*software intrested filed added start*/
@@ -162,4 +162,5 @@ else{
   return "";
 }
 }
+
 }

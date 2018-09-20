@@ -3,7 +3,9 @@
     <ion-navbar>
       <ion-title>Company List</ion-title>
     </ion-navbar>
-  
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
   </ion-header>
   
   
@@ -51,7 +53,7 @@
    </thead> 
    
    <tbody>
-       <tr *ngFor = "let a of companies ;let i" [tabIndex]="i">
+       <tr *ngFor="let a of company ; let i" [tabIndex]="i">
            <td>
              {{a.name}}
            </td>
