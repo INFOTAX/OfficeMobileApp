@@ -13,7 +13,7 @@
       <ion-grid>
           <ion-row wrap>
             <ion-col width-90>
-<button ion-button (click)="companyform();"> Add to form</button>
+<button ion-button (click)="companyform()"> Add to form</button>
 <ion-item>
     <ion-label>From</ion-label>
     <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fromDate"></ion-datetime>
@@ -51,7 +51,7 @@
    </thead> 
    
    <tbody>
-       <tr *ngFor = "let a of companies">
+       <tr *ngFor = "let a of companies ;let i" [tabIndex]="i">
            <td>
              {{a.name}}
            </td>
@@ -68,7 +68,8 @@
             {{a.serviceProvided}}
           </td>
           <td>
-            DELETE
+            <button class="btn btn-danger" (click)="deleteList(i)"><i class="fa fa-trash"></i></button>
+                  &nbsp;
           </td>
        </tr>
    </tbody>
