@@ -19,12 +19,14 @@ export class MarketingProvider extends ServiceBase<IMarketinglog> {
     super(http,'http://localhost:14339/api/Marketings')
 }
 
-createMarketing(marketing : IMarketinglog):Observable<IMarketinglog>{
-    return this.http.post<IMarketinglog>(`${this.baseUrl}`,marketing);
-  }
+
 
   getMarketing(fromDate : Date,toDate : Date):Observable<IMarketinglog[]>{
     return this.http.get<IMarketinglog[]>(`${this.baseUrl}?fromDate=${fromDate}&toDate=${toDate}`);
+}
+
+conversion(marketingLog : IMarketinglog,id: number) : Observable<IMarketinglog>{
+  return this.http.patch<IMarketinglog>(`${this.baseUrl}/converted?id=${id}`,marketingLog);
 }
 
   intializeObject(): IMarketinglog { 

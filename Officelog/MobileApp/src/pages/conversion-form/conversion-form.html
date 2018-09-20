@@ -1,0 +1,80 @@
+<!--
+  Generated template for the ConversionFormPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Conversion Form</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="conversionForm" (ngSubmit)="saveConversionForm()">
+    <ion-grid>
+      <ion-list>
+
+        <ion-item>
+          <ion-label floating>Trade Name</ion-label>
+          <ion-input type="text" formControlName="name"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Contact</ion-label>
+          <ion-input type="text" formControlName="contactNumber"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Fee</ion-label>
+            <ion-input type="number" formControlName="fee"></ion-input>
+          </ion-item>
+        <br>
+        <ion-label style="margin-left: 3%; font-weight: bold">
+          <h5>Are you interested in our service?</h5>
+        </ion-label>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Service Type</th>
+              <th>Rate</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let a of conversionForm.value.serviceItems; let i" [tabIndex]="i">
+              <td>{{a.serviceType}}</td>
+              <td>{{a.rate}}</td>
+              <td>
+                <button type="button" class="btn btn-danger" (click)="deleteServiceType(i)">
+                    <i class="fa fa-trash"></i></button>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>
+                <select class="form-control" placeholder="Select a service" #type>
+                  <option>Accounting</option>
+                  <option>Income Tax Filing</option>
+                  <option>TDS Filing</option>
+                  <option>GST Filing</option>
+                  <option>Consultancy</option>
+                  <option>Company Related</option>
+                  <option>Loan Documentation</option>
+                </select>
+              </td>
+              <td><input type="number" class="form-control" #rate></td>
+              <td><button type="button" class="btn btn-primary" (click)="addNewServiceType(type,rate)"><i class="fa fa-plus"></i></button></td>
+            </tr>
+          </tfoot>
+        </table>
+      </ion-list>
+    </ion-grid>
+    <button type="submit" ion-fab mini><ion-icon name="add"></ion-icon></button>
+
+  </form>
+
+</ion-content>

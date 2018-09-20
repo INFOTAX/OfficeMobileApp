@@ -21,6 +21,9 @@ import { MarketingListPage } from '../pages/marketing-list/marketing-list';
 import { MarketingProvider } from '../providers/marketing/marketing';
 import { UserprofilePage } from '../pages/userprofile/userprofile';
 import { UserloginPage } from '../pages/userlogin/userlogin';
+import { ConversionProvider } from '../providers/conversion/conversion';
+import { ConversionFormPage } from '../pages/conversion-form/conversion-form';
+import { ConversionListPage } from '../pages/conversion-list/conversion-list';
 @NgModule({
   declarations: [
     MyApp,
@@ -33,7 +36,9 @@ import { UserloginPage } from '../pages/userlogin/userlogin';
     CompanyFormPage,
     TabsPage,
     MarketingLogFormPage,
-    MarketingListPage
+    MarketingListPage,
+    ConversionFormPage,
+    ConversionListPage
   ],
   imports: [
     BrowserModule,
@@ -55,14 +60,18 @@ import { UserloginPage } from '../pages/userlogin/userlogin';
     UserprofilePage,
     UserloginPage,
     MarketingLogFormPage,
-    MarketingListPage
+    MarketingListPage,
+    ConversionFormPage,
+    ConversionListPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     CompanyProvider,
     MarketingProvider,
+    ConversionProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    
     
     
   ]

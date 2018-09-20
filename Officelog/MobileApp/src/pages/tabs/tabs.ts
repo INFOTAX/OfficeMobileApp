@@ -8,6 +8,8 @@ import { CompanyListPage } from '../company-list/company-list';
 import { MarketingListPage } from '../marketing-list/marketing-list';
 import { UserprofilePage } from '../userprofile/userprofile';
 import { UserloginPage } from '../userlogin/userlogin';
+import { ConversionListPage } from '../conversion-list/conversion-list';
+
 // import { CompanyFormPage } from '../company-form/company-form';
 
 @Component({
@@ -20,6 +22,7 @@ export class TabsPage {
   tab3Root = MarketingListPage;
   tab4Root = UserprofilePage;
   tab5Root = UserloginPage;
+  tab6Root = ConversionListPage;
   constructor() {
 
   }
