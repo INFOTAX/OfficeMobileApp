@@ -36,10 +36,18 @@ export class MarketingLogFormPage implements OnInit{
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private fb: FormBuilder,
-              private marketingProviders: MarketingProvider) {
+              private marketingProviders: MarketingProvider
+              ) {
   }
 
   ngOnInit(){
+    // this.route.params.subscribe(params => {
+    //   this.id = params['id'];
+    // this.getMarketingLog(this.id);
+    // });
+    this.id=this.navParams.get('id');
+    this.getMarketingLog(this.id);
+
     this.marketingForm = this.newForm();
     this.ServiceItems=[];
   
@@ -116,10 +124,56 @@ export class MarketingLogFormPage implements OnInit{
   }
 
   saveMarketingForm():void {
-    if(this.marketingForm.valid){
-      let companyToSave = Object.assign({},this.marketing,this.marketingForm.value);
-      this.marketingProviders.createMarketing(companyToSave).subscribe(()=> this.navCtrl.push(MarketingListPage));
-    }
-  }  
 
+    if (this.marketingForm.valid) {
+  
+        let p = Object.assign({}, this.marketing, this.marketingForm.value);
+  
+         this.marketingProviders.save(p, this.id)
+            .subscribe(si=>{});
+          this.onSaveComplete()
+          
+    }
+    else if (!this.marketingForm.dirty) {
+      this.onSaveComplete();
+  }
+  }  
+  onSaveComplete(){
+    this.navCtrl.push(MarketingListPage)
+  }
+
+  private getMarketingLog(id):void{
+    this.marketingProviders.getOne(id)
+    .subscribe((marketingLog:IMarketinglog)=> this.onMarketingLogRetrieved(marketingLog)
+    );
+  }
+  private onMarketingLogRetrieved(marketingLog : IMarketinglog) :void{
+    this.marketing = marketingLog;
+
+    if (this.marketing.id == 0) {
+      this.marketingForm = this.newForm();
+    
+  }
+  
+    else{
+      this.marketingForm.patchValue({
+
+      id: this.marketing.id,
+      name: this.marketing.name,
+      contactNumber: this.marketing.contactNumber,
+      softwareInterested: this.marketing.softwareInterested,// this.marketing.softwareInterested,
+      fee: this.marketing.fee,
+      rateUs: this.marketing.rateUs,
+      serviceInterested: this.marketing.serviceInterested,//marketing.serviceInterested,
+      rateUsForNo: this.marketing.rateUsForNo,//marketing.rateUsForNo,
+      currentScenario: this.marketing.currentScenario,
+      suggestionForNo: this.marketing.suggestionForNo,
+      suggestionForYes: this.marketing.suggestionForYes,
+      area: this.marketing.area,
+      date: this.marketing.date
+       
+      });
+      
+     }
+  }
 }
