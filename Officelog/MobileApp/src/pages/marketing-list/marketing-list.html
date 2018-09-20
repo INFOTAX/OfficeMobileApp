@@ -9,6 +9,8 @@
   <ion-navbar>
     <ion-title>Marketing List</ion-title>
   </ion-navbar>
+  <link rel="stylesheet" 
+   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </ion-header>
 
@@ -29,7 +31,7 @@
         <ion-item>
           <button ion-button (click)="searchByDate()"> Search</button>
         </ion-item>
-        <ion-scroll scrollX="true" style="height: 50%">
+        <ion-scroll scrollX="true" scrollY="true" style="height: 50%">
           <table class="table table-hover table-bordered">
             <thead>
               <tr>
@@ -45,13 +47,13 @@
                 <th>
                   Software Interested
                 </th>
-                <th style="padding-left:25px;padding-right:25px;">
+                <th style="padding-left:50px;padding-right:50px;">
                   Action
                 </th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let a of marketing">
+              <tr *ngFor="let a of marketing; let i" [tabIndex]="i">
                 <td>
                   {{a.name}}
                 </td>
@@ -65,9 +67,11 @@
                   {{a.softwareInterested}}
                 </td>
                 <td>
-                  <button type="button" icon="fa fa-check" styleClass="ui-button-success" iconPos="left"></button>
+                    <button class="btn btn-success"><i class="fa fa-check"></i></button>
                   &nbsp;
-                  <button type="button" icon="fa fa-fw fa-trash" iconPos="left" styleClass="ui-button-danger"></button>
+                  <button class="btn btn-danger" (click)="deleteList(i)"><i class="fa fa-trash"></i></button>
+                  &nbsp;
+                  <button class="btn btn-primary"><i class="fa fa-pencil"></i></button>
                 </td>
               </tr>
             </tbody>

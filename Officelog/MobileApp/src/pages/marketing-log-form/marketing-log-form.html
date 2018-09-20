@@ -88,9 +88,9 @@
                 </ion-card>
 
 
-
+ 
                 <ion-card *ngIf="serviceYes">
-                    <table class="table table-hover">
+                    <table class="table table-hover" >
                         <thead>
                             <tr>
                                 <th>Service Type</th>
@@ -98,15 +98,15 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody >
-                            <li>
-                                <td></td>
-                                <td></td>
+                        <tbody > 
+                            <tr *ngFor="let a of marketingForm.value.serviceItems; let i" [tabIndex]="i">
+                                <td>{{a.serviceType}}</td>
+                                <td>{{a.rate}}</td>
                                 <td>
-                                    <!-- <button type="button" class="btn btn-danger" (click)="deleteServiceType(rowIndex)">
-                                    Delete</button> -->
+                                    <button type="button" class="btn btn-danger" (click)="deleteServiceType(i)">
+                                    Delete</button>
                                 </td>
-                            </li>
+                            </tr>
                         </tbody>
                         <tfoot>
                             <tr>

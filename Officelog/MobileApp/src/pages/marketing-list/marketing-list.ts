@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { IMarketinglog } from '../../providers/marketing/marketing';
+import { MarketingProvider, IMarketinglog } from '../../providers/marketing/marketing';
 import { MarketingLogFormPage } from '../marketing-log-form/marketing-log-form';
 
 /**
@@ -16,22 +16,49 @@ import { MarketingLogFormPage } from '../marketing-log-form/marketing-log-form';
   templateUrl: 'marketing-list.html',
 })
 export class MarketingListPage {
-  marketing: IMarketinglog;
+  marketing: IMarketinglog[];
+  selectedMarketingLog:IMarketinglog;
   fromDate : Date;
   toDate : Date;
+  id: number;
+  // name: string;
+  // contactNumber:string;
+  // softwareInterested: string;
+  // rateUs: string;
+  // fee:number;
+  // serviceInterested: string;
+  // rateUsForNo: string;
+  // currentScenario: string;
+  // suggestionForNo: string;
+  // suggestionForYes: string;
+  // area: string; 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private marketingProvider: MarketingProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MarketingListPage');
+    
   }
 
   searchByDate(){
-    //this.companyProvider.getCompanies(this.fromDate,this.toDate).subscribe(res => this.companies = res);
+    this.marketingProvider.getMarketing(this.fromDate,this.toDate).subscribe(res => this.marketing = res);
  }
 marketingform(){
   this.navCtrl.push(MarketingLogFormPage);
 }
+deleteList(index) {
+  this.selectedMarketingLog=index;
+  this.marketingProvider.delete(this.selectedMarketingLog.id).subscribe(() =>{
+    this.searchByDate();
+    
+});
+}
+// onRowSelect(event) { 
+//   this.id = event.data.id;
+//   console.log(this.id)
+//   this.navCtrl.push( MarketingLogFormPage);
+// }
 
 }

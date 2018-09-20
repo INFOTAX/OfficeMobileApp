@@ -23,7 +23,11 @@ createMarketing(marketing : IMarketinglog):Observable<IMarketinglog>{
     return this.http.post<IMarketinglog>(`${this.baseUrl}`,marketing);
   }
 
-  intializeObject(): IMarketinglog {
+  getMarketing(fromDate : Date,toDate : Date):Observable<IMarketinglog[]>{
+    return this.http.get<IMarketinglog[]>(`${this.baseUrl}?fromDate=${fromDate}&toDate=${toDate}`);
+}
+
+  intializeObject(): IMarketinglog { 
     return {
         id: 0,
 name: '',

@@ -61,8 +61,9 @@ import { UserloginPage } from '../pages/userlogin/userlogin';
     StatusBar,
     SplashScreen,
     CompanyProvider,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
     MarketingProvider,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    
     
   ]
 })

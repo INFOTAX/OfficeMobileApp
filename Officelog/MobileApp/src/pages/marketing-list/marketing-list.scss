@@ -8,11 +8,13 @@ page-marketing-list {
     }
     th{
         background: #989ab1;
-        padding-left: 25px;
         overflow: auto;
         padding-top: 4px;
         padding-bottom: 4px;
         text-align: center
+      }
+      td{
+          text-align: center
       }
 
 }
