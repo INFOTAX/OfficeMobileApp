@@ -21,19 +21,19 @@
               <ion-datetime displayFormat="MMM DD YYYY" formControlName="date"></ion-datetime>
             </ion-item>
             <ion-item>
-              <ion-label floating>Tradename</ion-label>
+              <ion-label floating style="font-size:16px; color:#085312;" ><b>Tradename</b></ion-label>
               <ion-input type="text" formControlName="name"></ion-input>
             </ion-item>
 
             <ion-item>
-              <ion-label floating>Contact no.</ion-label>
-              <ion-input type="text" formControlName="contactNumber"></ion-input>
+              <ion-label floating style="font-size:16px; color:#085312;" ><b>Contact no.</b></ion-label>
+              <ion-input type="number" formControlName="contactNumber"></ion-input>
             </ion-item>
 
           </ion-list>
           <ion-list radio-group formControlName="queryHandling">
-            <ion-list-header>
-              Querry Handling
+            <ion-list-header style="font-size:16px; color:#085312;" >
+             <b> Querry Handling</b>
             </ion-list-header>
             <ion-item>
               <ion-label>BAD</ion-label>
@@ -56,6 +56,7 @@
             </ion-item>
 
           </ion-list>
+          
           <ion-list radio-group formControlName="serviceProvided">
             <ion-list-header style="font-size:16px; color:#085312;" >
              <b> Service provided</b>
@@ -148,6 +149,7 @@
               <ion-textarea rows="5" column="3" formControlName="suggestionForYes" style="border: 1px solid rgb(199, 199, 199)"></ion-textarea>
               <br>
           </ion-card>
+          <!--card software no start-->
           <ion-card *ngIf="softwareNo">
               <ion-list radio-group formControlName="rateUsForNo">
                   <ion-list-header>
@@ -155,24 +157,24 @@
                   </ion-list-header>
 
                   <ion-row>
-                      <ion-col>
+                      
                           <ion-item>
                               <ion-label>Not Friendly</ion-label>
-                              <ion-radio value="notFriendly" (Click)="closeOtherReason();"></ion-radio>
+                              <ion-radio value="notFriendly" (click)="closeOtherReason()"></ion-radio>
                           </ion-item>
-                      </ion-col>
-                      <ion-col>
+                      
+                     
                           <ion-item>
                               <ion-label>Already Have</ion-label>
-                              <ion-radio value="alreadyHave" (Click)="closeOtherReason();"></ion-radio>
+                              <ion-radio value="alreadyHave" (click)="closeOtherReason()"></ion-radio>
                           </ion-item>
-                      </ion-col>
-                      <ion-col>
+                     
+                     
                           <ion-item>
                               <ion-label>Others</ion-label>
-                              <ion-radio value="others" (click)="otherReason();"></ion-radio>
+                              <ion-radio value="others" (click)="otherReason()"></ion-radio>
                           </ion-item>
-                      </ion-col>
+                      
                       <ion-card *ngIf="ifOther">
                               <ion-label style="font-weight:bold; font-size: 16px; margin: 3%">
                                   Please give reasons and suggestion, so that we can improve.
@@ -183,7 +185,7 @@
               </ion-list>
               </ion-card>
 
-
+<!--card  software no end-->
 
         </ion-col>
       </ion-row>

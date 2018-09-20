@@ -3,7 +3,9 @@
     <ion-navbar>
       <ion-title>Company List</ion-title>
     </ion-navbar>
-  
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
   </ion-header>
   
   
@@ -13,7 +15,7 @@
       <ion-grid>
           <ion-row wrap>
             <ion-col width-90>
-<button ion-button (click)="companyform();"> Add to form</button>
+<button ion-button (click)="companyform()"> Add to form</button>
 <ion-item>
     <ion-label>From</ion-label>
     <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fromDate"></ion-datetime>
@@ -51,7 +53,7 @@
    </thead> 
    
    <tbody>
-       <tr *ngFor = "let a of companies">
+       <tr *ngFor="let a of company ; let i" [tabIndex]="i">
            <td>
              {{a.name}}
            </td>
@@ -68,7 +70,8 @@
             {{a.serviceProvided}}
           </td>
           <td>
-            DELETE
+            <button class="btn btn-danger" (click)="deleteList(i)"><i class="fa fa-trash"></i></button>
+                  &nbsp;
           </td>
        </tr>
    </tbody>
