@@ -14,5 +14,70 @@
 
 
 <ion-content padding>
+  <ion-grid>
+    <!--table first start-->
+    <ion-card>
+    <ion-row wrap>
+        
+      <ion-col width-70>
+        
+                    
+              <br>
+              
+                              <u> <h3 style="text-align:center; font-size:26px;">Total Visitor</h3></u>
+               <table class="table table-hover table-bordered">
+                 <thead>
+                      <tr>
+                          <th rowspan=2 class="trt">
+                              Summary
+                          </th> 
+                          <th class="trt">
+                              Total Visit
+                          </th>
+                          <th class="trt">
+                              Total Client Visits
+                          </th>
+                          <th class="trt">
+                              Total Franchise Visits
+                          </th>
+                          <th class="trt">
+                              Total First Visits
+                          </th>
+                          <th class="trt">
+                              Total Second Or Third Visits
+                          </th>
 
+
+                      </tr>
+
+                      <tr>
+                          <th  style="background:white;">{{report?.totalVisits}}</th>
+                          <th style="background:white;">{{report?.totalClientVisits}}</th>
+                          <th style="background:white;">{{report?.totalFranchiseVisits}}</th>
+                          <th style="background:white;">{{report?.totalFirstVisits}}</th>
+                          <th style="background:white;">{{report?.totalSecondOrThirdVisits}}</th>
+                      </tr>
+
+                      <br>
+                      <br>
+
+                    </thead>
+
+
+                </table>
+
+
+              <!--table content end-->
+<!---chart conetent start -->
+             <ion-card>
+                  <canvas #barCanvas></canvas>
+                      
+                </ion-card>
+              <!--chart conetnt end-->
+            
+        </ion-col>
+        </ion-row>
+        </ion-card>
+        </ion-grid>
+        
 </ion-content>
