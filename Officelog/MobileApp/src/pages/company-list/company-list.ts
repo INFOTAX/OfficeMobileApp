@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CompanyProvider, ICompany } from '../../providers/company/company';
 import { HttpClient } from '@angular/common/http';
-import { RequestOptions } from '@angular/http';
+
 import { AlertController } from 'ionic-angular';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { CompanyFormPage} from '../company-form/company-form';
 /**
+ * 
  * Generated class for the CompanyListPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
@@ -38,11 +39,19 @@ export class CompanyListPage {
   suggestionForYes:string;
   suggestionForNo:string;
 
+
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
       private companyProvider : CompanyProvider,
       public alertCtrl: AlertController )
       {
+  }
+
+  ionViewDidLoad() {
+    
+    
+    
+    
   }
   ngOnInit() {
     this.toDate=new Date();
@@ -53,12 +62,10 @@ export class CompanyListPage {
 
 
 companyform(){
-  this.navCtrl.push(CompanyFormPage);
-}
-onAddc() {
   this.id=0;
-  this.navCtrl.push(CompanyFormPage, this.id)
+  this.navCtrl.push(CompanyFormPage,{id: this.id});
 }
+
 
 deleteList(index) {
   const confirm = this.alertCtrl.create({
@@ -85,12 +92,7 @@ deleteList(index) {
   });
   confirm.present ();
 }
-  ionViewDidLoad() {
-    
-    
-    
-    
-  }
+
   searchByDate(fromDate:Date,toDate:Date){
     this.companyProvider.getCompanies(this.fromDate,this.toDate).subscribe(companyList => {
       this.company = companyList;
@@ -99,6 +101,12 @@ deleteList(index) {
  
 }
 /*search by date end*/
+edit(event) {
+  
+  this.id = event.id;
+  console.log(this.id)
+  this.navCtrl.push(CompanyFormPage,{id: this.id});
+}
 
 
 }
