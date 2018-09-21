@@ -24,6 +24,9 @@ import { UserloginPage } from '../pages/userlogin/userlogin';
 import { ConversionProvider } from '../providers/conversion/conversion';
 import { ConversionFormPage } from '../pages/conversion-form/conversion-form';
 import { ConversionListPage } from '../pages/conversion-list/conversion-list';
+import { MarketingReportProvider } from '../providers/marketing-report/marketing-report';
+import { AdminUserProfileMarketingReportPage } from '../pages/admin-user-profile-marketing-report/admin-user-profile-marketing-report';
+import { Chart } from 'chart.js';
 @NgModule({
   declarations: [
     MyApp,
@@ -38,7 +41,9 @@ import { ConversionListPage } from '../pages/conversion-list/conversion-list';
     MarketingLogFormPage,
     MarketingListPage,
     ConversionFormPage,
-    ConversionListPage
+    ConversionListPage,
+    AdminUserProfileMarketingReportPage,
+   
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,8 @@ import { ConversionListPage } from '../pages/conversion-list/conversion-list';
     HttpModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Chart
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -62,7 +68,9 @@ import { ConversionListPage } from '../pages/conversion-list/conversion-list';
     MarketingLogFormPage,
     MarketingListPage,
     ConversionFormPage,
-    ConversionListPage
+    ConversionListPage,
+    AdminUserProfileMarketingReportPage,
+    
   ],
   providers: [
     StatusBar,
@@ -70,7 +78,9 @@ import { ConversionListPage } from '../pages/conversion-list/conversion-list';
     CompanyProvider,
     MarketingProvider,
     ConversionProvider,
+    MarketingReportProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    
     
     
     

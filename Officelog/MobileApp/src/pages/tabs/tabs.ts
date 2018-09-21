@@ -9,6 +9,7 @@ import { MarketingListPage } from '../marketing-list/marketing-list';
 import { UserprofilePage } from '../userprofile/userprofile';
 import { UserloginPage } from '../userlogin/userlogin';
 import { ConversionListPage } from '../conversion-list/conversion-list';
+import { AdminUserProfileMarketingReportPage } from '../admin-user-profile-marketing-report/admin-user-profile-marketing-report';
 
 // import { CompanyFormPage } from '../company-form/company-form';
 
@@ -22,7 +23,7 @@ export class TabsPage {
   tab3Root = MarketingListPage;
   tab4Root = UserprofilePage;
   tab5Root = UserloginPage;
-  tab6Root = ConversionListPage;
+  tab6Root = AdminUserProfileMarketingReportPage;
   constructor() {
 
   }
