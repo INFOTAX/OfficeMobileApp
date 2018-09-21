@@ -19,7 +19,7 @@ import { AdminUserProfileCompanyReportPage } from '../admin-user-profile-company
 })
 export class TabsPage {
 
-  tab1Root = HomePage;
+  tab1Root = UserloginPage;
   tab2Root = CompanyListPage;
   tab3Root = MarketingListPage;
   constructor() {

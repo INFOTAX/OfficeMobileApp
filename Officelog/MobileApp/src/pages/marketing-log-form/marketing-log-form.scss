@@ -6,6 +6,9 @@ page-marketing-log-form {
     table.table-bordered > tbody > tr > td{
         border-color: black; 
     }
+    table.table-bordered > tfoot > tr > td{
+        border-color: black;
+    }
     th{
         background: #989ab1;
         overflow: auto;
