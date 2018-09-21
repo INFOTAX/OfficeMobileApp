@@ -38,9 +38,29 @@
 
           </thead>
       </table>
-      <ion-card>
-          <canvas #barCanvas></canvas>
-      </ion-card>
+      <canvas #barCanvas></canvas>
+      <table class="table table-hover table-bordered">
+                  
+        <thead>
+            <tr>
+              <th rowspan=2 class="trt">
+                  Summary
+              </th>
+                <th class="trt">
+                    Total Conversion
+                </th>
+                
+              </tr>
+
+            <tr>
+                <th  style="background:white;">{{conversionReports?.totalConversions}}</th>
+            </tr>
+            <br>
+
+        </thead>
+    </table>
+    <canvas #conversionCanvas></canvas>
+
   </ion-grid>
 
 </ion-content>
