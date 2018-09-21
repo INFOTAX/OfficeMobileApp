@@ -26,7 +26,6 @@ import { ConversionFormPage } from '../pages/conversion-form/conversion-form';
 import { ConversionListPage } from '../pages/conversion-list/conversion-list';
 import { MarketingReportProvider } from '../providers/marketing-report/marketing-report';
 import { AdminUserProfileMarketingReportPage } from '../pages/admin-user-profile-marketing-report/admin-user-profile-marketing-report';
-import { Chart } from 'chart.js';
 import { AdminUserProfileCompanyReportPage } from '../pages/admin-user-profile-company-report/admin-user-profile-company-report';
 @NgModule({
   declarations: [

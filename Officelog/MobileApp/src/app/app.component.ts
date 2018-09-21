@@ -1,15 +1,25 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { Nav,Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
 import { TabsPage } from '../pages/tabs/tabs';
+import { AdminUserProfileMarketingReportPage } from '../pages/admin-user-profile-marketing-report/admin-user-profile-marketing-report';
+import { ConversionListPage } from '../pages/conversion-list/conversion-list';
+import { UserprofilePage } from '../pages/userprofile/userprofile';
+import { UserloginPage } from '../pages/userlogin/userlogin';
+
+
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
+  @ViewChild(Nav) nav:Nav;
+  
   rootPage:any = TabsPage;
+  
+  activePage:any;
+  pages: Array<{title: string, component:any}>;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -18,5 +28,24 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+
+    this.pages=[
+      {title:'TabsPage', component:TabsPage},
+      {title:'User',component:UserprofilePage},
+      {title:'Login',component:UserloginPage},
+      {title:'Conversion List',component:ConversionListPage},
+      {title:'Marketing Report',component:AdminUserProfileMarketingReportPage}
+    ];
+    this.activePage=this.pages[0];
   }
+  
+  openPage(page){
+    this.nav.setRoot(page.component);
+    this.activePage=page;
+  }
+  checkActive(page){
+   return page==this.activePage;
+  }
+  
+  
 }
