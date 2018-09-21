@@ -1,88 +1,102 @@
 <ion-header>
 
-    <link rel="stylesheet" 
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <ion-navbar>
-      <button ion-button menuToggle><i class="fa fa-bars"></i></button>
-       <ion-title>Company List</ion-title>
-    
-  </ion-navbar>
- 
-  </ion-header>
-  
-  
-  
-  
-  <ion-content padding>
-      <ion-grid>
-          <ion-row wrap>
-            <ion-col width-90>
-<button ion-button (click)="companyform()"> <i class="fa- fa-plus"></i>Add</button>
-<ion-item>
-    <ion-label>From</ion-label>
-    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fromDate"></ion-datetime>
-  </ion-item>
-  <ion-item>
-    <ion-label>ToDate</ion-label>
-    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="toDate"></ion-datetime>
-  </ion-item>
-  <ion-item>
-  <button ion-button (click)="searchByDate()"><i class="fa- fa-search"></i></button> 
-</ion-item>
-<ion-scroll scrollX="true"  scrollY="true" style="height: 60%">
-<table class="table table-hover table-bordered">
-   <thead>
-       <tr style="overflow:auto;">
-           <th>
-               Name
-           </th>
-           <th>
-          Contact
-        </th>
-        <th>
-           Visitor Type
-        </th>
-        <th>
-           Query Rating
-        </th>
-        <th>
-           Service Rating
-        </th>
-        <th style="padding-left:25px;padding-right:25px;">
-            Delete
-        </th>
-       </tr>
-   </thead> 
-   
-   <tbody>
-       <tr *ngFor="let a of company ; let i" [tabIndex]="i">
-           <td>
-             {{a.name}}
-           </td>
-           <td>
-            {{a.contactNumber}}
-          </td>
-          <td>
-            {{a.visitorType}}
-          </td>
-          <td>
-            {{a.queryHandling}}
-          </td>
-          <td>
-            {{a.serviceProvided}}
-          </td>
-          <td>
-            <button class="btn btn-danger" (click)="deleteList(i)"><i class="fa fa-trash"></i></button>
-            
-            &nbsp;
-            <button class="btn btn-primary" (click)="edit(i)"><i class="fa fa-pencil"></i></button> &nbsp;
-          </td>
-       </tr>
-   </tbody>
-</table>
-</ion-scroll>
-</ion-col >
-</ion-row>
-</ion-grid>
-</ion-content>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <i class="fa fa-bars"></i>
+    </button>
+    <ion-title>Company List</ion-title>
 
+  </ion-navbar>
+
+</ion-header>
+
+
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row wrap>
+      <ion-col width-90>
+        <ion-item>
+           
+                <button  ion-button (click)="companyform()" icon-only color="royal">
+                  <ion-icon name="person-add"></ion-icon>
+                </button>
+              
+         
+          
+        </ion-item>
+        <ion-item>
+          <ion-label>From</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fromDate"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label>ToDate</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="toDate"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <button ion-button (click)="searchByDate()">
+            <i class="fa fa-search"></i>
+          </button>
+        </ion-item>
+        <ion-scroll scrollX="true" scrollY="true" style="height: 60%">
+          <table class="table table-hover table-bordered">
+            <thead>
+              <tr style="overflow:auto;">
+                <th>
+                  Name
+                </th>
+                <th>
+                  Contact
+                </th>
+                <th>
+                  Visitor Type
+                </th>
+                <th>
+                  Query Rating
+                </th>
+                <th>
+                  Service Rating
+                </th>
+                <th style="padding-left:25px;padding-right:25px;">
+                  Delete
+                </th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let a of company ; let i" [tabIndex]="i">
+                <td>
+                  {{a.name}}
+                </td>
+                <td>
+                  {{a.contactNumber}}
+                </td>
+                <td>
+                  {{a.visitorType}}
+                </td>
+                <td>
+                  {{a.queryHandling}}
+                </td>
+                <td>
+                  {{a.serviceProvided}}
+                </td>
+                <td>
+                  <button class="btn btn-danger" (click)="deleteList(i)">
+                    <i class="fa fa-trash"></i>
+                  </button>
+
+                  &nbsp;
+                  <button class="btn btn-primary" (click)="edit(i)">
+                    <i class="fa fa-pencil"></i>
+                  </button> &nbsp;
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </ion-scroll>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
