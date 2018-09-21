@@ -27,6 +27,7 @@ import { ConversionListPage } from '../pages/conversion-list/conversion-list';
 import { MarketingReportProvider } from '../providers/marketing-report/marketing-report';
 import { AdminUserProfileMarketingReportPage } from '../pages/admin-user-profile-marketing-report/admin-user-profile-marketing-report';
 import { Chart } from 'chart.js';
+import { AdminUserProfileCompanyReportPage } from '../pages/admin-user-profile-company-report/admin-user-profile-company-report';
 @NgModule({
   declarations: [
     MyApp,
@@ -37,12 +38,15 @@ import { Chart } from 'chart.js';
     HomePage,
     CompanyListPage,
     CompanyFormPage,
+    AdminUserProfileCompanyReportPage,
     TabsPage,
     MarketingLogFormPage,
     MarketingListPage,
     ConversionFormPage,
     ConversionListPage,
     AdminUserProfileMarketingReportPage,
+ 
+    
    
   ],
   imports: [
@@ -52,7 +56,7 @@ import { Chart } from 'chart.js';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    Chart
+   
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -65,6 +69,7 @@ import { Chart } from 'chart.js';
     CompanyFormPage,
     UserprofilePage,
     UserloginPage,
+    AdminUserProfileCompanyReportPage,
     MarketingLogFormPage,
     MarketingListPage,
     ConversionFormPage,
