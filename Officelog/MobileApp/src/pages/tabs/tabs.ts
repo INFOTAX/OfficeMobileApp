@@ -22,11 +22,6 @@ export class TabsPage {
   tab1Root = HomePage;
   tab2Root = CompanyListPage;
   tab3Root = MarketingListPage;
-  
-  tab4Root = UserprofilePage;
-  tab5Root = UserloginPage;
-  tab6Root = AdminUserProfileMarketingReportPage;
-  tab7Root =AdminUserProfileCompanyReportPage
   constructor() {
 
   }
