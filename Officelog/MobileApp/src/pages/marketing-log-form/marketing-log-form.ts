@@ -41,10 +41,7 @@ export class MarketingLogFormPage implements OnInit{
   }
 
   ngOnInit(){
-    // this.route.params.subscribe(params => {
-    //   this.id = params['id'];
-    // this.getMarketingLog(this.id);
-    // });
+    
     this.id=this.navParams.get('id');
     this.getMarketingLog(this.id);
 
@@ -110,7 +107,7 @@ export class MarketingLogFormPage implements OnInit{
       serviceType : String(type.value),
       rate : Number(rate.value)
     }
-    this.addServiceLine(serviceItem)
+    this.addServiceLine(serviceItem) 
   }
   addServiceLine(serviceItem : ServiceItems):void{
     this.serviceTypeItems.push(this.buildServiceType(serviceItem));
@@ -173,6 +170,9 @@ export class MarketingLogFormPage implements OnInit{
       date: this.marketing.date
        
       });
+      for (let i = 0; i < this.marketing.serviceItems.length; i++) {
+        this.serviceTypeItems.push(this.buildServiceType(this.marketing.serviceItems[i]));
+      }
       
      }
   }

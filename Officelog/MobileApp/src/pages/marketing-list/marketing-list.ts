@@ -65,6 +65,13 @@ export class MarketingListPage {
     confirm.present();
   }
 
+  patchConversion(index){
+    this.selectedMarketingLog = index;
+    this.marketingProvider.conversion(this.selectedMarketingLog,this.selectedMarketingLog.id).subscribe(() =>{
+      this.searchByDate();
+    })
+  }
+
   
   edit(event) {
     //this.navParams.get('MarketingLogFormPage');

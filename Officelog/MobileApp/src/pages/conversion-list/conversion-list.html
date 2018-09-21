@@ -1,0 +1,51 @@
+<!--
+  Generated template for the ConversionListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>conversion-list</ion-title>
+  </ion-navbar>
+  <link rel="stylesheet" 
+   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</ion-header>
+
+
+<ion-content padding>
+  
+          <ion-scroll scrollX="true" scrollY="true" style="height: 100%">
+           <table class="table table-hover table-bordered">
+            <thead>
+             <tr>
+              <th>
+                Trade Name
+              </th>
+              <th>
+                Contact
+              </th>
+              <th>
+                Action
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let a of conversionList; let i" [tabIndex]="i">
+              <td>
+                {{a.name}}
+              </td>
+              <td>
+                {{a.contactNumber}}
+              </td>
+              <td>
+                <button class="btn btn-primary" (click)="edit(i)"><i class="fa fa-pencil"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </ion-scroll>
+
+</ion-content>

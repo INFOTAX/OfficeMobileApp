@@ -19,7 +19,7 @@
   <ion-grid>
     <ion-row wrap>
       <ion-col width-90>
-        <button ion-button (click)="marketingform()"> Add to form</button>
+        <button ion-button (click)="marketingform()"><i class="fa fa-plus"></i></button>
         <ion-item>
           <ion-label>From</ion-label>
           <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fromDate"></ion-datetime>
@@ -29,9 +29,9 @@
           <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="toDate"></ion-datetime>
         </ion-item>
         <ion-item>
-          <button ion-button (click)="searchByDate()"> Search</button>
+          <button ion-button (click)="searchByDate()"> <i class="fa fa-search"></i></button>
         </ion-item>
-        <ion-scroll scrollX="true" scrollY="true" style="height: 50%">
+        <ion-scroll scrollX="true" scrollY="true" style="height: 100%">
           <table class="table table-hover table-bordered">
             <thead>
               <tr>
@@ -67,7 +67,7 @@
                   {{a.softwareInterested}}
                 </td>
                 <td>
-                    <button class="btn btn-success"><i class="fa fa-check"></i></button>
+                    <button class="btn btn-success" (click)="patchConversion(i)"><i class="fa fa-check"></i></button>
                   &nbsp;
                   <button class="btn btn-danger" (click)="deleteList(i)"><i class="fa fa-trash"></i></button>
                   &nbsp;
