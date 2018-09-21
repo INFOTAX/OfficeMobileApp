@@ -7,6 +7,7 @@
 <ion-header>
 
   <ion-navbar>
+     
     <ion-title>admin-user-profile-company-report</ion-title>
   </ion-navbar>
 
@@ -14,6 +15,7 @@
 
 
 <ion-content padding>
+    <!--visitor data start-->
   <ion-grid>
     <!--table first start-->
     <ion-card>
@@ -44,7 +46,7 @@
                               Total First Visits
                           </th>
                           <th class="trt">
-                              Total Second Or Third Visits
+                              Total 2nd  Or 3rd Visits
                           </th>
 
 
@@ -70,7 +72,7 @@
               <!--table content end-->
 <!---chart conetent start -->
              <ion-card>
-                  <canvas #barCanvas></canvas>
+                  <canvas #visitCanvas></canvas>
                       
                 </ion-card>
               <!--chart conetnt end-->
@@ -79,5 +81,68 @@
         </ion-row>
         </ion-card>
         </ion-grid>
-        
+
+        <!--visitor data task endd-->
+<!--querry data task start-->
+        <ion-grid>
+                <!--table first start-->
+                <ion-card>
+                <ion-row wrap>
+                    
+                  <ion-col width-70>
+                    
+                                
+                          <br>
+                          
+                                          <u> <h3 style="text-align:center; font-size:26px;">Query Rating</h3></u>
+                           <table class="table table-hover table-bordered">
+                             <thead>
+                                    <tr>
+                                            <th rowspan=2 class="trt">
+                                                Summary
+                                            </th>
+                                            <th class="trt">
+                                                Total Bad Query Rating
+                                            </th>
+                                            <th class="trt">
+                                                Total Good Query Rating
+                                            </th>
+                                            <th class="trt">
+                                                Total Very Good Query Rating
+                                            </th>
+                                            <th class="trt">
+                                                Total Excellent Query Rating
+                                            </th>
+                
+                
+                                        </tr>
+                
+                                        <tr>
+                                            <th  style="background:white;">{{report?.totalBadQueryRating}}</th>
+                                            <th style="background:white;">{{report?.totalGoodQueryRating}}</th>
+                                            <th style="background:white;">{{report?.totalVeryGoodQueryRating}}</th>
+                                            <th style="background:white;">{{report?.totalExcellentQueryRating}}</th>
+                                        </tr>
+                
+                                        <br>
+                                        <br>
+                                </thead>
+            
+            
+                            </table>
+            
+            
+                          <!--table content end-->
+            <!---chart conetent start -->
+                         <ion-card>
+                              <canvas #querryCanvas></canvas>
+                                  
+                            </ion-card>
+                          <!--chart conetnt end-->
+                        
+                    </ion-col>
+                    </ion-row>
+                    </ion-card>
+                    </ion-grid>
+        <!--querry data task end-->
 </ion-content>

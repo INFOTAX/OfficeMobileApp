@@ -1,10 +1,12 @@
 <ion-header>
 
-    <ion-navbar>
-      <ion-title>Company List</ion-title>
-    </ion-navbar>
     <link rel="stylesheet" 
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <ion-navbar>
+      <button ion-button menuToggle><i class="fa fa-bars"></i></button>>
+       <ion-title>Company List</ion-title>
+    
+  </ion-navbar>
  
   </ion-header>
   
@@ -15,7 +17,7 @@
       <ion-grid>
           <ion-row wrap>
             <ion-col width-90>
-<button ion-button (click)="companyform()"> Add to form</button>
+<button ion-button (click)="companyform()"> <i class="fa- fa-plus"></i>Add</button>
 <ion-item>
     <ion-label>From</ion-label>
     <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fromDate"></ion-datetime>
@@ -25,7 +27,7 @@
     <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="toDate"></ion-datetime>
   </ion-item>
   <ion-item>
-  <button ion-button (click)="searchByDate()"> Search</button> 
+  <button ion-button (click)="searchByDate()"><i class="fa- fa-search"></i></button> 
 </ion-item>
 <ion-scroll scrollX="true"  scrollY="true" style="height: 60%">
 <table class="table table-hover table-bordered">
