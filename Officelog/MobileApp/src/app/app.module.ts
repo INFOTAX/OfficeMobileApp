@@ -26,8 +26,9 @@ import { ConversionFormPage } from '../pages/conversion-form/conversion-form';
 import { ConversionListPage } from '../pages/conversion-list/conversion-list';
 import { MarketingReportProvider } from '../providers/marketing-report/marketing-report';
 import { AdminUserProfileMarketingReportPage } from '../pages/admin-user-profile-marketing-report/admin-user-profile-marketing-report';
-import { Chart } from 'chart.js';
+
 import { AdminUserProfileCompanyReportPage } from '../pages/admin-user-profile-company-report/admin-user-profile-company-report';
+import { CompanyReportProvider } from '../providers/company-report/company-report';
 @NgModule({
   declarations: [
     MyApp,
@@ -84,7 +85,9 @@ import { AdminUserProfileCompanyReportPage } from '../pages/admin-user-profile-c
     MarketingProvider,
     ConversionProvider,
     MarketingReportProvider,
+    CompanyReportProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    
     
     
     

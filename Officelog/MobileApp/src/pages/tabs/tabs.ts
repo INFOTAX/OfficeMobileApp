@@ -10,6 +10,7 @@ import { UserprofilePage } from '../userprofile/userprofile';
 import { UserloginPage } from '../userlogin/userlogin';
 import { ConversionListPage } from '../conversion-list/conversion-list';
 import { AdminUserProfileMarketingReportPage } from '../admin-user-profile-marketing-report/admin-user-profile-marketing-report';
+import { AdminUserProfileCompanyReportPage } from '../admin-user-profile-company-report/admin-user-profile-company-report';
 
 // import { CompanyFormPage } from '../company-form/company-form';
 
@@ -24,6 +25,7 @@ export class TabsPage {
   tab4Root = UserprofilePage;
   tab5Root = UserloginPage;
   tab6Root = AdminUserProfileMarketingReportPage;
+  tab7Root =AdminUserProfileCompanyReportPage
   constructor() {
 
   }

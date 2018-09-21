@@ -9,6 +9,7 @@ import { Chart } from 'chart.js'
  * Ionic pages and navigation.
  */
 
+ 
 @IonicPage() 
 @Component({
   selector: 'page-admin-user-profile-marketing-report',
