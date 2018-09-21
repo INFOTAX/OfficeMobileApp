@@ -32,6 +32,10 @@ export class CompanyFormPage implements OnInit{
 
   ngOnInit() {
     this.companyForm = this.newForm();
+    this.id=this.navParams.get('id');
+    this.getCompany(this.id);
+
+   
    
   }
   newForm() : FormGroup{
@@ -55,7 +59,7 @@ export class CompanyFormPage implements OnInit{
     })
    
   }
-  public getCompany(id: number) {
+ /* public getCompany(id: number) {
     this.companyProviders.getOne(id).subscribe(
       (company: ICompany) => this.onCompanyLogRetrieved(
         company));
@@ -95,8 +99,8 @@ export class CompanyFormPage implements OnInit{
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CompanyFormPage');
-  }
-
+  }*/
+/*
   saveCompanyForm(): void {
     if(this.companyForm.valid){
       let companyToSave = Object.assign({},this.company,this.companyForm.value);
@@ -110,7 +114,7 @@ export class CompanyFormPage implements OnInit{
   private onSaveComplete():void{
    // const displayMsg = this.id == 0 ? 'Saved' : 'Updated';
     this.navCtrl.push(CompanyListPage);
-  }
+  }*/
 /*software intrested filed added start*/
   softwareInterestedYes(){
     this.softwareYes=true;
@@ -162,5 +166,63 @@ else{
   return "";
 }
 }
+/*software data end*/
+/*value interface start*/
+
+saveCompanyForm():void {
+
+  if (this.companyForm.valid) {
+
+      let p = Object.assign({}, this.company, this.companyForm.value);
+
+       this.companyProviders.save(p, this.id)
+          .subscribe(si=>{});
+        this.onSaveComplete()
+        
+  }
+  else if (!this.companyForm.dirty) {
+    this.onSaveComplete();
+}
+}  
+onSaveComplete(){
+  this.navCtrl.push(CompanyListPage)
+}
+
+private getCompany(id):void{
+  this.companyProviders.getOne(id)
+  .subscribe((company:ICompany)=> this.onCompanyLogRetrieved(company)
+  );
+}
+private onCompanyLogRetrieved(company : ICompany) :void{
+  this.company= company;
+
+  if (this.company.id == 0) {
+    this.companyForm = this.newForm();
+    this.pageTitle = 'Add in Companylog';
+    console.log("add");
+}
+
+else {
+  this.pageTitle = `Edit  in Company : ${this.company.name}`;
+  //  let opDate = new Date(this.customer.customerOpeningDate);
+  // Update the data on the form
+  this.companyForm.patchValue({
+    id:this.company.id,
+    name:this.company.name,
+    contactNumber:this.company.contactNumber,
+    queryHandling:this.company.queryHandling,
+    serviceProvided:this.company.serviceProvided,
+    visitorType:this.company.visitorType,
+    softwareInterested:this.softwareConvert(),
+    rateUs:this.company.rateUs,
+    rateUsForNo:this.rateUsConverter(),
+    suggestionForYes:this.company.suggestionForYes,
+    suggestionForNo:this.company.suggestionForNo,
+    date:this.company.date
+
+  })
+}
+}
+/*value interface end*/
 
 }
