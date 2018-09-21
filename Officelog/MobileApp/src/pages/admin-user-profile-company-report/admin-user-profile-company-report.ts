@@ -15,7 +15,10 @@ import { CompanyReportProvider } from '../../providers/company-report/company-re
   templateUrl: 'admin-user-profile-company-report.html',
 })
 export class AdminUserProfileCompanyReportPage {
-  @ViewChild('barCanvas') barCanvas;
+ 
+  @ViewChild('visitCanvas') visitCanvas;
+  @ViewChild('querryCanvas') querryCanvas;
+
   @ViewChild('doughnutCanvas') doughnutCanvas;
   @ViewChild('lineCanvas') lineCanvas;
   CompanyReportProvider;
@@ -73,7 +76,7 @@ export class AdminUserProfileCompanyReportPage {
      this. sw=this.report.totalSoftwareInterested;
     
      this.getChartForTotalVisitorType(this.report);
-    // this.getChartForQueryType(this.report);
+    this.getChartForQueryType(this.report);
     // this.getChartForServiceType(this.report);
      //this.getChartForSoftwareType(this.report);
       console.log(this.report);
@@ -87,11 +90,11 @@ export class AdminUserProfileCompanyReportPage {
 /* fectching data for chart ends*/
 getChartForTotalVisitorType(visitData){
   this.report=visitData;
-  this.visitData = new Chart(this.barCanvas.nativeElement, {
+  this.visitData = new Chart(this.visitCanvas.nativeElement, {
  
     type: 'bar',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels:['total Visit','Client','Franchise','1st Visit','2nd or 3rd '],
         datasets: [{
             label: '# of Votes',
             data: [this.tv1, this.tv2, this.tv3, this.tv4, this.tv5],
@@ -130,6 +133,50 @@ getChartForTotalVisitorType(visitData){
 
 
 /*chart for visitdata end*/
+ /*chart data for query rating start from here */
+ getChartForQueryType(querydata){
+  this.report=querydata;
+
+  this.querydata = new Chart(this.querryCanvas.nativeElement, {
+ 
+    type: 'bar',
+    data: {
+      labels: ['Bad Query Rating','Good Query Rating','Very Good Query Rating','Excellent Query Rating'],
+        datasets: [{
+            label: '# of Votes',
+            data: [this.qr1, this.qr2, this.qr3, this.qr4],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+
+});
+
+}
 
 ionViewDidLoad() {
   console.log('ionViewDidLoad AdminUserProfileCompanyReportPage');
