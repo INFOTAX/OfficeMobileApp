@@ -18,9 +18,9 @@ export class AdminUserProfileCompanyReportPage {
  
   @ViewChild('visitCanvas') visitCanvas;
   @ViewChild('querryCanvas') querryCanvas;
-
-  @ViewChild('doughnutCanvas') doughnutCanvas;
-  @ViewChild('lineCanvas') lineCanvas;
+  @ViewChild('serviceCanvas') serviceCanvas;
+  @ViewChild('softwareCanvas') softwareCanvas;
+ 
   CompanyReportProvider;
   userName;
   company;
@@ -77,8 +77,8 @@ export class AdminUserProfileCompanyReportPage {
     
      this.getChartForTotalVisitorType(this.report);
     this.getChartForQueryType(this.report);
-    // this.getChartForServiceType(this.report);
-     //this.getChartForSoftwareType(this.report);
+    this.getChartForServiceType(this.report);
+     this.getChartForSoftwareType(this.report);
       console.log(this.report);
       (error : any) => {
         alert('TimeOut')
@@ -96,7 +96,7 @@ getChartForTotalVisitorType(visitData){
     data: {
         labels:['total Visit','Client','Franchise','1st Visit','2nd or 3rd '],
         datasets: [{
-            label: '# of Votes',
+            label: 'Total visitor type',
             data: [this.tv1, this.tv2, this.tv3, this.tv4, this.tv5],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -135,15 +135,15 @@ getChartForTotalVisitorType(visitData){
 /*chart for visitdata end*/
  /*chart data for query rating start from here */
  getChartForQueryType(querydata){
-  this.report=querydata;
+ this.report=querydata;
 
   this.querydata = new Chart(this.querryCanvas.nativeElement, {
  
     type: 'bar',
     data: {
-      labels: ['Bad Query Rating','Good Query Rating','Very Good Query Rating','Excellent Query Rating'],
+      labels: ['Bad','Good','Very Good ','Excellent'],
         datasets: [{
-            label: '# of Votes',
+            label: 'TOtal Query Rating',
             data: [this.qr1, this.qr2, this.qr3, this.qr4],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -177,7 +177,89 @@ getChartForTotalVisitorType(visitData){
 });
 
 }
-
+ /*chart data for service rating start from here */
+ getChartForServiceType(servicedata){
+    this.report=servicedata;
+  
+    this.servicedata = new Chart(this.serviceCanvas.nativeElement, {
+   
+      type: 'bar',
+      data: {
+        labels: ['Bad ','Good','Very Good','Excellent'],
+          datasets: [{
+              label: 'Total service rating',
+              data: [this.sr1, this.sr2, this.sr3, this.sr4],
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)'
+              ],
+              borderColor: [
+                  'rgba(255,99,132,1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero:true
+                  }
+              }]
+          }
+      }
+  
+  });
+  
+  }
+   /*chart data for service rating start from here */
+ getChartForSoftwareType(softwaredata){
+    this.report=softwaredata;
+  
+    this.softwaredata = new Chart(this.softwareCanvas.nativeElement, {
+   
+      type: 'doughnut',
+      data: {
+        labels: ['Software intrested'],
+          datasets: [{
+              label: 'Software Rating',
+              data: [this.sw],
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)'
+                  
+                  
+              ],
+              hoverBackgroundColor: [
+                "#FF6384"
+                 
+                 
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero:true
+                  }
+              }]
+          }
+      }
+  
+  });
+  
+  }
+  
 ionViewDidLoad() {
   console.log('ionViewDidLoad AdminUserProfileCompanyReportPage');
 }
