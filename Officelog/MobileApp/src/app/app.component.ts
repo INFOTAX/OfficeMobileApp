@@ -35,7 +35,6 @@ export class MyApp {
     this.pages=[
       {title:'TabsPage', component:TabsPage},
       {title:'User',component:UserprofilePage},
-      {title:'Login',component:UserloginPage},
       {title:'Conversion List',component:ConversionListPage},
       {title:'Marketing Report',component:AdminUserProfileMarketingReportPage},
       {title: 'Company Report', component:AdminUserProfileCompanyReportPage},
