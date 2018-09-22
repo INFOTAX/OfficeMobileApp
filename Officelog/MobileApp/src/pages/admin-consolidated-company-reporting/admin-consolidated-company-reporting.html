@@ -1,0 +1,176 @@
+<!--
+  Generated template for the AdminConsolidatedCompanyReportingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <ion-navbar>
+    <button ion-button menuToggle><i class="fa fa-bars"></i></button>
+    <ion-title>admin-consolidated-company-reporting</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div padding>
+  <ion-segment>
+    <ion-segment-button (click)="visits();">
+      <b>VISITORS</b>
+    </ion-segment-button>
+    <ion-segment-button (click)="query();">
+      <b>QUERY</b>
+    </ion-segment-button>
+    <ion-segment-button (click)="service();">
+      <b>SERVICE</b>
+    </ion-segment-button>
+    <ion-segment-button (click)="software();">
+      <b>SOFTWARE</b>
+    </ion-segment-button>
+  </ion-segment>
+</div>
+
+  <div [hidden]="TVisits">
+    <br>
+    <br>
+    <h4>Total Number of Visitors</h4>
+
+    <table class="table table-hover table-bordered">
+
+      <thead>
+        <tr>
+          <th rowspan=2>
+            Summary
+          </th>
+          <th>
+            Total Visits
+          </th>
+          <th>
+            Client Visits
+          </th>
+          <th>
+            First Visits
+          </th>
+          <th>
+            Franchise Visits
+          </th>
+          <th>
+            2nd/3rd Visits
+          </th>
+        </tr>
+        <tr>
+          <th style="background:white;">{{companyReportData?.totalVisits}}</th>
+          <th style="background:white;">{{companyReportData?.totalClientVisits}}</th>
+          <th style="background:white;">{{companyReportData?.totalFirstVisits}}</th>
+          <th style="background:white;">{{companyReportData?.totalFranchiseVisits}}</th>
+          <th style="background:white;">{{companyReportData?.totalSecondOrThirdVisits}}</th>
+        </tr>
+        <br>
+
+      </thead>
+    </table>
+    <canvas #visitorType></canvas>
+  </div>
+  <div [hidden]="TQuery">
+    <br>
+    <br>
+    <h4>Total Query Rating</h4>
+    <table class="table table-hover table-bordered">
+
+      <thead>
+        <tr>
+          <th rowspan=2>
+            Summary
+          </th>
+          <th>
+            Bad
+          </th>
+          <th>
+            Good
+          </th>
+          <th>
+            Very Good
+          </th>
+          <th>
+            Excellent
+          </th>
+        </tr>
+        <tr>
+          <th style="background:white;">{{companyReportData?.totalBadQueryRating}}</th>
+          <th style="background:white;">{{companyReportData?.totalGoodQueryRating}}</th>
+          <th style="background:white;">{{companyReportData?.totalVeryGoodQueryRating}}</th>
+          <th style="background:white;">{{companyReportData?.totalExcellentQueryRating}}</th>
+        </tr>
+        <br>
+
+      </thead>
+    </table>
+    <canvas #queryRating></canvas>
+  </div>
+  <div [hidden]="TService">
+    <br>
+    <br>
+    <h4>Total Service Rating</h4>
+    <table class="table table-hover table-bordered">
+
+      <thead>
+        <tr>
+          <th rowspan=2>
+            Summary
+          </th>
+          <th>
+            Bad
+          </th>
+          <th>
+            Good
+          </th>
+          <th>
+            Very Good
+          </th>
+          <th>
+            Excellent
+          </th>
+        </tr>
+        <tr>
+          <th style="background:white;">{{companyReportData?.totalBadServiceRating}}</th>
+          <th style="background:white;">{{companyReportData?.totalGoodServiceRating}}</th>
+          <th style="background:white;">{{companyReportData?.totalVeryGoodServiceRating}}</th>
+          <th style="background:white;">{{companyReportData?.totalExcellentServiceRating}}</th>
+        </tr>
+        <br>
+
+      </thead>
+    </table>
+    <canvas #serviceRating></canvas>
+  </div>
+  <div [hidden]="TSoftware">
+    <br>
+    <br>
+    <h4>Total Software Interested</h4>
+    <table class="table table-hover table-bordered">
+
+      <thead>
+        <tr>
+          <th rowspan=2>
+            Summary
+          </th>
+          <th>
+            Software Interested
+          </th>
+        </tr>
+        <tr>
+          <th style="background:white;">{{companyReportData?.totalSoftwareInterested}}</th>
+        </tr>
+        <br>
+
+      </thead>
+    </table>
+    <canvas #softwareInterested></canvas>
+  </div>
+
+
+</ion-content>

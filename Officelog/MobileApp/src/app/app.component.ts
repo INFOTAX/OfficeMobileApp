@@ -8,6 +8,8 @@ import { ConversionListPage } from '../pages/conversion-list/conversion-list';
 import { UserprofilePage } from '../pages/userprofile/userprofile';
 import { UserloginPage } from '../pages/userlogin/userlogin';
 import { AdminUserProfileCompanyReportPage } from '../pages/admin-user-profile-company-report/admin-user-profile-company-report';
+import { AdminConsolidatedMarketingReportingPage } from '../pages/admin-consolidated-marketing-reporting/admin-consolidated-marketing-reporting';
+import { AdminConsolidatedCompanyReportingPage } from '../pages/admin-consolidated-company-reporting/admin-consolidated-company-reporting';
 
 
 
@@ -36,7 +38,9 @@ export class MyApp {
       {title:'Login',component:UserloginPage},
       {title:'Conversion List',component:ConversionListPage},
       {title:'Marketing Report',component:AdminUserProfileMarketingReportPage},
-      {title: 'Company Report', component:AdminUserProfileCompanyReportPage}
+      {title: 'Company Report', component:AdminUserProfileCompanyReportPage},
+      {title: 'Consolidated Marketing Report', component: AdminConsolidatedMarketingReportingPage},
+      {title: 'Consolidated Company Report', component: AdminConsolidatedCompanyReportingPage}
     ];
     this.activePage=this.pages[0];
   }
