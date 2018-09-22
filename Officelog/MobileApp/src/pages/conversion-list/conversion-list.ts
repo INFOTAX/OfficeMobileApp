@@ -18,9 +18,11 @@ import { ConversionFormPage } from '../conversion-form/conversion-form';
 })
 export class ConversionListPage implements OnInit{
   conversionList;
+  searchTerm: string = '';
   //selectedConversionList: IMarketinglog;
   id:number;
   marketing: IMarketinglog;
+  //items:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public conversionProviders: ConversionProvider) {
@@ -28,6 +30,7 @@ export class ConversionListPage implements OnInit{
 
   ngOnInit() {
     this.getConversionList();
+    //this.setFilteredItems();
   }
   getConversionList(){
     this.conversionProviders.getConversions().subscribe(response=>{
@@ -45,5 +48,10 @@ export class ConversionListPage implements OnInit{
     console.log(this.id)
     this.navCtrl.push(ConversionFormPage,{id: this.id});
   }
+//   setFilteredItems(i) {
+ 
+//     this.items = i;
+
+// }
 
 }

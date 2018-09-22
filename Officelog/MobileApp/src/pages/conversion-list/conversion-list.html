@@ -19,6 +19,8 @@
 
 
 <ion-content padding>
+
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="setFilteredItems(i)"></ion-searchbar>
   
           <ion-scroll scrollX="true" scrollY="true" style="height: 100%">
            <table class="table table-hover table-bordered">
