@@ -71,8 +71,8 @@ export class AdminUserProfileMarketingReportPage implements OnInit {
             label: '',
             data: [this.TotalSoftwareInterested,this.TotalServiceInterested],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)'
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)'
             ],
             borderColor: [
                 'rgba(255,99,132,1)',
@@ -105,7 +105,7 @@ chartForTotalConversion(){
             label: '# of Votes',
             data: [this.TotalConversion],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)'
+                'rgba(255, 99, 132, 1)'
             ],
             borderColor: [
                 'rgba(255,99,132,1)'

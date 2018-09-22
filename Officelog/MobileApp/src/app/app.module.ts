@@ -29,6 +29,9 @@ import { AdminUserProfileMarketingReportPage } from '../pages/admin-user-profile
 
 import { AdminUserProfileCompanyReportPage } from '../pages/admin-user-profile-company-report/admin-user-profile-company-report';
 import { CompanyReportProvider } from '../providers/company-report/company-report';
+import { AdminConsolidatedReportingProvider } from '../providers/admin-consolidated-reporting/admin-consolidated-reporting';
+import { AdminConsolidatedCompanyReportingPage } from '../pages/admin-consolidated-company-reporting/admin-consolidated-company-reporting';
+import { AdminConsolidatedMarketingReportingPage } from '../pages/admin-consolidated-marketing-reporting/admin-consolidated-marketing-reporting';
 @NgModule({
   declarations: [
     MyApp,
@@ -46,7 +49,8 @@ import { CompanyReportProvider } from '../providers/company-report/company-repor
     ConversionFormPage,
     ConversionListPage,
     AdminUserProfileMarketingReportPage,
- 
+    AdminConsolidatedMarketingReportingPage,
+    AdminConsolidatedCompanyReportingPage
     
    
   ],
@@ -76,6 +80,8 @@ import { CompanyReportProvider } from '../providers/company-report/company-repor
     ConversionFormPage,
     ConversionListPage,
     AdminUserProfileMarketingReportPage,
+    AdminConsolidatedMarketingReportingPage,
+    AdminConsolidatedCompanyReportingPage
     
   ],
   providers: [
@@ -86,7 +92,9 @@ import { CompanyReportProvider } from '../providers/company-report/company-repor
     ConversionProvider,
     MarketingReportProvider,
     CompanyReportProvider,
+    AdminConsolidatedReportingProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    
     
     
     
