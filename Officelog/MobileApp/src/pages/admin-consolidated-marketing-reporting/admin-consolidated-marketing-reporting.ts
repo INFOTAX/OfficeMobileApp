@@ -74,9 +74,9 @@ export class AdminConsolidatedMarketingReportingPage implements OnInit {
           data: [this.TotalSoftwareInterested,this.TotalServiceInterested,this.AvgPriceOfSoftware],
           backgroundColor: [
 
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgb(255, 255, 102, 0.2)'
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgb(255, 255, 102, 1)'
           ],
           borderColor: [
             'rgba(255,99,132,1)',
@@ -109,7 +109,7 @@ export class AdminConsolidatedMarketingReportingPage implements OnInit {
           data: [this.TotalConversion],
           backgroundColor: [
 
-            'rgba(255, 99, 132, 0.2)'
+            'rgba(255, 99, 132, 1)'
           ],
           borderColor: [
             'rgba(255,99,132,1)'

@@ -94,11 +94,11 @@ export class AdminConsolidatedCompanyReportingPage implements OnInit {
           data: [this.TotalVisits, this.TotalClientVisits, this.TotalFirstVisits, this.TotalFranchiseVisits, this.TotalSecondOrThirdVisits],
           backgroundColor: [
 
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgb(255, 255, 102, 0.2)',
-            'rgb(0, 255, 0, 0.2)',
-            'rgb(255, 26, 26, 0.2)'
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgb(255, 255, 102, 1)',
+            'rgb(0, 255, 0, 1)',
+            'rgb(255, 26, 26, 1)'
           ],
           borderColor: [
             'rgba(255,99,132,1)',
@@ -135,10 +135,10 @@ export class AdminConsolidatedCompanyReportingPage implements OnInit {
           backgroundColor: [
 
 
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgb(255, 255, 102, 0.2)',
-            'rgb(0, 255, 0, 0.2)',
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgb(255, 255, 102, 1)',
+            'rgb(0, 255, 0, 1)',
           ],
           borderColor: [
             'rgba(255,99,132,1)',
@@ -174,10 +174,10 @@ export class AdminConsolidatedCompanyReportingPage implements OnInit {
           backgroundColor: [
 
 
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgb(255, 255, 102, 0.2)',
-            'rgb(0, 255, 0, 0.2)',
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgb(255, 255, 102, 1)',
+            'rgb(0, 255, 0, 1)',
           ],
           borderColor: [
             'rgba(255,99,132,1)',
@@ -213,7 +213,7 @@ export class AdminConsolidatedCompanyReportingPage implements OnInit {
           backgroundColor: [
 
 
-            'rgba(255, 99, 132, 0.2)'
+            'rgba(255, 99, 132, 1)'
           ],
           borderColor: [
             'rgba(255,99,132,1)'
