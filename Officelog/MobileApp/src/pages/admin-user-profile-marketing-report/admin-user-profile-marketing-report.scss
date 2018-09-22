@@ -1,16 +1,14 @@
 page-admin-user-profile-marketing-report {
-    table.table-bordered > thead > tr > th{
-        border-color: black;
+  
+    .trt{
+        background-color:#648de178 !important;
+        font-weight: 700 !important;
     }
-    table.table-bordered > tbody > tr > td{
-        border-color: black; 
-    }
-    th{
-        background: #989ab1;
-        padding-left: 25px;
-        overflow: auto;
-        padding-top: 4px;
-        padding-bottom: 4px;
-        text-align: center
-      }
+th{
+    text-align: center;
+}    
+.content-md {
+    color: #000;
+    background-color: #adb4dc8c!important;
+}
 }
