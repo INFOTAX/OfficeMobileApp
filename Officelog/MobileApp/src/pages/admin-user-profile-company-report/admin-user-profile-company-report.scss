@@ -1,9 +1,21 @@
 page-admin-user-profile-company-report {
     .trt{
-        background-color: #ffe399cf !important;
+        background-color:#648de178 !important;
         font-weight: 700 !important;
     }
 th{
     text-align: center;
 }    
+.content-md {
+    color: #000;
+    background-color: #adb4dc8c!important;
+}
+ion-segment-button-activated{
+ 
+    color: #fff;
+    background-color: #387ef5;
+    opacity: 1;
+    -webkit-transition: .1s all linear;
+    transition: .1s all linear;
+}
 }

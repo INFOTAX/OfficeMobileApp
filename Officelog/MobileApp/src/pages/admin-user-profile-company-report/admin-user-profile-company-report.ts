@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Chart } from 'chart.js';
+import { viewClassName } from '@angular/compiler';
 import { CompanyReportProvider } from '../../providers/company-report/company-report';
 /**
  * Generated class for the AdminUserProfileCompanyReportPage page.
@@ -17,11 +18,16 @@ import { CompanyReportProvider } from '../../providers/company-report/company-re
 export class AdminUserProfileCompanyReportPage {
  
   @ViewChild('visitCanvas') visitCanvas;
-  @ViewChild('querryCanvas') querryCanvas;
-  @ViewChild('serviceCanvas') serviceCanvas;
-  @ViewChild('softwareCanvas') softwareCanvas;
- 
+  @ViewChild('querryCanvas') querryCanvas ;
+  @ViewChild('serviceCanvas') serviceCanvas ;
+  @ViewChild('softwareCanvas') softwareCanvas ;
+ visitreport=true;
+ queryreport=true;
+ servicereport=true;
+ softwarereport=true;
+
   CompanyReportProvider;
+  nativeElement:any;
   userName;
   company;
   report;
@@ -86,11 +92,15 @@ export class AdminUserProfileCompanyReportPage {
       console.log(this.report);
     });
   }
-
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad AdminUserProfileCompanyReportPage');}
+  
 /* fectching data for chart ends*/
+
 getChartForTotalVisitorType(visitData){
+   
   this.report=visitData;
-  this.visitData = new Chart(this.visitCanvas.nativeElement, {
+  this.visitData = new Chart(this.visitCanvas.nativeElement,{
  
     type: 'bar',
     data: {
@@ -99,12 +109,12 @@ getChartForTotalVisitorType(visitData){
             label: 'Total visitor type',
             data: [this.tv1, this.tv2, this.tv3, this.tv4, this.tv5],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
             ],
             borderColor: [
                 'rgba(255,99,132,1)',
@@ -136,8 +146,7 @@ getChartForTotalVisitorType(visitData){
  /*chart data for query rating start from here */
  getChartForQueryType(querydata){
  this.report=querydata;
-
-  this.querydata = new Chart(this.querryCanvas.nativeElement, {
+ this.querydata = new Chart(this.querryCanvas.nativeElement, {
  
     type: 'bar',
     data: {
@@ -146,12 +155,12 @@ getChartForTotalVisitorType(visitData){
             label: 'TOtal Query Rating',
             data: [this.qr1, this.qr2, this.qr3, this.qr4],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
             ],
             borderColor: [
                 'rgba(255,99,132,1)',
@@ -181,7 +190,7 @@ getChartForTotalVisitorType(visitData){
  getChartForServiceType(servicedata){
     this.report=servicedata;
   
-    this.servicedata = new Chart(this.serviceCanvas.nativeElement, {
+  this.servicedata = new Chart(this.serviceCanvas.nativeElement, {
    
       type: 'bar',
       data: {
@@ -190,12 +199,12 @@ getChartForTotalVisitorType(visitData){
               label: 'Total service rating',
               data: [this.sr1, this.sr2, this.sr3, this.sr4],
               backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-                  'rgba(153, 102, 255, 0.2)',
-                  'rgba(255, 159, 64, 0.2)'
+                  'rgba(255, 99, 132, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
               ],
               borderColor: [
                   'rgba(255,99,132,1)',
@@ -234,7 +243,7 @@ getChartForTotalVisitorType(visitData){
               label: 'Software Rating',
               data: [this.sw],
               backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)'
+                  'rgba(255, 99, 132, 1)'
                   
                   
               ],
@@ -260,8 +269,32 @@ getChartForTotalVisitorType(visitData){
   
   }
   
-ionViewDidLoad() {
-  console.log('ionViewDidLoad AdminUserProfileCompanyReportPage');
-}
+viewvisitorRating()
+{
+   this. visitreport=false;
+   this. queryreport=true;
+   this. servicereport=true;
+   this. softwarereport=true;
+}  
+viewqueryRating(){
+    this. visitreport=true;
+    this. queryreport=false;
+    this. servicereport=true;
+    this. softwarereport=true;
 
+}
+viewserviceRating(){
+    this. visitreport=true;
+    this. queryreport=true;
+    this. servicereport=false;
+    this. softwarereport=true;
+
+}
+viewsoftwareRating(){
+    this. visitreport=true;
+    this. queryreport=true;
+    this. servicereport=true;
+    this. softwarereport=false;
+
+}
 }

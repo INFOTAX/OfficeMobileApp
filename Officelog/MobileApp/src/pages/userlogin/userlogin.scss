@@ -1,3 +1,79 @@
 page-userlogin {
+.bg{
+    height:100%;
+    width:100%;
+    background:linear-gradient(160deg,#b627f2 30%, #10DFCa 70% )
+}
+.head{
+    position: absolute;
+    display:block;
+    color:#fff;
+    top:20%;
+    left:50%;
+    transform: translate(-50%,-50%);
+width:100%;
+   
+}
+.head h3{
+    margin-top: 144px;
+    padding-top: 2px;
+    font-size: 5vh !important;
+    font-weight: lighter !important;
+    font-family: 'Pacifico',cursive;
+    text-shadow: 2px 2px 4px #000000;
+}
+/*.head img{
+    position:absolute;
+    display:block;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    padding-bottom:20px;
+   
+}*/
+.inputs{
+    position:absolute;
+    display:block;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width:80%;
+    color:#fff;
+    opacity:0.6;
+}
+ ion-item {
+    background:transparent !important;
+    border:1px solid #fff !important;
+    ion-input{
+        color: #fff !important;
+    }
+    ion-label{
+        color:#fff !important; 
+    }
+    .item-inner{
+        border:0!important;
+    }
+}
+button{
+    position:absolute;
+    display:block;
+    top:50%;
+    background:#fff !important;
+    border:1px solid #fff;
+    box-shadow:0px;
+    color:#9A9595 !important;
 
+}
+.log{
+    top: 50%;
+   
+    //border :2px solid black;
+   // border-radius:0px 0px 25px 0px;
+    width: 45%;
+    height: 43px;
+    padding-top: 18px;
+    padding-bottom: 15px;
+    padding-left: 9px;
+    padding-right: 5px;
+}
 }

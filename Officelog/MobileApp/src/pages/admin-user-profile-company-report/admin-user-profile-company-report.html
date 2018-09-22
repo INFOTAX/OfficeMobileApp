@@ -1,11 +1,6 @@
-<!--
-  Generated template for the AdminUserProfileCompanyReportPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <ion-navbar>
         <button ion-button menuToggle>
@@ -17,186 +12,35 @@
 </ion-header>
 
 
+
 <ion-content padding>
-
-        <div padding>
-                <ion-segment [(ngModel)]="ratings">
-                  <ion-segment-button value="visitorRating">
-                   Visitor
-                  </ion-segment-button>
-                  <ion-segment-button value="queryRating">
-                   Query 
-                  </ion-segment-button>
-                  <ion-segment-button value="serviceRating">
-                        Service
-                       </ion-segment-button>
-                       <ion-segment-button value="softwareRating">
-                            Software
-                           </ion-segment-button>
-                </ion-segment>
-              </div>
-
-
-              <div [ngSwitch]="ratings">
-    <!--visitor data start-->
-    <ion-list *ngSwitchCase="'visitorRating'">
-           
-               
-    <ion-grid>
-        <!--table first start-->
-       
-            <ion-row wrap>
-
-                <ion-col width-80>
-
-
-                    <br>
-
-                    <u>
-                        <h3 style="text-align:center; font-size:26px;">Total Visitor</h3>
-                    </u>
-                    <table class="table table-hover table-bordered">
-                        <thead>
-                            <tr>
-                                <th rowspan=2 class="trt">
-                                    Summary
-                                </th>
-                                <th class="trt">
-                                    Total Visit
-                                </th>
-                                <th class="trt">
-                                    Total Client Visits
-                                </th>
-                                <th class="trt">
-                                    Total Franchise Visits
-                                </th>
-                                <th class="trt">
-                                    Total First Visits
-                                </th>
-                                <th class="trt">
-                                    Total 2nd Or 3rd Visits
-                                </th>
-
-
-                            </tr>
-
-                            <tr>
-                                <th style="background:white;">{{report?.totalVisits}}</th>
-                                <th style="background:white;">{{report?.totalClientVisits}}</th>
-                                <th style="background:white;">{{report?.totalFranchiseVisits}}</th>
-                                <th style="background:white;">{{report?.totalFirstVisits}}</th>
-                                <th style="background:white;">{{report?.totalSecondOrThirdVisits}}</th>
-                            </tr>
-
-                            <br>
-                            <br>
-
-                        </thead>
-
-
-                    </table>
-
-
-                    <!--table content end-->
-                    <!---chart conetent start -->
-                  
-                        <canvas #visitCanvas ></canvas>
-
+        <ion-segment> 
+                <ion-segment-button (click)="viewvisitorRating();" >
+                   <b> VISITOR</b> 
+                </ion-segment-button>
+                <ion-segment-button (click)="viewqueryRating();">
+                        <b>QUERY</b> 
+                </ion-segment-button>
+                <ion-segment-button (click)="viewserviceRating();" >
+                        <b>SERVICE</b>  
+                    </ion-segment-button>
+                    <ion-segment-button (click)="viewsoftwareRating();">
+                            <b>SOFTWARE</b> 
+                    </ion-segment-button>
                    
-                    <!--chart conetnt end-->
-
-                </ion-col>
-            </ion-row>
-       
-    </ion-grid>
-    
-</ion-list>
-    <!--visitor data task endd-->
-    <!--querry data task start-->
-    <ion-list *ngSwitchCase="'queryRating'">
-           
-    <ion-grid>
-        <!--table first start-->
-       
-            <ion-row wrap>
-
-                <ion-col width-80>
-
-
-                    <br>
-
-                    <u>
-                        <h3 style="text-align:center; font-size:26px;">Query Rating</h3>
-                    </u>
-                    <table class="table table-hover table-bordered">
-                        <thead>
-                            <tr>
-                                <th rowspan=2 class="trt">
-                                    Summary
-                                </th>
-                                <th class="trt">
-                                    Total Bad Query Rating
-                                </th>
-                                <th class="trt">
-                                    Total Good Query Rating
-                                </th>
-                                <th class="trt">
-                                    Total Very Good Query Rating
-                                </th>
-                                <th class="trt">
-                                    Total Excellent Query Rating
-                                </th>
-
-
-                            </tr>
-
-                            <tr>
-                                <th style="background:white;">{{report?.totalBadQueryRating}}</th>
-                                <th style="background:white;">{{report?.totalGoodQueryRating}}</th>
-                                <th style="background:white;">{{report?.totalVeryGoodQueryRating}}</th>
-                                <th style="background:white;">{{report?.totalExcellentQueryRating}}</th>
-                            </tr>
-
-                            <br>
-                            <br>
-                        </thead>
-
-
-                    </table>
-
-
-                    <!--table content end-->
-                    <!---chart conetent start -->
-                   
-                        <canvas #querryCanvas></canvas>
-
-                   
-                    <!--chart conetnt end-->
-
-                </ion-col>
-            </ion-row>
-       
-    </ion-grid>
+              </ion-segment>
+ 
+        <!--visitor data start-->
    
-    </ion-list>
-    <!--querry data task end-->
-     <!--service data task start-->
-     <ion-list *ngSwitchCase="'serviceRating'">
-         
-                
-     <ion-grid>
-            <!--table first start-->
-           
+        <div [hidden]="visitreport">
+            <ion-grid>
+                <!--table first start-->
                 <ion-row wrap>
-    
                     <ion-col width-80>
-    
-    
                         <br>
-    
-                        <u>
-                            <h3 style="text-align:center; font-size:26px;">Service Rating</h3>
-                        </u>
+                       
+                            <h3 style="text-align:center; font-size:26px;">Number of Visitors <br><br></h3>
+                        
                         <table class="table table-hover table-bordered">
                             <thead>
                                 <tr>
@@ -204,102 +48,222 @@
                                         Summary
                                     </th>
                                     <th class="trt">
-                                        Total Bad Query Rating
+                                               Total                             </th>
+                                    <th class="trt">
+                                        Client
                                     </th>
                                     <th class="trt">
-                                        Total Good Query Rating
+                                         Franchise
                                     </th>
                                     <th class="trt">
-                                        Total Very Good Query Rating
+                                         1st 
                                     </th>
                                     <th class="trt">
-                                        Total Excellent Query Rating
+                                         2nd Or 3rd 
                                     </th>
-    
-    
+
+
                                 </tr>
-    
+
+                                <tr>
+                                    <th style="background:white;">{{report?.totalVisits}}</th>
+                                    <th style="background:white;">{{report?.totalClientVisits}}</th>
+                                    <th style="background:white;">{{report?.totalFranchiseVisits}}</th>
+                                    <th style="background:white;">{{report?.totalFirstVisits}}</th>
+                                    <th style="background:white;">{{report?.totalSecondOrThirdVisits}}</th>
+                                </tr>    
+                            </thead>
+                        </table>
+                        <!--table content end-->
+                        <!---chart conetent start -->
+                      
+                        <canvas #visitCanvas></canvas>
+                        
+                        <!--chart conetnt end-->
+                    </ion-col>
+               </ion-row>
+            </ion-grid>
+       </div> 
+        <!--visitor data task endd-->
+        <!--querry data task start-->
+        <div [hidden]="queryreport">
+        <ion-grid>
+               <ion-row wrap>
+           <ion-col width-80>
+                            <h3 style="text-align:center; font-size:26px;">Query Rating<br><br></h3>
+                        
+                        <table class="table table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th rowspan=2 class="trt">
+                                        Summary
+                                    </th>
+                                    <th class="trt">
+                                        Bad 
+                                    </th>
+                                    <th class="trt">
+                                        Good 
+                                    </th>
+                                    <th class="trt">
+                                        Very Good 
+                                    </th>
+                                    <th class="trt">
+                                        Excellent 
+                                    </th>
+
+
+                                </tr>
+
                                 <tr>
                                     <th style="background:white;">{{report?.totalBadQueryRating}}</th>
                                     <th style="background:white;">{{report?.totalGoodQueryRating}}</th>
                                     <th style="background:white;">{{report?.totalVeryGoodQueryRating}}</th>
                                     <th style="background:white;">{{report?.totalExcellentQueryRating}}</th>
                                 </tr>
-    
+
                                 <br>
                                 <br>
                             </thead>
-    
-    
+
+
                         </table>
-    
-    
+
+
                         <!--table content end-->
                         <!---chart conetent start -->
-                      
-                            <canvas #serviceCanvas></canvas>
-    
-                      
+
+                        <canvas #querryCanvas ></canvas>
+
+
                         <!--chart conetnt end-->
-    
+
                     </ion-col>
                 </ion-row>
-           
-        </ion-grid>
-      
-        </ion-list>
+
+            </ion-grid>
+
+       </div>
+        <!--querry data task end-->
+        <!--service data task start-->
+      <div [hidden]="servicereport">
+
+
+            <ion-grid>
+                <!--table first start-->
+
+                <ion-row wrap>
+
+                    <ion-col width-80>
+
+
+                        <br>
+
+                       
+                            <h3 style="text-align:center; font-size:26px;">Service Rating <br><br></h3>
+                        
+                        <table class="table table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th rowspan=2 class="trt">
+                                        Summary
+                                    </th>
+                                    <th class="trt">
+                                        Bad
+                                    </th>
+                                    <th class="trt">
+                                        Good
+                                    </th>
+                                    <th class="trt">
+                                        Very Good
+                                    </th>
+                                    <th class="trt">
+                                        Excellent
+                                    </th>
+
+
+                                </tr>
+
+                                <tr>
+                                    <th style="background:white;">{{report?.totalBadQueryRating}}</th>
+                                    <th style="background:white;">{{report?.totalGoodQueryRating}}</th>
+                                    <th style="background:white;">{{report?.totalVeryGoodQueryRating}}</th>
+                                    <th style="background:white;">{{report?.totalExcellentQueryRating}}</th>
+                                </tr>
+
+                                <br>
+                                <br>
+                            </thead>
+
+
+                        </table>
+
+
+                        <!--table content end-->
+                        <!---chart conetent start -->
+
+                        <canvas #serviceCanvas></canvas>
+
+
+                        <!--chart conetnt end-->
+
+                    </ion-col>
+                </ion-row>
+
+            </ion-grid>
+
+     </div>
         <!--servicedata task end-->
-    <!--software data task start-->
-    <ion-list *ngSwitchCase="'softwareRating'">
-          
-                
-    <ion-grid>
-        
-       
-            <ion-row wrap>
-
-                <ion-col width-80>
+        <!--software data task start-->
+        <div [hidden]="softwarereport">
 
 
-                    <br>
-
-                    <u>
-                        <h3 style="text-align:center; font-size:26px;">Query Rating</h3>
-                    </u>
-                    <table class="table table-hover table-bordered">
-                        <thead>
-                            <tr>
-                                <th rowspan=2 class="trt">
-                                    Summary
-                                </th>
-                                <th class="trt">
-                                    Software Intrested
-                                </th>
-                            </tr>
-
-                            <tr>
-                                <th style="background:white;">{{report?.totalSoftwareInterested}}</th>
-                            </tr>
-                        </thead>
+            <ion-grid>
 
 
-                    </table>
+                <ion-row wrap>
+
+                    <ion-col width-80>
 
 
-                    <!--table content end-->
-                    <!---chart conetent start -->
-                   
+                        <br>
+
+                       
+                            <h3 style="text-align:center; font-size:26px;">Software Rating<br><br></h3>
+                        
+                        <table class="table table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th rowspan=2 class="trt">
+                                        Summary
+                                    </th>
+                                    <th class="trt">
+                                        Software Intrested
+                                    </th>
+                                </tr>
+
+                                <tr>
+                                    <th style="background:white;">{{report?.totalSoftwareInterested}}</th>
+                                </tr>
+                            </thead>
+
+
+                        </table>
+
+
+                        <!--table content end-->
+                        <!---chart conetent start -->
+
                         <canvas #softwareCanvas></canvas>
 
-                  
-                    <!--chart conetnt end-->
 
-                </ion-col>
-            </ion-row>
-       
-    </ion-grid>
-    
-    </ion-list>
-    <!--software data task end-->
-    </div>
+                        <!--chart conetnt end-->
+
+                    </ion-col>
+                </ion-row>
+
+            </ion-grid>
+
+      </div> 
+        <!--software data task end-->
+  
 </ion-content>
