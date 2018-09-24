@@ -1,8 +1,12 @@
 page-userlogin {
 .bg{
+   // background-image: url("walp.png");
     height:100%;
     width:100%;
-    background:linear-gradient(160deg,#b627f2 30%, #10DFCa 70% )
+    height:device-height ;
+    background:linear-gradient(160deg,#b627f2 30%, #10DFCa 70% );
+    -ms-scroll-limit: false; // Valid options appear to be [true, false]
+    -ms-autoFocusAssist: false;
 }
 .head{
     position:absolute;
@@ -25,17 +29,17 @@ h3{
      top:40%;
      left:10%;
      width:80%;
-     color:#ffff;
-     opacity:0.6;
+    // color:#ffff;
+    // opacity:0.6;
 
 }
 ion-input{
-    color:#197be0;
+    //color:#197be0;
     font-size:2.8vh;
     font-weight:700;
 }
 ion-label{
-    color:#fff;
+  //  color:#fff;
     font-weight:600;
 }
 ion-item{
@@ -44,8 +48,8 @@ ion-item{
 button{
     position: absolute;
     display:block;
-    background:#fff!important;
-    box-shadow:0px;
-    color:#9A9595 !important;
+   // background:#fff!important;
+   // box-shadow:0px;
+    //color:#9A9595 !important;
 }
 }
