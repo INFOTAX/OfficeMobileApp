@@ -29,6 +29,7 @@ export class CompanyProvider extends ServiceBase<ICompany> {
     return this.http.post<ICompany>(`${this.baseUrl}`,company);
   }
   
+  
 
   intializeObject(): ICompany {
     return {

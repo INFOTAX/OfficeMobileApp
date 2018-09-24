@@ -35,11 +35,9 @@ export class CompanyFormPage implements OnInit{
 
   ngOnInit() {
     this.companyForm = this.newForm();
-    this.id=this.navParams.get('id');
+  this.id=this.navParams.get('id');
     this.getCompany(this.id);
-
-   
-   
+    
   }
   newForm() : FormGroup{
     return this.fb.group({

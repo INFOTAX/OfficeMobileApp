@@ -39,7 +39,6 @@ export class CompanyListPage{
   suggestionForYes:string;
   suggestionForNo:string;
   
-
  maxDate=new Date().toJSON().split('T')[0];
   
   today = new Date().toJSON().split('T')[0];
@@ -74,6 +73,7 @@ companyform(){
 }
 
 
+
 deleteList(index) {
   const confirm = this.alertCtrl.create({
     title:'DELETE CONFIRMATION',
@@ -84,7 +84,7 @@ deleteList(index) {
         handler:()=>{
           this.selectedCompanyLog=index;
           this.companyProvider.delete(this.selectedCompanyLog.id).subscribe(() =>{
-           this.searchByDate(this.fromDate,this.toDate);
+          this.searchByDate(this.fromDate,this.toDate);
          
         });    
         }

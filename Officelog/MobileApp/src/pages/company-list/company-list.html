@@ -19,6 +19,7 @@
   <ion-grid>
     <ion-row wrap class="bg">
       <ion-col width-90>
+        
       
         <ion-item text-center>
             <button  (click)="companyform()" style="border-radius:25px;" ion-fab mini>
@@ -26,7 +27,7 @@
               </button>
               
               
-         
+
           
         </ion-item>
         <ion-item>
@@ -35,7 +36,7 @@
                     [pickerFormat]="date"  [(ngModel)]="fromDate"  [disabled]="false" type="date">
                         </ion-datetime>
          <!-- <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fromDate"></ion-datetime> 
-           <i class="fa fa-plus" style="padding: 2px;"></i>-->
+         -->
         </ion-item>
         <ion-item>
           <ion-label>ToDate</ion-label>

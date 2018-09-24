@@ -25,7 +25,7 @@
                     <ion-label floating>Date</ion-label>
                
                     <ion-datetime class="alert-input date-input" readonly="true"
-                    [pickerFormat]="date"  [(ngModel)]="selectedDate" formControlName="date" [max]="today" [min]="today"[disabled]="false" type="date">
+                    [pickerFormat]="date"  [(ngModel)]="selectedDate" formControlName="date" [max]="today" [min]="today" [disabled]="true" type="date">
                         </ion-datetime>
                    
                 </ion-item>
@@ -41,7 +41,6 @@
                             <ion-option>Anisabad</ion-option>
                           </ion-select>
                         </ion-item>
-
                 <ion-item>
                     <ion-label floating>Trade Name</ion-label>
                     <ion-input type="text" formControlName="name" ></ion-input>
@@ -77,13 +76,12 @@
                                   <ion-select formControlName="currentScenario">
                                     <ion-option>CA</ion-option>
                                     <ion-option >ADVOCATE</ion-option>
-                                    <ion-option>ACCOUNTAN</ion-option>
+                                    <ion-option>ACCOUNTANT</ion-option>
                                     <ion-option>SELF</ion-option>
                                     <ion-option>UNREGISTERED</ion-option>
                                   </ion-select>
                                 </ion-item>
                               </ion-list>
-                           
                             
                       </ion-card>
              

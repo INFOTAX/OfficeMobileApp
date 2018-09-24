@@ -21,7 +21,7 @@ export class MarketingProvider extends ServiceBase<IMarketinglog> {
 
 
 
-  getMarketing(fromDate : Date,toDate : Date):Observable<IMarketinglog[]>{
+  getMarketing(fromDate : string,toDate : string):Observable<IMarketinglog[]>{
     return this.http.get<IMarketinglog[]>(`${this.baseUrl}?fromDate=${fromDate}&toDate=${toDate}`);
 }
 
