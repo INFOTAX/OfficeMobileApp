@@ -21,13 +21,14 @@ export class CompanyProvider extends ServiceBase<ICompany> {
 
   }
 
-  getCompanies(fromDate : Date,toDate : Date):Observable<ICompany[]>{
+  getCompanies(fromDate : string,toDate : string):Observable<ICompany[]>{
         return this.http.get<ICompany[]>(`${this.baseUrl}?fromDate=${fromDate}&toDate=${toDate}`);
   }
 
   createCompany(company : ICompany):Observable<ICompany>{
     return this.http.post<ICompany>(`${this.baseUrl}`,company);
   }
+  
   
 
   intializeObject(): ICompany {

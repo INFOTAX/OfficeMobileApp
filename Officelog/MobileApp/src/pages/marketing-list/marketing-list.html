@@ -20,17 +20,22 @@
   <ion-grid>
     <ion-row wrap>
       <ion-col width-90>
+          <ion-item text-center>
+              <button  (click)="marketingform()" style="border-radius:25px;" ion-fab mini>
+                 <ion-icon name="add"></ion-icon>
+                </button>  
+          </ion-item>
+         
+        <ion-item>
+            <ion-label>From</ion-label>
+            <ion-datetime class="alert-input date-input" readonly="true"
+                      [pickerFormat]="date"  [(ngModel)]="fromDate"  [disabled]="false" type="date">
+                          </ion-datetime>
+          </ion-item>
           <ion-item>
-        <button ion-button (click)="marketingform()"><i class="fa fa-plus"></i></button>
-        </ion-item>
-        <ion-item>
-          <ion-label>From</ion-label>
-          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fromDate"></ion-datetime>
-        </ion-item>
-        <ion-item>
-          <ion-label>ToDate</ion-label>
-          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="toDate"></ion-datetime>
-        </ion-item>
+              <ion-label>ToDate</ion-label>
+              <ion-datetime   [pickerFormat]="date"[(ngModel)]="toDate"></ion-datetime>
+            </ion-item>
         <ion-item>
           <button ion-button (click)="searchByDate()"><i class="fa fa-search"></i></button>
         </ion-item>

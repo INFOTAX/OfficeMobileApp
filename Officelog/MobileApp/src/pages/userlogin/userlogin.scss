@@ -1,79 +1,55 @@
 page-userlogin {
 .bg{
+   // background-image: url("walp.png");
     height:100%;
     width:100%;
-    background:linear-gradient(160deg,#b627f2 30%, #10DFCa 70% )
+    height:device-height ;
+    background:linear-gradient(160deg,#b627f2 30%, #10DFCa 70% );
+    -ms-scroll-limit: false; // Valid options appear to be [true, false]
+    -ms-autoFocusAssist: false;
 }
 .head{
-    position: absolute;
+    position:absolute;
     display:block;
-    color:#fff;
-    top:20%;
+    color:#ffff;
+    top:33%;
     left:50%;
     transform: translate(-50%,-50%);
-width:100%;
-   
+    width:100%;
 }
-.head h3{
-    margin-top: 144px;
-    padding-top: 2px;
-    font-size: 5vh !important;
-    font-weight: lighter !important;
-    font-family: 'Pacifico',cursive;
+h3{
+    font-size:4vh !important;
+    font-weight:700 !important;
+    font-family:'Pacifico',cursive;
     text-shadow: 2px 2px 4px #000000;
 }
-/*.head img{
-    position:absolute;
+.inputss{
+    position: absolute;
     display:block;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    padding-bottom:20px;
-   
-}*/
-.inputs{
-    position:absolute;
-    display:block;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    width:80%;
-    color:#fff;
-    opacity:0.6;
-}
- ion-item {
-    background:transparent !important;
-    border:1px solid #fff !important;
-    ion-input{
-        color: #fff !important;
-    }
-    ion-label{
-        color:#fff !important; 
-    }
-    .item-inner{
-        border:0!important;
-    }
-}
-button{
-    position:absolute;
-    display:block;
-    top:50%;
-    background:#fff !important;
-    border:1px solid #fff;
-    box-shadow:0px;
-    color:#9A9595 !important;
+     top:40%;
+     left:10%;
+     width:80%;
+    // color:#ffff;
+    // opacity:0.6;
 
 }
-.log{
-    top: 50%;
-   
-    //border :2px solid black;
-   // border-radius:0px 0px 25px 0px;
-    width: 45%;
-    height: 43px;
-    padding-top: 18px;
-    padding-bottom: 15px;
-    padding-left: 9px;
-    padding-right: 5px;
+ion-input{
+    //color:#197be0;
+    font-size:2.8vh;
+    font-weight:700;
+}
+ion-label{
+  //  color:#fff;
+    font-weight:600;
+}
+ion-item{
+    opacity:0.6;
+}
+button{
+    position: absolute;
+    display:block;
+   // background:#fff!important;
+   // box-shadow:0px;
+    //color:#9A9595 !important;
 }
 }

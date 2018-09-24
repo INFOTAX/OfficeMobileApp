@@ -14,28 +14,33 @@
 
 
 
-<ion-content padding>
+<ion-content>
  
   <ion-grid>
     <ion-row wrap class="bg">
       <ion-col width-90>
+        
       
-        <ion-item>
-           
-                <button  ion-button (click)="companyform()" icon-only color="royal">
-                  <ion-icon name="person-add"></ion-icon>
-                </button>
+        <ion-item text-center>
+            <button  (click)="companyform()" style="border-radius:25px;" ion-fab mini>
+               <ion-icon name="add"></ion-icon>
+              </button>
               
-         
+              
+
           
         </ion-item>
         <ion-item>
           <ion-label>From</ion-label>
-          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fromDate"></ion-datetime>
+          <ion-datetime class="alert-input date-input" readonly="true"
+                    [pickerFormat]="date"  [(ngModel)]="fromDate"  [disabled]="false" type="date">
+                        </ion-datetime>
+         <!-- <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fromDate"></ion-datetime> 
+         -->
         </ion-item>
         <ion-item>
           <ion-label>ToDate</ion-label>
-          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="toDate"></ion-datetime>
+          <ion-datetime   [pickerFormat]="date"[(ngModel)]="toDate"></ion-datetime>
         </ion-item>
         <ion-item>
           <button ion-button (click)="searchByDate()">
@@ -43,26 +48,26 @@
           </button>
         </ion-item>
         <ion-scroll scrollX="true" scrollY="true" style="height: 100%">
-          <table class="table table-hover table-bordered">
+          <table class="table table-hover table-responsive">
             <thead>
-              <tr style="overflow:auto;">
-                <th>
+              <tr style="overflow:hidden;">
+                <th class="trt">
                   Name
                 </th>
-                <th>
+                <th class="trt">
                   Contact
                 </th>
-                <th>
+                <th class="trt">
                   Visitor Type
                 </th>
-                <th>
+                <th class="trt">
                   Query Rating
                 </th>
-                <th>
+                <th class="trt">
                   Service Rating
                 </th>
-                <th style="padding-left:25px;padding-right:25px;">
-                  Delete
+                <th class="trt" style="padding-left:25px;padding-right:25px;">
+                  Edit/Remove
                 </th>
               </tr>
             </thead>

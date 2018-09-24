@@ -25,6 +25,9 @@ export class CompanyFormPage implements OnInit{
   softwareNo : boolean=false;
   ifOther : boolean= false;
   pageTitle;
+  selectedDate: string = new Date().toISOString();
+ today = new Date().toJSON().split('T')[0];
+ maxDate=new Date().toJSON().split('T')[0];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private fb : FormBuilder,
               private companyProviders : CompanyProvider) {
@@ -32,11 +35,9 @@ export class CompanyFormPage implements OnInit{
 
   ngOnInit() {
     this.companyForm = this.newForm();
-    this.id=this.navParams.get('id');
+  this.id=this.navParams.get('id');
     this.getCompany(this.id);
-
-   
-   
+    
   }
   newForm() : FormGroup{
     return this.fb.group({

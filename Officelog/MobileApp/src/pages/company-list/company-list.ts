@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CompanyProvider, ICompany } from '../../providers/company/company';
 import { HttpClient } from '@angular/common/http';
@@ -19,15 +19,15 @@ import { CompanyFormPage} from '../company-form/company-form';
   selector: 'page-company-list',
   templateUrl: 'company-list.html',
 })
-export class CompanyListPage {
+export class CompanyListPage{
   company : ICompany[];
   selectedCompanyLog: ICompany;
   msgs: Message[] = [];
   displayDialogDelete : boolean;
   CompanySummary:any[];
   cols: any[];
-  fromDate : Date;
-  toDate : Date;
+ fromDate :string;
+  toDate : string;
   id: number = null;
   contactNumber:string;
   queryHandling:string;
@@ -38,13 +38,18 @@ export class CompanyListPage {
   rateUsForNo:string;
   suggestionForYes:string;
   suggestionForNo:string;
-
+  
+ maxDate=new Date().toJSON().split('T')[0];
+  
+  today = new Date().toJSON().split('T')[0];
+  // maxDate=new Date().toJSON().split('T')[0];
 
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
       private companyProvider : CompanyProvider,
       public alertCtrl: AlertController )
       {
+
   }
 
   ionViewDidLoad() {
@@ -54,8 +59,9 @@ export class CompanyListPage {
     
   }
   ngOnInit() {
-    this.toDate=new Date();
-   this.fromDate=new Date();
+    this.toDate= new Date().toISOString();
+  
+    this.fromDate= new Date().toISOString();
   this.searchByDate(this.fromDate,this.toDate);
   
 }
@@ -65,6 +71,7 @@ companyform(){
   this.id=0;
   this.navCtrl.push(CompanyFormPage,{id: this.id});
 }
+
 
 
 deleteList(index) {
@@ -77,7 +84,7 @@ deleteList(index) {
         handler:()=>{
           this.selectedCompanyLog=index;
           this.companyProvider.delete(this.selectedCompanyLog.id).subscribe(() =>{
-            this.searchByDate(this.fromDate,this.toDate);
+          this.searchByDate(this.fromDate,this.toDate);
          
         });    
         }
@@ -93,10 +100,10 @@ deleteList(index) {
   confirm.present ();
 }
 
-  searchByDate(fromDate:Date,toDate:Date){
+ searchByDate(fromDate:String,toDate:String){
     this.companyProvider.getCompanies(this.fromDate,this.toDate).subscribe(companyList => {
-      this.company = companyList;
-    });
+     this.company = companyList;
+   });
 
  
 }

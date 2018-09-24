@@ -6,6 +6,8 @@ import { AlertController } from 'ionic-angular';
 
 
 
+
+
 @IonicPage()
 @Component({
   selector: 'page-marketing-list',
@@ -14,17 +16,25 @@ import { AlertController } from 'ionic-angular';
 export class MarketingListPage {
   marketing: IMarketinglog[];
   selectedMarketingLog: IMarketinglog;
-  fromDate: Date;
-  toDate: Date;
+  fromDate :string;
+  toDate : string;
   id: number;
- 
+  maxDate=new Date().toJSON().split('T')[0];
+  
+  today = new Date().toJSON().split('T')[0];
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public marketingProvider: MarketingProvider,
     public alertCtrl: AlertController) {
   }
-
+  ngOnInit() {
+    this.toDate= new Date().toISOString();
+  
+    this.fromDate= new Date().toISOString();
+ 
+  
+}
   ionViewDidLoad() {
 
   }

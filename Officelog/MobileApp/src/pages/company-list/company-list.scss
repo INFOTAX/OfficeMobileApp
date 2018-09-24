@@ -1,22 +1,17 @@
 page-company-list{
+  .trt{
+        background-color:#648de178 !important;
+        font-weight: 700 !important;
+    }
+th{
+    text-align: center;
+}    
+.content-md {
+    color: #000;
+   
+}
 
-    table.table-bordered > thead > tr > th{
-        border-color: black;
-    }
-    table.table-bordered > tbody > tr > td{
-        border-color: black; 
-    }
-    th{
-        background: #989ab1;
-        padding-left: 25px;
-        overflow: auto;
-        padding-top: 4px;
-        padding-bottom: 4px;
-        text-align: center
-      }
-      .bg{
-          background:linear-gradient( 90deg,blue,yellow)
-      }
+
 }
 
 

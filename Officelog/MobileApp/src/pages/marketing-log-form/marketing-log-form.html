@@ -23,7 +23,11 @@
 
                 <ion-item>
                     <ion-label floating>Date</ion-label>
-                    <ion-datetime formControlName="date" displayFormat="MMM DD YYYY"></ion-datetime>
+               
+                    <ion-datetime class="alert-input date-input" readonly="true"
+                    [pickerFormat]="date"  [(ngModel)]="selectedDate" formControlName="date" [max]="today" [min]="today" [disabled]="true" type="date">
+                        </ion-datetime>
+                   
                 </ion-item>
 
                         <ion-item>
@@ -37,7 +41,6 @@
                             <ion-option>Anisabad</ion-option>
                           </ion-select>
                         </ion-item>
-
                 <ion-item>
                     <ion-label floating>Trade Name</ion-label>
                     <ion-input type="text" formControlName="name" ></ion-input>
@@ -48,48 +51,41 @@
                     <ion-input type="text" formControlName="contactNumber" ></ion-input>
                 </ion-item>
                 <br>
-                <ion-label style="margin-left: 3%; font-weight: bold">
-                    <h5>Are you interested in our service?</h5>
-                </ion-label>
-                <ion-list radio-group formControlName="serviceInterested">
-
-                    <ion-row>
-                        <ion-col>
-                            <ion-item>
-                                <ion-label>Yes</ion-label>
-                                <ion-radio value="Yes"(click)="serviceInterestedYes()"></ion-radio>
-                            </ion-item>
-                        </ion-col>
-                        <ion-col>
-                            <ion-item>
-                                <ion-label>No</ion-label>
-                                <ion-radio value="No" (click)="serviceInterestedNo()"></ion-radio>
-                            </ion-item>
-                        </ion-col>
-                    </ion-row>
-                </ion-list>
-
-                <ion-card *ngIf="serviceNo">
-                    <table class="table">
-                        <thead>
-                            <th>
-                                Current Scenario:
-                            </th>
-                        </thead>
-                        <tbody>
-                            <td>
-                                <select class="form-control"  formControlName="currentScenario" >
-                                    <option>CA</option>
-                                    <option>ADVOCATE</option>
-                                    <option>ACCOUNTANT</option>
-                                    <option>SELF</option>
-                                    <option>UNREGISTERED</option>
-                                </select>
-                            </td>
-                        </tbody>
-                    </table>
-                </ion-card>
-
+               <!-- <ion-label >
+                    <b>Are you interested in our service?</b>
+                </ion-label>-->
+                <ion-list>
+                    <ion-item>
+                        <ion-label >
+                            <h5>Are you interested in our Service?</h5>
+                        </ion-label>
+                      <ion-select formControlName="serviceInterested">
+                        <ion-option (ionSelect)="serviceInterestedYes()">YES</ion-option>
+                        <ion-option (ionSelect)="serviceInterestedNo()">NO</ion-option>
+                        
+                      </ion-select>
+                    </ion-item>
+                  </ion-list>
+             
+                  <ion-card *ngIf="serviceNo">
+                        <ion-list>
+                                <ion-item>
+                                    <ion-label >
+                                       <h4> <b> Current Scenario:</b></h4>
+                                    </ion-label>
+                                  <ion-select formControlName="currentScenario">
+                                    <ion-option>CA</ion-option>
+                                    <ion-option >ADVOCATE</ion-option>
+                                    <ion-option>ACCOUNTANT</ion-option>
+                                    <ion-option>SELF</ion-option>
+                                    <ion-option>UNREGISTERED</ion-option>
+                                  </ion-select>
+                                </ion-item>
+                              </ion-list>
+                            
+                      </ion-card>
+             
+           
 
               <ion-card  *ngIf="serviceYes">
                 <div>
@@ -133,26 +129,71 @@
                     </table>
                 </div>
             </ion-card>
-                <ion-label style="margin-left: 3%; font-weight: bold">
-                    <h5>Are you interested in our software?</h5>
-                </ion-label>
-                <ion-list radio-group formControlName="softwareInterested">
+               <!-- <ion-label >
+                    <b>Are you interested in our software?</b>
+                </ion-label>-->
+                <ion-list>
+                        <ion-item>
+                            <ion-label>
+                                <h5>Are you interested in our software?</h5>
+                            </ion-label>
+                          <ion-select formControlName="softwareInterested">
+                            <ion-option (ionSelect)="softwareInterestedYes()">YES</ion-option>
+                            <ion-option (ionSelect)="softwareInterestedNo()">NO</ion-option>
+                            
+                          </ion-select>
+                        </ion-item>
+                      </ion-list>
+                      <ion-card *ngIf="softwareYes">
 
-                    <ion-row>
-                        <ion-col>
-                            <ion-item>
-                                <ion-label>Yes</ion-label>
-                                <ion-radio value="Yes"(click)="softwareInterestedYes()"></ion-radio>
-                            </ion-item>
-                        </ion-col>
-                        <ion-col>
-                            <ion-item>
-                                <ion-label>No</ion-label>
-                                <ion-radio value="No"(click)="softwareInterestedNo()"></ion-radio>
-                            </ion-item>
-                        </ion-col>
-                    </ion-row>
-                </ion-list>
+             
+               
+                            <ion-list>
+                               <ion-item>
+                                   <ion-label>
+                                      <h4> <b>Please rate us.</b></h4>
+                                   </ion-label>
+                                 <ion-select  formControlName="rateUs">
+                                   <ion-option>BAD</ion-option>
+                                   <ion-option default>GOOD</ion-option>
+                                   <ion-option>VERY GOOD</ion-option>
+                                   <ion-option>EXCELLENT</ion-option>
+                   
+                                 </ion-select>
+                               </ion-item>
+                             </ion-list>
+                          
+                           
+                               <ion-label style="font-weight:bold; font-size: 16px; margin: 3%">
+                                   Give Your Valuable Suggestions
+                               </ion-label>
+                               <ion-textarea rows="5" column="3" formControlName="suggestionForYes" style="border: 1px solid rgb(199, 199, 199)"></ion-textarea>
+                               <br>
+                           </ion-card>
+                             <!--card software no start-->
+          <ion-card *ngIf="softwareNo">
+                <ion-list>
+                    <ion-item>
+                        <ion-label style="margin-left: 3%; font-weight: bold">
+                           <h4> <b>Choose a reason</b></h4>
+                        </ion-label>
+                      <ion-select  formControlName="rateUs">
+                       
+                        <ion-option  (ionSelect)="closeOtherReason()">Not Friendly</ion-option>
+                        <ion-option  (ionSelect)="closeOtherReason()"> Already have</ion-option>
+                        <ion-option (ionSelect)="otherReason()">Any others</ion-option>
+        
+                      </ion-select>
+                    </ion-item>
+                  </ion-list>
+                  </ion-card>
+                  <ion-card *ngIf="ifOther">
+                      <ion-label style="font-weight:bold; font-size: 16px; margin: 3%">
+                          Please give reasons and suggestion, so that we can improve.
+                          </ion-label>
+                          <ion-textarea rows="5" formControlName="suggestionForNo" style="border: 1px solid rgb(199, 199, 199)"></ion-textarea>
+              </ion-card>
+              <!--
                 <ion-card *ngIf="softwareYes">
 
                     <ion-list radio-group formControlName="rateUs">
@@ -230,12 +271,12 @@
                             </ion-card>
                         </ion-row>
                     </ion-list>
-                </ion-card>
+                </ion-card>-->
                 
 
             </ion-list>
         </ion-grid>
-        <button type="submit" ion-fab mini><ion-icon name="add"></ion-icon></button>
+        <button type="submit" class="btn btn-primary btn-lg"> SAVE</button>
     </form>
 
 </ion-content>

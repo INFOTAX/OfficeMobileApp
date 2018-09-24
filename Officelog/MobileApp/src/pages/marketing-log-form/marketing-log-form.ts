@@ -32,7 +32,10 @@ export class MarketingLogFormPage implements OnInit{
   ifOther = false;
   id: number;
   ServiceItems;
-
+ myDate:Date;
+ selectedDate: string = new Date().toISOString();
+ today = new Date().toJSON().split('T')[0];
+ maxDate=new Date().toJSON().split('T')[0];
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private fb: FormBuilder,
@@ -41,7 +44,7 @@ export class MarketingLogFormPage implements OnInit{
   }
 
   ngOnInit(){
-    
+    this.myDate=new Date();
     this.id=this.navParams.get('id');
     this.getMarketingLog(this.id);
 
@@ -63,7 +66,7 @@ export class MarketingLogFormPage implements OnInit{
       suggestionForNo: [''],
       suggestionForYes: [''],
       area: [''],
-      date:[],
+      date:new Date(),
       serviceItems : this.fb.array([])
     })
   }
