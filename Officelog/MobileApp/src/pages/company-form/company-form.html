@@ -23,10 +23,10 @@
         <ion-col width-70>
           <ion-list>
               <ion-item>
-                  <ion-label fixed><b>Date</b></ion-label>
+                  <ion-label floating>Date</ion-label>
              
                   <ion-datetime class="alert-input date-input" readonly="true"
-                  [pickerFormat]="date"  [(ngModel)]="selectedDate" formControlName="date"  [disabled]="true" type="date">
+                  [pickerFormat]="date"  [(ngModel)]="selectedDate" formControlName="date" [max]="today" [min]="today"[disabled]="false" type="date">
                       </ion-datetime>
                  
               </ion-item>
@@ -168,8 +168,9 @@
       <ion-row>
         <ion-col width-70 offset-4>
 
-          <button type="submit" ion-fab mini><ion-icon name="add"></ion-icon></button>
-
+          <button type="submit" class="btn btn-success" style="width: 50%; font-size:23px;">Save</button>
+<br>
+<br>
         </ion-col>
       </ion-row>
     </ion-grid>

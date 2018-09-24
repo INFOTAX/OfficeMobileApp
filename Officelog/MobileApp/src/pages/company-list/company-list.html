@@ -20,22 +20,26 @@
     <ion-row wrap class="bg">
       <ion-col width-90>
       
-        <ion-item>
-           
-                <button  ion-button (click)="companyform()" icon-only color="royal">
-                  <ion-icon name="person-add"></ion-icon>
-                </button>
+        <ion-item text-center>
+            <button  (click)="companyform()" style="border-radius:25px;" ion-fab mini>
+               <ion-icon name="add"></ion-icon>
+              </button>
+              
               
          
           
         </ion-item>
         <ion-item>
           <ion-label>From</ion-label>
-          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fromDate"></ion-datetime>
+          <ion-datetime class="alert-input date-input" readonly="true"
+                    [pickerFormat]="date"  [(ngModel)]="fromDate"  [disabled]="false" type="date">
+                        </ion-datetime>
+         <!-- <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fromDate"></ion-datetime> 
+           <i class="fa fa-plus" style="padding: 2px;"></i>-->
         </ion-item>
         <ion-item>
           <ion-label>ToDate</ion-label>
-          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="toDate"></ion-datetime>
+          <ion-datetime   [pickerFormat]="date"[(ngModel)]="toDate"></ion-datetime>
         </ion-item>
         <ion-item>
           <button ion-button (click)="searchByDate()">

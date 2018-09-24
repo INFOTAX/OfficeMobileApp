@@ -25,7 +25,7 @@
                     <ion-label floating>Date</ion-label>
                
                     <ion-datetime class="alert-input date-input" readonly="true"
-                    [pickerFormat]="date"  [(ngModel)]="selectedDate" formControlName="date"  [disabled]="true" type="date">
+                    [pickerFormat]="date"  [(ngModel)]="selectedDate" formControlName="date" [max]="today" [min]="today"[disabled]="false" type="date">
                         </ion-datetime>
                    
                 </ion-item>
