@@ -6,51 +6,84 @@
 -->
 <ion-header>
 
-    <link rel="stylesheet" 
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <ion-navbar>
-      <button ion-button menuToggle><i class="fa fa-bars"></i></button>
+    <button ion-button menuToggle><i class="fa fa-bars"></i></button>
     <ion-title>conversion-list</ion-title>
   </ion-navbar>
-  <link rel="stylesheet" 
-   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
 
 </ion-header>
 
 
 <ion-content padding>
 
-    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="setFilteredItems(i)"></ion-searchbar>
-  
-          <ion-scroll scrollX="true" scrollY="true" style="height: 100%">
-           <table class="table table-hover table-bordered">
-            <thead>
-             <tr>
-              <th class="trt">
-                Trade Name
-              </th>
-              <th class="trt">
-                Contact
-              </th>
-              <th class="trt">
-                Action
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let a of conversionList; let i" [tabIndex]="i">
-              <td>
-                {{a.name}}
-              </td>
-              <td>
-                {{a.contactNumber}}
-              </td>
-              <td>
-                <button class="btn btn-primary" (click)="edit(i)"><i class="fa fa-pencil"></i></button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </ion-scroll>
+  <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="setFilteredItems($event)"></ion-searchbar>
+
+  <!-- <ion-scroll scrollX="true" scrollY="true" style="height: 100%">
+    <table class="table table-hover table-bordered">
+      <thead>
+        <tr>
+          <th class="trt">
+            Trade Name
+          </th>
+          <th class="trt">
+            Contact
+          </th>
+          <th class="trt">
+            Action
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let a of conversionList; let i" [tabIndex]="i">
+          <td>
+            {{a.name}}
+          </td>
+          <td>
+            {{a.contactNumber}}
+          </td>
+          <td>
+            <button class="btn btn-primary" (click)="edit(i)"><i class="fa fa-pencil"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </ion-scroll> -->
+  <!-- <br>
+  <br> -->
+<!-- <button class="btn btn-primary" (click)="itemSelected()">Expand</button> -->
+
+  <ion-list insert padding>
+    <ion-item-sliding *ngFor="let item of conversionList ; let i" [tabIndex]="i">
+      <ion-item   (click)="current = i">
+          
+        <h2>
+            <i class="fa fa-angle-down" *ngIf="i == current"></i>
+            <i class="fa fa-angle-right" *ngIf="i != current"></i>
+            {{ item.name }}</h2>
+            <div id="collapse1" class="panel-collapse" [class.collapse]='current != i'>
+            <h4>
+              <br>
+              &nbsp;&nbsp;&nbsp;
+            Contact Number:&nbsp;&nbsp;&nbsp;&nbsp;{{item.contactNumber}}</h4></div>
+            <!-- <div *ngIf="selected">
+              <h4>
+                <br>
+                &nbsp;&nbsp;&nbsp;
+                Contact Number:&nbsp;&nbsp;&nbsp;&nbsp;{{item.contactNumber}}</h4></div> -->
+            
+
+        
+      </ion-item>
+
+      <ion-item-options side="right">
+        <button ion-button color="primary" (click)="edit(i)"><i class="fa fa-pencil"></i></button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+
+
 
 </ion-content>
