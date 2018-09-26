@@ -153,6 +153,16 @@ export class MarketingListPage {
             return data.serviceInterested !== "YES"
           });
         }
+        else if (filterState.showYes && (!filterState.serviceYes && !filterState.serviceNo)) {
+          this.marketing = allData.filter((data) => {
+            return data.softwareInterested !== "NO"
+          });
+        }
+        else if (filterState.showNo && (!filterState.serviceYes && !filterState.serviceNo)) {
+          this.marketing = allData.filter((data) => {
+            return data.softwareInterested !== "YES"
+          });
+        }
 
         else {
           this.marketing = allData;

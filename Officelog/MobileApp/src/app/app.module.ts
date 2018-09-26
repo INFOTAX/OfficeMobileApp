@@ -33,6 +33,7 @@ import { AdminConsolidatedReportingProvider } from '../providers/admin-consolida
 import { AdminConsolidatedCompanyReportingPage } from '../pages/admin-consolidated-company-reporting/admin-consolidated-company-reporting';
 import { AdminConsolidatedMarketingReportingPage } from '../pages/admin-consolidated-marketing-reporting/admin-consolidated-marketing-reporting';
 import { FilterModelPage } from '../pages/filter-model/filter-model';
+import { FilterModelForCompanyListPage } from '../pages/filter-model-for-company-list/filter-model-for-company-list';
 @NgModule({
   declarations: [
     MyApp,
@@ -52,7 +53,8 @@ import { FilterModelPage } from '../pages/filter-model/filter-model';
     AdminUserProfileMarketingReportPage,
     AdminConsolidatedMarketingReportingPage,
     AdminConsolidatedCompanyReportingPage,
-    FilterModelPage
+    FilterModelPage,
+    FilterModelForCompanyListPage
     
    
   ],
@@ -84,7 +86,8 @@ import { FilterModelPage } from '../pages/filter-model/filter-model';
     AdminUserProfileMarketingReportPage,
     AdminConsolidatedMarketingReportingPage,
     AdminConsolidatedCompanyReportingPage,
-    FilterModelPage
+    FilterModelPage,
+    FilterModelForCompanyListPage
     
   ],
   providers: [
