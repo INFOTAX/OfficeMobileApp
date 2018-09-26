@@ -59,7 +59,7 @@ export class MarketingLogFormPage implements OnInit{
       contactNumber:[''],
       softwareInterested: [''],
       rateUs: [''],
-      fee:[],
+      fee:0,
       serviceInterested: [''],
       rateUsForNo: [''],
       currentScenario: [''],

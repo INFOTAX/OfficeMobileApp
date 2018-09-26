@@ -17,8 +17,8 @@
 
 
 <ion-content padding>
-
-  <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="setFilteredItems($event)"></ion-searchbar>
+<!-- 
+  <ion-searchbar (ionInput)="getTopics($event)"></ion-searchbar> -->
 
   <!-- <ion-scroll scrollX="true" scrollY="true" style="height: 100%">
     <table class="table table-hover table-bordered">
@@ -58,11 +58,11 @@
     <ion-item-sliding *ngFor="let item of conversionList ; let i" [tabIndex]="i">
       <ion-item   (click)="current = i">
           
-        <h2>
+        <h2> 
             <i class="fa fa-angle-down" *ngIf="i == current"></i>
             <i class="fa fa-angle-right" *ngIf="i != current"></i>
             {{ item.name }}</h2>
-            <div id="collapse1" class="panel-collapse" [class.collapse]='current != i'>
+            <div [class.collapse]='current != i'>
             <h4>
               <br>
               &nbsp;&nbsp;&nbsp;

@@ -38,6 +38,7 @@ export class CompanyListPage{
   rateUsForNo:string;
   suggestionForYes:string;
   suggestionForNo:string;
+  current;
   
  maxDate=new Date().toJSON().split('T')[0];
   

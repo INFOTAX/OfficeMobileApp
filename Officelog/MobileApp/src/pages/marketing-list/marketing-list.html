@@ -6,10 +6,9 @@
 -->
 <ion-header>
 
-  <link rel="stylesheet" 
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <ion-navbar>
-      <button ion-button menuToggle><i class="fa fa-bars"></i></button>
+    <button ion-button menuToggle><i class="fa fa-bars"></i></button>
     <ion-title>Marketing List</ion-title>
   </ion-navbar>
 
@@ -20,26 +19,27 @@
   <ion-grid>
     <ion-row wrap>
       <ion-col width-90>
-          <ion-item text-center>
-              <button  (click)="marketingform()" style="border-radius:25px;" ion-fab mini>
-                 <ion-icon name="add"></ion-icon>
-                </button>  
-          </ion-item>
-         
+        <ion-item text-center>
+          <button (click)="marketingform()" style="border-radius:25px;" ion-fab mini>
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </ion-item>
+      
+
         <ion-item>
-            <ion-label>From</ion-label>
-            <ion-datetime class="alert-input date-input" readonly="true"
-                      [pickerFormat]="date"  [(ngModel)]="fromDate"  [disabled]="false" type="date">
-                          </ion-datetime>
-          </ion-item>
-          <ion-item>
-              <ion-label>ToDate</ion-label>
-              <ion-datetime   [pickerFormat]="date"[(ngModel)]="toDate"></ion-datetime>
-            </ion-item>
+          <ion-label>From</ion-label>
+          <ion-datetime class="alert-input date-input" readonly="true" [pickerFormat]="date" [(ngModel)]="fromDate" [disabled]="false"
+            type="date">
+          </ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label>ToDate</ion-label>
+          <ion-datetime [pickerFormat]="date" [(ngModel)]="toDate"></ion-datetime>
+        </ion-item>
         <ion-item>
           <button ion-button (click)="searchByDate()"><i class="fa fa-search"></i></button>
         </ion-item>
-        <ion-scroll scrollX="true" scrollY="true" style="height: 100%">
+        <!-- <ion-scroll scrollX="true" scrollY="true" style="height: 100%">
           <table class="table table-hover table-bordered">
             <thead>
               <tr>
@@ -84,10 +84,46 @@
               </tr>
             </tbody>
           </table>
-        </ion-scroll>
+        </ion-scroll> -->
+
+        <ion-list insert padding>
+          <ion-item-sliding *ngFor="let item of marketing ; let i" [tabIndex]="i">
+            <ion-item (click)="current = i">
+
+              <h2>
+                <i class="fa fa-angle-down" *ngIf="i == current"></i>
+                <i class="fa fa-angle-right" *ngIf="i != current"></i>
+                {{ item.name }}</h2>
+              <div [class.collapse]='current != i'>
+
+
+                <h4>
+                  &nbsp;&nbsp;&nbsp; Contact Number:&nbsp;&nbsp;&nbsp;&nbsp;{{item.contactNumber}}</h4>
+
+                <h4>
+                  &nbsp;&nbsp;&nbsp; Service Interested:&nbsp;&nbsp;&nbsp;&nbsp;{{item.serviceInterested}}</h4>
+
+                <h4>
+                  &nbsp;&nbsp;&nbsp; Software Interested:&nbsp;&nbsp;&nbsp;&nbsp;{{item.softwareInterested}}</h4>
+              </div>
+            </ion-item>
+            <ion-item-options side="right">
+              <button class="btn btn-success" (click)="patchConversion(i)"><i class="fa fa-check"></i></button>
+              <button class="btn btn-danger" (click)="deleteList(i)"><i class="fa fa-trash"></i></button>
+              <button class="btn btn-primary" (click)="edit(i)"><i class="fa fa-pencil"></i></button>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+
       </ion-col>
     </ion-row>
+    <ion-fab right bottom>
+        <button ion-fab (click)="openFilterModel()">
+          <ion-icon name="settings"></ion-icon>
+        </button>
+    </ion-fab>
   </ion-grid>
+  
 
 
 
