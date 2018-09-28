@@ -17,8 +17,8 @@
 
 
 <ion-content padding>
-<!-- 
-  <ion-searchbar (ionInput)="getTopics($event)"></ion-searchbar> -->
+
+  <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="getTopics()"></ion-searchbar>
 
   <!-- <ion-scroll scrollX="true" scrollY="true" style="height: 100%">
     <table class="table table-hover table-bordered">

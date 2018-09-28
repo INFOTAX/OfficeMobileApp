@@ -24,68 +24,26 @@
             <ion-icon name="add"></ion-icon>
           </button>
         </ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col offset-6>
+              <ion-item>
+                <ion-label>Date:</ion-label>
+                <ion-datetime  readonly="true"  [(ngModel)]="selectedDate"
+                [max]="today" [min]="today" [disabled]="true" type="date">
+                </ion-datetime>
       
-
-        <ion-item>
-          <ion-label>From</ion-label>
-          <ion-datetime class="alert-input date-input" readonly="true" [pickerFormat]="date" [(ngModel)]="fromDate" [disabled]="false"
-            type="date">
-          </ion-datetime>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-item *ngIf="filterApplied">
+          <h2><b>Showing Results For:</b></h2>
+          <h6>Start Date :&nbsp;{{filteredFromDate}}</h6>
+          <h6>End Date :&nbsp;{{filteredToDate}}</h6>
+          <h6>Service Interested :&nbsp;{{filteredServiceInterested}}</h6>
+          <h6>Software Interested :&nbsp;{{filteredSoftwareInterested}}</h6>  
         </ion-item>
-        <ion-item>
-          <ion-label>ToDate</ion-label>
-          <ion-datetime [pickerFormat]="date" [(ngModel)]="toDate"></ion-datetime>
-        </ion-item>
-        <ion-item>
-          <button ion-button (click)="searchByDate()"><i class="fa fa-search"></i></button>
-        </ion-item>
-        <!-- <ion-scroll scrollX="true" scrollY="true" style="height: 100%">
-          <table class="table table-hover table-bordered">
-            <thead>
-              <tr>
-                <th>
-                  Trade Name
-                </th>
-                <th>
-                  Contact
-                </th>
-                <th>
-                  Service Interested
-                </th>
-                <th>
-                  Software Interested
-                </th>
-                <th style="padding-left:50px;padding-right:50px;">
-                  Action
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let a of marketing; let i" [tabIndex]="i">
-                <td>
-                  {{a.name}}
-                </td>
-                <td>
-                  {{a.contactNumber}}
-                </td>
-                <td>
-                  {{a.serviceInterested}}
-                </td>
-                <td>
-                  {{a.softwareInterested}}
-                </td>
-                <td>
-                    <button class="btn btn-success" (click)="patchConversion(i)"><i class="fa fa-check"></i></button>
-                  &nbsp;
-                  <button class="btn btn-danger" (click)="deleteList(i)"><i class="fa fa-trash"></i></button>
-                  &nbsp;
-                  <button class="btn btn-primary" (click)="edit(i)"><i class="fa fa-pencil"></i></button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </ion-scroll> -->
-
         <ion-list insert padding>
           <ion-item-sliding *ngFor="let item of marketing ; let i" [tabIndex]="i">
             <ion-item (click)="current = i">
@@ -118,12 +76,12 @@
       </ion-col>
     </ion-row>
     <ion-fab right bottom>
-        <button ion-fab (click)="openFilterModel()">
-          <ion-icon name="settings"></ion-icon>
-        </button>
+      <button ion-fab (click)="openFilterModel()">
+        <ion-icon name="funnel"></ion-icon>
+      </button>
     </ion-fab>
   </ion-grid>
-  
+
 
 
 

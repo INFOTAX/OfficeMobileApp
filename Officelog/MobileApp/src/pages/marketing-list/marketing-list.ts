@@ -24,9 +24,16 @@ export class MarketingListPage {
   id: number;
   //current: number = 0;
   current;
-  maxDate = new Date().toJSON().split('T')[0];
-
+  selectedDate: string = new Date().toISOString();
+  maxDate=new Date().toJSON().split('T')[0];
+  
   today = new Date().toJSON().split('T')[0];
+
+  filteredFromDate: string;
+  filteredToDate: string;
+  filteredServiceInterested: string;
+  filteredSoftwareInterested: string;
+  filterApplied=false;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -38,14 +45,14 @@ export class MarketingListPage {
     this.toDate = new Date().toISOString();
 
     this.fromDate = new Date().toISOString();
-
+    this.searchByDate(this.fromDate,this.toDate);
 
   }
   ionViewDidLoad() {
 
   }
 
-  searchByDate() {
+  searchByDate(fromDate:String,toDate:String) {
     this.marketingProvider.getMarketing(this.fromDate, this.toDate).subscribe(res => this.marketing = res);
 
   }
@@ -66,7 +73,7 @@ export class MarketingListPage {
           handler: () => {
             this.selectedMarketingLog = index;
             this.marketingProvider.delete(this.selectedMarketingLog.id).subscribe(() => {
-              this.searchByDate();
+              this.searchByDate(this.fromDate,this.toDate);
             });
           }
         },
@@ -84,7 +91,7 @@ export class MarketingListPage {
   patchConversion(index) {
     this.selectedMarketingLog = index;
     this.marketingProvider.conversion(this.selectedMarketingLog, this.selectedMarketingLog.id).subscribe(() => {
-      this.searchByDate();
+      this.searchByDate(this.fromDate,this.toDate);
     })
   }
 
@@ -102,91 +109,45 @@ export class MarketingListPage {
       this.marketingProvider.getMarketing(this.fromDate, this.toDate).subscribe((allData) => {
         this.marketing = allData;
 
-        if (filterState.showNo &&(!filterState.serviceYes && !filterState.serviceNo )) {
-          this.marketing = allData.filter((data) => {
-            return data.softwareInterested !== "YES"
-          });
-        }
-        else if (filterState.showYes &&(!filterState.serviceYes && !filterState.serviceNo )) {
-          this.marketing = allData.filter((data) => {
-            return data.softwareInterested !== "NO"
-          });
-        }
-        else if (filterState.serviceYes &&(!filterState.showYes && !filterState.showNo )) {
-          this.marketing = allData.filter((data) => {
-            return data.serviceInterested !== "NO"
-          });
-        }
-        else if (filterState.serviceNo &&(!filterState.showYes && !filterState.showNo )) {
-          this.marketing = allData.filter((data) => {
-            return data.serviceInterested !== "YES"
-          });
-        }
-        else if (filterState.serviceNo && (filterState.showNo && !filterState.showYes))  {
-          this.marketing = allData.filter((data) => {
-            return (data.serviceInterested !== "YES" && data.softwareInterested !=="YES")
-          });
-        }
-        else if (filterState.serviceYes && (filterState.showYes && !filterState.showNo)) {
-          this.marketing = allData.filter((data) => {
-            return data.serviceInterested !== "NO" && data.softwareInterested !=="NO"
-          });
-        }
+        this.searchByDate(filterState.fromDate,filterState.toDate);
 
-        else if (filterState.showYes && (!filterState.serviceYes && !filterState.serviceNo)) {
-          this.marketing = allData.filter((data) => {
-            return data.softwareInterested !=="NO"
-          });
-        }
-        else if (filterState.showNo && (!filterState.serviceYes && !filterState.serviceNo)) {
-          this.marketing = allData.filter((data) => {
-            return data.softwareInterested !=="Yes"
-          });
-        }
-        else if (filterState.serviceYes && (!filterState.showYes && !filterState.showNo)) {
-          this.marketing = allData.filter((data) => {
-            return data.serviceInterested !== "NO"
-          });
-        }
-        else if (filterState.serviceNo && (!filterState.showYes && !filterState.showNo)) {
-          this.marketing = allData.filter((data) => {
-            return data.serviceInterested !== "YES"
-          });
-        }
-        else if (filterState.showYes && (!filterState.serviceYes && !filterState.serviceNo)) {
-          this.marketing = allData.filter((data) => {
-            return data.softwareInterested !== "NO"
-          });
-        }
-        else if (filterState.showNo && (!filterState.serviceYes && !filterState.serviceNo)) {
-          this.marketing = allData.filter((data) => {
-            return data.softwareInterested !== "YES"
-          });
-        }
 
+        if (filterState.softwareInterested && !filterState.serviceInterested) {
+          this.marketing = allData.filter((data) => {
+            return data.softwareInterested === filterState.softwareInterested;
+          });
+        }
+        else if (filterState.serviceInterested && !filterState.softwareInterested) {
+          this.marketing = allData.filter((data) => {
+            return data.serviceInterested === filterState.serviceInterested;
+          });
+        }
+        else if (filterState.softwareInterested && filterState.serviceInterested) {
+          this.marketing = allData.filter((data) => {
+            return data.softwareInterested === filterState.softwareInterested && data.serviceInterested===filterState.serviceInterested;
+          });
+        }
+    //     else if(filterState.fromDate && filterState.toDate){
+    //       this.fromDate=filterState.fromDate,
+    //       this.toDate=filterState.toDate
+    //       this.searchByDate(filterState.fromDate,filterState.toDate);
+    //  }
         else {
-          this.marketing = allData;
-          return;
+          if(filterState.softwareInterested===false && filterState.serviceInterested===false){
+            return this.marketing=allData;
+          }
+          else if(filterState.softwareInterested===null && filterState.serviceInterested===null){
+            return this.marketing=allData;
+          }
+          else{
+            return this.marketing = null;
+          }
         }
-
-        // if(filterState.showYes && filterState.showNo){
-        //   this.marketing=allData;
-        //   return;
-        // }
-        // else if(!filterState.showYes && !filterState.showNo){
-        //   this.marketing=[];
-        //   return;
-        // }
-        // else if(!filterState.showYes && filterState.showNo){
-        //   this.marketing=allData.filter((data)=>{
-        //     return data.softwareInterested !=="YES"
-        //   });
-        //   }
-        //   else{
-        //     this.marketing=allData.filter((data)=>{
-        //       return data.softwareInterested !=="NO"
-        //     });
-        //     }
+        this.filterApplied=filterState.filterApplied;
+        this.filteredSoftwareInterested=filterState.softwareInterested;
+        this.filteredServiceInterested=filterState.serviceInterested;
+        this.filteredFromDate=filterState.fromDate;
+        this.filteredToDate=filterState.toDate;
       })
     });
     openFilterModel.present();

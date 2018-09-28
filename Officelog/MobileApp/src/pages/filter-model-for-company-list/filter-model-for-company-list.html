@@ -6,13 +6,87 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>filter-model-for-company-list</ion-title>
-  </ion-navbar>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content style="width:80%; height: 60%;background-color: gainsboro; margin-left: 10%; margin-top: 20%;">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-10 >
+        <h4>&nbsp;&nbsp;&nbsp;<b>Filter By:</b></h4>
+      </ion-col>
+      <ion-col col-2 >
+        <ion-buttons end>
+          <button ion-button (click)="closeModel()" style="margin-top:10%" color="danger" clear>
+            <ion-icon name="close" ></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  
+  <h6>&nbsp;&nbsp;&nbsp;&nbsp;<b>Date</b></h6>
+  <ion-item style="margin-left:5%; width: 90%">
+    <ion-label>From</ion-label>
+    <ion-datetime class="alert-input date-input" readonly="true" [pickerFormat]="date" [(ngModel)]="fromDate" [disabled]="false"
+      type="date">
+    </ion-datetime>
+  </ion-item>
+  <ion-item style="margin-left:5%; width: 90%">
+    <ion-label>ToDate</ion-label>
+    <ion-datetime [pickerFormat]="date" [(ngModel)]="toDate"></ion-datetime>
+  </ion-item>
+  <br>
+ 
+    <ion-list style="margin-left: 5%;padding-right: 5%;background-color: gainsboro;">
+     
+
+      <ion-item>
+          <ion-label>
+             <h4> <b>Query Handing</b></h4>
+          </ion-label>
+        <ion-select  [(ngModel)]="queryHandling">
+          <ion-option>Bad</ion-option>
+          <ion-option default>Good</ion-option>
+          <ion-option>Very Good</ion-option>
+          <ion-option>Excellent</ion-option> 
+
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <ion-list style="margin-left: 5%;padding-right: 5%;background-color: gainsboro;">
+      <ion-item>
+          <ion-label>
+             <h4> <b>Service Rating</b></h4>
+          </ion-label>
+        <ion-select  [(ngModel)]="serviceProvided">
+          <ion-option>Bad</ion-option>
+          <ion-option default>Good</ion-option>
+          <ion-option>Very Good</ion-option>
+          <ion-option>Excellent</ion-option>
+
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <ion-list style="margin-left: 5%;padding-right: 5%;background: gainsboro;">
+      <ion-item>
+          <ion-label>
+             <h4> <b>Visitor Type</b></h4>
+          </ion-label>
+        <ion-select  [(ngModel)]="visitorType">
+          <ion-option>First</ion-option>
+          <ion-option default>Second or Third</ion-option>
+          <ion-option>Franchise</ion-option>
+          <ion-option>Clients</ion-option>
+
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <button class="btn btn-success" (click)="apply()" style="margin-left: 80%">
+      APPLY
+    </button>
 
 </ion-content>

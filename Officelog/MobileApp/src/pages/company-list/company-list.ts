@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { CompanyProvider, ICompany } from '../../providers/company/company';
 import { HttpClient } from '@angular/common/http';
 
 import { AlertController } from 'ionic-angular';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { CompanyFormPage} from '../company-form/company-form';
+import { FilterModelForCompanyListPage } from '../filter-model-for-company-list/filter-model-for-company-list';
 /**
  * 
  * Generated class for the CompanyListPage page.
@@ -20,13 +21,20 @@ import { CompanyFormPage} from '../company-form/company-form';
   templateUrl: 'company-list.html',
 })
 export class CompanyListPage{
+
+  filteredVisitorType :string;
+  filteredQueryHandling :string;
+  filteredServiceProvided :string;
+  filteredFromDate :string;
+  filteredToDate :string;
+
   company : ICompany[];
   selectedCompanyLog: ICompany;
   msgs: Message[] = [];
   displayDialogDelete : boolean;
   CompanySummary:any[];
   cols: any[];
- fromDate :string;
+  fromDate :string;
   toDate : string;
   id: number = null;
   contactNumber:string;
@@ -39,7 +47,8 @@ export class CompanyListPage{
   suggestionForYes:string;
   suggestionForNo:string;
   current;
-  
+  filterApplied=false;
+  selectedDate: string = new Date().toISOString();
  maxDate=new Date().toJSON().split('T')[0];
   
   today = new Date().toJSON().split('T')[0];
@@ -48,7 +57,8 @@ export class CompanyListPage{
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
       private companyProvider : CompanyProvider,
-      public alertCtrl: AlertController )
+      public alertCtrl: AlertController,
+      public modelController: ModalController)
       {
 
   }
@@ -116,5 +126,80 @@ edit(event) {
   this.navCtrl.push(CompanyFormPage,{id: this.id});
 }
 
+openFilterModel(){
+  let openFilterModel = this.modelController.create(FilterModelForCompanyListPage);
+  console.log(openFilterModel);
+    openFilterModel.onDidDismiss((filterState) => {
+
+      this.companyProvider.getCompanies(this.fromDate, this.toDate).subscribe((allData) => {
+        this.company = allData;
+        
+        
+
+
+        if(filterState.visitorType && (!filterState.queryHandling && !filterState.serviceProvided)) {
+          this.company = allData.filter((data) => {
+            return data.visitorType === filterState.visitorType;
+          });
+        }
+        else if(filterState.serviceProvided && (!filterState.queryHandling && !filterState.visitorType)) {
+          this.company = allData.filter((data) => {
+            return data.serviceProvided === filterState.serviceProvided;
+          });
+        }
+        else if (filterState.queryHandling && (!filterState.visitorType && !filterState.serviceProvided)) {
+          this.company = allData.filter((data) => {
+            return data.queryHandling === filterState.queryHandling;
+          });
+        }
+        else if (filterState.visitorType && (filterState.queryHandling && !filterState.serviceProvided)) {
+          this.company = allData.filter((data) => {
+            return data.visitorType === filterState.visitorType && data.queryHandling === filterState.queryHandling;
+          });
+        }
+        else if (filterState.visitorType && (!filterState.queryHandling && filterState.serviceProvided)) {
+          this.company = allData.filter((data) => {
+            return data.visitorType === filterState.visitorType && data.serviceProvided === filterState.serviceProvided;
+          });
+        }
+        else if (!filterState.visitorType && (filterState.queryHandling && filterState.serviceProvided)) {
+          this.company = allData.filter((data) => {
+            return data.queryHandling === filterState.queryHandling && data.serviceProvided===filterState.serviceProvided;
+          });
+        }
+        else if (filterState.visitorType && (filterState.queryHandling && filterState.serviceProvided)) {
+          this.company = allData.filter((data) => {
+            return data.visitorType === filterState.visitorType && (data.queryHandling === filterState.queryHandling && data.serviceProvided === filterState.serviceProvided);
+          });
+        }
+        else if(filterState.fromDate && filterState.toDate){
+             this.fromDate=filterState.fromDate,
+             this.toDate=filterState.toDate
+             this.searchByDate(filterState.fromDate,filterState.toDate);
+        }
+        
+        else {
+          if(filterState.queryHandling==false && filterState.serviceProvided==false && filterState.visitorType==false){
+            this.company=allData;
+          }
+          else if(filterState.queryHandling==null && filterState.serviceProvided==null && filterState.visitorType==null){
+            this.company=allData;
+          }
+          else{
+          this.company = null;
+          return;}
+        }
+
+        this.filteredVisitorType=filterState.visitorType;
+        this.filteredQueryHandling=filterState.queryHandling;
+        this.filteredServiceProvided=filterState.serviceProvided;
+        this.filteredFromDate=filterState.fromDate;
+        this.filteredToDate=filterState.toDate;
+        this.filterApplied=filterState.filterApplied;
+        
+      })
+    });
+    openFilterModel.present();
+  }
 
 }

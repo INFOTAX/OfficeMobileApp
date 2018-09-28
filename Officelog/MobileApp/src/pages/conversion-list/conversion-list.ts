@@ -24,7 +24,8 @@ export class ConversionListPage implements OnInit{
   marketing: IMarketinglog;
   selected=false;
   current: number = 0;
-  items:any[];
+  items:any;
+  searchTerm: string = '';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public conversionProviders: ConversionProvider) {
@@ -39,11 +40,11 @@ export class ConversionListPage implements OnInit{
     this.conversionProviders.getConversions().subscribe(response=>{
       this.conversionList=response;
       //this.generateTopics(this.conversionList);
-    });
+    }); 
   }
 
   ionViewDidLoad() {
- 
+    this.getTopics();
   }
 
 
@@ -63,25 +64,36 @@ itemSelected(){
   }
   
 }
-// generateTopics(conversionList) {
-//   this.conversionList = conversionList;
-//  this.items=[this.conversionList.name];
-// console.log(this.items);
-// console.log(this.conversionList.id);
+// generateTopics() {
+//  this.conversionProviders.getConversions().subscribe(data=>{
+//    this.conversionList=data;
+//    this.items = data;
+//   //  let name=this.items.name;
+//     console.log(this.conversionList);
+//  })
 // }
 
-// getTopics(ev: any) {
-//   this.generateTopics(this.conversionList);
-//   let serVal = ev.target.value;
-//   console.log(serVal);
-//   if (serVal && serVal.trim() != '') {
-//     this.items = this.items.filter((item) => {
+getTopics() {
+  // this.generateTopics();
+  // let serVal = ev.target.value;
+  // console.log(serVal);
+  // if (serVal && serVal.trim() != '') {
+  //   this.items = this.items.filter((item) => {
       
-//       return (item.items.toLowerCase().indexOf(serVal.toLowerCase()) > -1);
-//     })
-//   }
-//   console.log(this.items);
-// }
+  //     return (item.conversionList.toLowerCase().indexOf(serVal.toLowerCase()) > -1);
+  //   })
+  // }
+  // console.log(this.items);
+  this.items = this.filterItems(this.searchTerm);
+}
+
+filterItems(searchTerm){
+ 
+  return this.conversionList.filter((item) => {
+      return item.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
+  });    
+
+}
 
 
 }

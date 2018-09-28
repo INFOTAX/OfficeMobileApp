@@ -25,18 +25,48 @@
           <button (click)="companyform()" style="border-radius:25px;" ion-fab mini>
             <ion-icon name="add"></ion-icon>
           </button>
-
-
-
-
+        
         </ion-item>
-        <ion-item>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col offset-6>
+              <ion-item>
+                <ion-label>Date:</ion-label>
+                <ion-datetime  readonly="true"  [(ngModel)]="selectedDate"
+                [max]="today" [min]="today" [disabled]="true" type="date">
+                </ion-datetime>
+      
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <!-- <div class="panel panel-default" *ngIf="filterApplied" style="width: 90%; height: 20%; margin-left: 5%">
+          <div class="panel-heading">
+            <h2><b>Showing Results For:</b></h2>
+          </div>
+          <div class="panel-body" >
+            <h6>Start Date :&nbsp;{{filteredFromDate}}</h6>
+          <h6>End Date :&nbsp;{{filteredToDate}}</h6>
+          <h6>visitor Type :&nbsp;{{filteredVisitorType}}</h6>
+          <h6>Query Handling :&nbsp;{{filteredQueryHandling}}</h6>
+          <h6>Service Provided :&nbsp;{{filteredServiceProvided}}</h6> 
+          </div>
+        </div> -->
+        <ion-item *ngIf="filterApplied">
+          <h2><b>Showing Results For:</b></h2>
+          <h6>Start Date :&nbsp;{{filteredFromDate}}</h6>
+          <h6>End Date :&nbsp;{{filteredToDate}}</h6>
+          <h6>visitor Type :&nbsp;{{filteredVisitorType}}</h6>
+          <h6>Query Handling :&nbsp;{{filteredQueryHandling}}</h6>
+          <h6>Service Provided :&nbsp;{{filteredServiceProvided}}</h6>  
+        </ion-item>
+        
+        <!-- <ion-item>
           <ion-label>From</ion-label>
           <ion-datetime class="alert-input date-input" readonly="true" [pickerFormat]="date" [(ngModel)]="fromDate" [disabled]="false"
             type="date">
           </ion-datetime>
-          <!-- <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fromDate"></ion-datetime> 
-         -->
         </ion-item>
         <ion-item>
           <ion-label>ToDate</ion-label>
@@ -46,63 +76,7 @@
           <button ion-button (click)="searchByDate()">
             <i class="fa fa-search"></i>
           </button>
-        </ion-item>
-        <!-- <ion-scroll scrollX="true" scrollY="true" style="height: 100%">
-          <table class="table table-hover table-responsive">
-            <thead>
-              <tr style="overflow:hidden;">
-                <th class="trt">
-                  Name
-                </th>
-                <th class="trt">
-                  Contact
-                </th>
-                <th class="trt">
-                  Visitor Type
-                </th>
-                <th class="trt">
-                  Query Rating
-                </th>
-                <th class="trt">
-                  Service Rating
-                </th>
-                <th class="trt" style="padding-left:25px;padding-right:25px;">
-                  Edit/Remove
-                </th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr *ngFor="let a of company ; let i" [tabIndex]="i">
-                <td>
-                  {{a.name}}
-                </td>
-                <td>
-                  {{a.contactNumber}}
-                </td>
-                <td>
-                  {{a.visitorType}}
-                </td>
-                <td>
-                  {{a.queryHandling}}
-                </td>
-                <td>
-                  {{a.serviceProvided}}
-                </td>
-                <td>
-                  <button class="btn btn-danger" (click)="deleteList(i)">
-                    <i class="fa fa-trash"></i>
-                  </button>
-
-                  &nbsp;
-                  <button class="btn btn-primary" (click)="edit(i)">
-                    <i class="fa fa-pencil"></i>
-                  </button> &nbsp;
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </ion-scroll> -->
+        </ion-item> -->
 
         <ion-list insert padding>
           <ion-item-sliding *ngFor="let item of company ; let i" [tabIndex]="i">
@@ -142,5 +116,11 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <ion-fab right bottom>
+    <button ion-fab (click)="openFilterModel()">
+      <ion-icon name="funnel"></ion-icon>
+    </button>
+</ion-fab>
 
 </ion-content>

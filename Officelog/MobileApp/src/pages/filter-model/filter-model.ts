@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
 /**
@@ -13,16 +13,25 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
   selector: 'page-filter-model',
   templateUrl: 'filter-model.html',
 })
-export class FilterModelPage {
+export class FilterModelPage implements OnInit{
 
-  public showYes =false;
-  public showNo=false;
-  public serviceYes =false;
-  public serviceNo=false;
+  public softwareInterested =false;
+  public serviceInterested=false;
+  fromDate :string;
+  toDate : string;
+  filterApplied =true;
+  
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public viewController: ViewController) {
   }
+
+  ngOnInit() { 
+    this.toDate= new Date().toISOString();
+  
+    this.fromDate= new Date().toISOString();
+  
+}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FilterModelPage');
@@ -33,14 +42,28 @@ export class FilterModelPage {
   }
 
   closeModel(){
+
     let filterState={
-      showYes: this.showYes,
-      showNo: this.showNo,
-      serviceYes: this.serviceYes,
-      serviceNo:this.serviceNo
+      softwareInterested: null,
+      serviceInterested: null,
+      fromDate: null,
+      toDate: null,
+      filterApplied: null
+    };
+    this.viewController.dismiss(filterState);
+    
+  }
+
+  apply(){
+    let filterState={
+      softwareInterested: this.softwareInterested,
+      serviceInterested: this.serviceInterested,
+      fromDate: this.fromDate,
+      toDate: this.toDate,
+      filterApplied: this.filterApplied
     };
     this.viewController.dismiss(filterState);
     console.log(filterState);
   }
-
+  
 }

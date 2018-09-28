@@ -19,7 +19,7 @@ import { AdminConsolidatedCompanyReportingPage } from '../pages/admin-consolidat
 export class MyApp {
   @ViewChild(Nav) nav:Nav;
   
-  rootPage:any = TabsPage;
+  rootPage:any = UserloginPage;
   
   activePage:any;
   pages: Array<{title: string, component:any}>;
@@ -33,7 +33,7 @@ export class MyApp {
     });
 
     this.pages=[
-      {title:'TabsPage', component:TabsPage},
+      {title:'Home', component:TabsPage},
       {title:'User',component:UserprofilePage},
       {title:'Conversion List',component:ConversionListPage},
       {title:'Marketing Report',component:AdminUserProfileMarketingReportPage},

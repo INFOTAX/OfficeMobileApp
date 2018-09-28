@@ -60,8 +60,8 @@
                             <h5>Are you interested in our Service?</h5>
                         </ion-label>
                       <ion-select formControlName="serviceInterested">
-                        <ion-option (ionSelect)="serviceInterestedYes()">YES</ion-option>
-                        <ion-option (ionSelect)="serviceInterestedNo()">NO</ion-option>
+                        <ion-option (ionSelect)="serviceInterestedYes()">Yes</ion-option>
+                        <ion-option (ionSelect)="serviceInterestedNo()">No</ion-option>
                         
                       </ion-select>
                     </ion-item>
@@ -138,8 +138,8 @@
                                 <h5>Are you interested in our software?</h5>
                             </ion-label>
                           <ion-select formControlName="softwareInterested">
-                            <ion-option (ionSelect)="softwareInterestedYes()">YES</ion-option>
-                            <ion-option (ionSelect)="softwareInterestedNo()">NO</ion-option>
+                            <ion-option (ionSelect)="softwareInterestedYes()">Yes</ion-option>
+                            <ion-option (ionSelect)="softwareInterestedNo()">No</ion-option>
                             
                           </ion-select>
                         </ion-item>
@@ -173,11 +173,6 @@
                                 </ion-label>
                                 <ion-input type="number" formControlName="fee"  style="border: 1px solid rgb(199, 199, 199)"></ion-input>
                                <br>
-                               <ion-label style="font-weight:bold; font-size: 16px; margin-left: 3%">
-                                Fee
-                            </ion-label>
-                            <ion-input type="number" formControlName="fee" style="border: 1px solid rgb(199, 199, 199)"></ion-input>
-                            <br>
                            </ion-card>
                              <!--card software no start-->
           <ion-card *ngIf="softwareNo">
