@@ -16,6 +16,7 @@ import { AdminConsolidatedCompanyReportingPage } from '../pages/admin-consolidat
 @Component({
   templateUrl: 'app.html'
 })
+
 export class MyApp {
   @ViewChild(Nav) nav:Nav;
   
@@ -53,6 +54,8 @@ export class MyApp {
   checkActive(page){
    return page==this.activePage;
   }
+
+ 
   
   
 }

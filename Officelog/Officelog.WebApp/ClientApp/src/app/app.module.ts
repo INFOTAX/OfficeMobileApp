@@ -29,6 +29,7 @@ import { MessageService } from 'primeng/api';
 import { AdminNavBarComponent } from './admin/Components/admin-nav-bar/admin-nav-bar.component';
 
 
+
 export function tokenGetter() {
   return localStorage.getItem("token");
 }

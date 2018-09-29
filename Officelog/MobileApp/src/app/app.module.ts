@@ -12,7 +12,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { CompanyProvider } from '../providers/company/company';
 import { CompanyListPage } from '../pages/company-list/company-list';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {HttpModule} from '@angular/http';
 import { CompanyFormPage } from '../pages/company-form/company-form';
 import { MarketingLogFormPage } from '../pages/marketing-log-form/marketing-log-form';
@@ -27,6 +27,7 @@ import { ConversionListPage } from '../pages/conversion-list/conversion-list';
 import { MarketingReportProvider } from '../providers/marketing-report/marketing-report';
 import { AdminUserProfileMarketingReportPage } from '../pages/admin-user-profile-marketing-report/admin-user-profile-marketing-report';
 
+import { JwtHelperService, JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { AdminUserProfileCompanyReportPage } from '../pages/admin-user-profile-company-report/admin-user-profile-company-report';
 import { CompanyReportProvider } from '../providers/company-report/company-report';
 import { AdminConsolidatedReportingProvider } from '../providers/admin-consolidated-reporting/admin-consolidated-reporting';
@@ -35,6 +36,11 @@ import { AdminConsolidatedMarketingReportingPage } from '../pages/admin-consolid
 import { FilterModelPage } from '../pages/filter-model/filter-model';
 import { FilterModelForCompanyListPage } from '../pages/filter-model-for-company-list/filter-model-for-company-list';
 import { AuthProvider } from '../providers/auth/auth';
+import { TokenInterceptor } from '../providers/token.interceptor';
+export function tokenGetter() {
+  return localStorage.getItem("token");
+}
+
 @NgModule({
   declarations: [
     MyApp,
@@ -66,6 +72,15 @@ import { AuthProvider } from '../providers/auth/auth';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    JwtModule.forRoot({
+      config: {
+
+        headerName: 'Authorization',
+        authScheme: 'Bearer ',
+        tokenGetter: tokenGetter,
+
+      }
+    })
    
   ],
   bootstrap: [IonicApp],
@@ -102,6 +117,11 @@ import { AuthProvider } from '../providers/auth/auth';
     AdminConsolidatedReportingProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
     
     
     
