@@ -21,6 +21,7 @@ export class FilterModelPage implements OnInit{
   toDate : string;
   filterApplied =true;
   
+  
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public viewController: ViewController) {
@@ -65,5 +66,17 @@ export class FilterModelPage implements OnInit{
     this.viewController.dismiss(filterState);
     console.log(filterState);
   }
-  
+
+  filterByDate(){
+
+    let filterState={
+      softwareInterested: null,
+      serviceInterested: null,
+      fromDate: this.fromDate,
+      toDate: this.toDate,
+      filterApplied: this.filterApplied
+    };
+    this.viewController.dismiss(filterState);
+    
+  }
 }

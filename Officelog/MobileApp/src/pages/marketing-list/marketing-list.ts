@@ -23,7 +23,7 @@ export class MarketingListPage {
   toDate: string;
   id: number;
   //current: number = 0;
-  current;
+  
   selectedDate: string = new Date().toISOString();
   maxDate=new Date().toJSON().split('T')[0];
   
@@ -34,6 +34,7 @@ export class MarketingListPage {
   filteredServiceInterested: string;
   filteredSoftwareInterested: string;
   filterApplied=false;
+  filterNotApplied=true;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -45,14 +46,14 @@ export class MarketingListPage {
     this.toDate = new Date().toISOString();
 
     this.fromDate = new Date().toISOString();
-    this.searchByDate(this.fromDate,this.toDate);
+    this.searchByDate();
 
   }
   ionViewDidLoad() {
 
   }
 
-  searchByDate(fromDate:String,toDate:String) {
+  searchByDate() {
     this.marketingProvider.getMarketing(this.fromDate, this.toDate).subscribe(res => this.marketing = res);
 
   }
@@ -73,7 +74,7 @@ export class MarketingListPage {
           handler: () => {
             this.selectedMarketingLog = index;
             this.marketingProvider.delete(this.selectedMarketingLog.id).subscribe(() => {
-              this.searchByDate(this.fromDate,this.toDate);
+              this.searchByDate();
             });
           }
         },
@@ -91,7 +92,7 @@ export class MarketingListPage {
   patchConversion(index) {
     this.selectedMarketingLog = index;
     this.marketingProvider.conversion(this.selectedMarketingLog, this.selectedMarketingLog.id).subscribe(() => {
-      this.searchByDate(this.fromDate,this.toDate);
+      this.searchByDate();
     })
   }
 
@@ -109,45 +110,54 @@ export class MarketingListPage {
       this.marketingProvider.getMarketing(this.fromDate, this.toDate).subscribe((allData) => {
         this.marketing = allData;
 
-        this.searchByDate(filterState.fromDate,filterState.toDate);
+        
 
 
         if (filterState.softwareInterested && !filterState.serviceInterested) {
           this.marketing = allData.filter((data) => {
+            this.filterApplied=filterState.filterApplied;
+            this.filterNotApplied=false;
             return data.softwareInterested === filterState.softwareInterested;
           });
         }
         else if (filterState.serviceInterested && !filterState.softwareInterested) {
           this.marketing = allData.filter((data) => {
+            this.filterApplied=filterState.filterApplied;
+            this.filterNotApplied=false;
             return data.serviceInterested === filterState.serviceInterested;
           });
         }
         else if (filterState.softwareInterested && filterState.serviceInterested) {
           this.marketing = allData.filter((data) => {
+           this.filterApplied=filterState.filterApplied;
+           this.filterNotApplied=false;
             return data.softwareInterested === filterState.softwareInterested && data.serviceInterested===filterState.serviceInterested;
           });
         }
-    //     else if(filterState.fromDate && filterState.toDate){
-    //       this.fromDate=filterState.fromDate,
-    //       this.toDate=filterState.toDate
-    //       this.searchByDate(filterState.fromDate,filterState.toDate);
-    //  }
+        else if(filterState.fromDate && filterState.toDate){
+          this.filterApplied=filterState.filterApplied;
+          this.filterNotApplied=false;
+          this.fromDate=filterState.fromDate,
+          this.toDate=filterState.toDate
+          this.searchByDate();
+     }
         else {
           if(filterState.softwareInterested===false && filterState.serviceInterested===false){
-            return this.marketing=allData;
+            return this.marketing=allData, this.filterNotApplied=true, this.filterApplied=false;
           }
           else if(filterState.softwareInterested===null && filterState.serviceInterested===null){
             return this.marketing=allData;
           }
           else{
-            return this.marketing = null;
+            return this.marketing = null, this.filterNotApplied=true, this.filterApplied=false;
           }
         }
-        this.filterApplied=filterState.filterApplied;
+        // this.filterApplied=filterState.filterApplied;
+        // this.filterNotApplied=false;
         this.filteredSoftwareInterested=filterState.softwareInterested;
         this.filteredServiceInterested=filterState.serviceInterested;
         this.filteredFromDate=filterState.fromDate;
-        this.filteredToDate=filterState.toDate;
+        this.filteredToDate=filterState.toDate
       })
     });
     openFilterModel.present();

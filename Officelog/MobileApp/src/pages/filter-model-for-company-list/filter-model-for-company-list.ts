@@ -70,5 +70,19 @@ export class FilterModelForCompanyListPage implements OnInit {
     this.viewController.dismiss(filterState);
   }
 
+  filterByDate(){
+    let filterState={
+      showYes: null,
+      showNo: null,
+      queryHandling: null,
+      serviceProvided: null,
+      visitorType: null,
+      fromDate: this.fromDate, 
+      toDate: this.toDate,
+      filterApplied: this.filterApplied
+    };
+    this.viewController.dismiss(filterState);
+  }
+
 
 }

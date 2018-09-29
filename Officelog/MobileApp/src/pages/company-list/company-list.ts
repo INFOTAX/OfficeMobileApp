@@ -48,6 +48,7 @@ export class CompanyListPage{
   suggestionForNo:string;
   current;
   filterApplied=false;
+  filterNotApplied=true;
   selectedDate: string = new Date().toISOString();
  maxDate=new Date().toJSON().split('T')[0];
   
@@ -139,40 +140,56 @@ openFilterModel(){
 
         if(filterState.visitorType && (!filterState.queryHandling && !filterState.serviceProvided)) {
           this.company = allData.filter((data) => {
+            this.filterApplied=filterState.filterApplied;
+             this.filterNotApplied=false;
             return data.visitorType === filterState.visitorType;
           });
         }
         else if(filterState.serviceProvided && (!filterState.queryHandling && !filterState.visitorType)) {
           this.company = allData.filter((data) => {
+            this.filterApplied=filterState.filterApplied;
+             this.filterNotApplied=false;
             return data.serviceProvided === filterState.serviceProvided;
           });
         }
         else if (filterState.queryHandling && (!filterState.visitorType && !filterState.serviceProvided)) {
           this.company = allData.filter((data) => {
+            this.filterApplied=filterState.filterApplied;
+             this.filterNotApplied=false;
             return data.queryHandling === filterState.queryHandling;
           });
         }
         else if (filterState.visitorType && (filterState.queryHandling && !filterState.serviceProvided)) {
           this.company = allData.filter((data) => {
+            this.filterApplied=filterState.filterApplied;
+             this.filterNotApplied=false;
             return data.visitorType === filterState.visitorType && data.queryHandling === filterState.queryHandling;
           });
         }
         else if (filterState.visitorType && (!filterState.queryHandling && filterState.serviceProvided)) {
           this.company = allData.filter((data) => {
+            this.filterApplied=filterState.filterApplied;
+             this.filterNotApplied=false;
             return data.visitorType === filterState.visitorType && data.serviceProvided === filterState.serviceProvided;
           });
         }
         else if (!filterState.visitorType && (filterState.queryHandling && filterState.serviceProvided)) {
           this.company = allData.filter((data) => {
+            this.filterApplied=filterState.filterApplied;
+             this.filterNotApplied=false;
             return data.queryHandling === filterState.queryHandling && data.serviceProvided===filterState.serviceProvided;
           });
         }
         else if (filterState.visitorType && (filterState.queryHandling && filterState.serviceProvided)) {
           this.company = allData.filter((data) => {
+            this.filterApplied=filterState.filterApplied;
+             this.filterNotApplied=false;
             return data.visitorType === filterState.visitorType && (data.queryHandling === filterState.queryHandling && data.serviceProvided === filterState.serviceProvided);
           });
         }
         else if(filterState.fromDate && filterState.toDate){
+             this.filterApplied=filterState.filterApplied;
+             this.filterNotApplied=false;
              this.fromDate=filterState.fromDate,
              this.toDate=filterState.toDate
              this.searchByDate(filterState.fromDate,filterState.toDate);
@@ -195,7 +212,7 @@ openFilterModel(){
         this.filteredServiceProvided=filterState.serviceProvided;
         this.filteredFromDate=filterState.fromDate;
         this.filteredToDate=filterState.toDate;
-        this.filterApplied=filterState.filterApplied;
+        //this.filterApplied=filterState.filterApplied;
         
       })
     });
