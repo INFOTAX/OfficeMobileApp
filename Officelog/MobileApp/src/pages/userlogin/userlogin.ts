@@ -25,7 +25,7 @@ export class UserloginPage {
     console.log('ionViewDidLoad UserloginPage');
   }
  onUserLogin( form:NgForm){
-   this.authprovider.userlogin(form.value.email, form.value.password);
+  
  }
 
 
