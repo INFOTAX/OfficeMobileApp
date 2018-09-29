@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router, ActivatedRouteSnapshot } from '@angular/router';
+/*import { CanActivate, Router, ActivatedRouteSnapshot } from '@angular/router';
 
 import decode from 'jwt-decode';
 import { AuthProvider } from '../../providers/auth/auth';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn:'root'
 })
 export class AuthGuardService implements CanActivate {
 
@@ -13,30 +13,12 @@ export class AuthGuardService implements CanActivate {
 
   canActivate(route : ActivatedRouteSnapshot):boolean{
 
-  //   const expectedRole = route.data.expectedRole;
-  //    const expectedRole = localStorage.getItem("role")
-  //   const token = localStorage.getItem("token");
-  //   console.log(token);
-  
-  
-
-  //   if(!this.loginService.isAuthenticated() || )
-  //   {
-  //     this.router.navigate(['login']);
-  //     return false;
-  //   }
-  //   return true;
-  // }
+ 
 
   
 
-    // if (!this.loginService.isAuthenticated()) {
-    //     this.router.navigate(['/login']);
-    // }
-
-    // return this.loginService.isAuthenticated();
-
-    const userRole = this.loginService.getRole();
+    
+    const userRole = this.authprovider.getRole();
     console.log(userRole);
         const permission = route.data["permission"];
         console.log(permission);
@@ -53,3 +35,4 @@ export class AuthGuardService implements CanActivate {
         return canActivate;
 }
 }
+*/
