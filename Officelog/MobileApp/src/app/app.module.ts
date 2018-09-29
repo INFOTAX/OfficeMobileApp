@@ -34,6 +34,7 @@ import { AdminConsolidatedCompanyReportingPage } from '../pages/admin-consolidat
 import { AdminConsolidatedMarketingReportingPage } from '../pages/admin-consolidated-marketing-reporting/admin-consolidated-marketing-reporting';
 import { FilterModelPage } from '../pages/filter-model/filter-model';
 import { FilterModelForCompanyListPage } from '../pages/filter-model-for-company-list/filter-model-for-company-list';
+import { AuthProvider } from '../providers/auth/auth';
 @NgModule({
   declarations: [
     MyApp,
@@ -100,6 +101,7 @@ import { FilterModelForCompanyListPage } from '../pages/filter-model-for-company
     CompanyReportProvider,
     AdminConsolidatedReportingProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthProvider,
     
     
     

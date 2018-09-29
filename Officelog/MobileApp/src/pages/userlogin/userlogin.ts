@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
+import { AuthProvider } from '../../providers/auth/auth';
+import { NgForm } from '@angular/forms';
 
 /**
  * Generated class for the UserloginPage page.
@@ -16,12 +18,22 @@ import { TabsPage } from '../tabs/tabs';
 })
 export class UserloginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams ,private authprovider: AuthProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UserloginPage');
   }
+ onUserLogin( form:NgForm){
+   this.authprovider.userlogin(form.value.email, form.value.password);
+ }
+
+
+
+
+
+
+
 
   login(){
     this.navCtrl.push(TabsPage);
