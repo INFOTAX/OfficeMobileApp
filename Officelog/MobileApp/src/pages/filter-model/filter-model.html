@@ -31,7 +31,7 @@
   <h6>&nbsp;&nbsp;&nbsp;&nbsp;<b>Date</b></h6>
   <ion-item style="margin-left:5%; width: 90%">
     <ion-label>From</ion-label>
-    <ion-datetime class="alert-input date-input" readonly="true" [pickerFormat]="date" [(ngModel)]="fromDate" [disabled]="false"
+    <ion-datetime [pickerFormat]="date" [(ngModel)]="fromDate" 
       type="date">
     </ion-datetime>
   </ion-item>
@@ -39,6 +39,8 @@
     <ion-label>ToDate</ion-label>
     <ion-datetime [pickerFormat]="date" [(ngModel)]="toDate"></ion-datetime>
   </ion-item>
+  <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button class="btn btn-primary" (click)="filterByDate()"><i class="fa fa-search"></i></button>
   <br>
   <h6>&nbsp;&nbsp;<b>Software Interested</b></h6>
   <ion-list radio-group [(ngModel)]="softwareInterested" style="margin-left: 5%;padding-right: 5%; padding-top:0%">
@@ -83,9 +85,9 @@
     </ion-grid>
 
   </ion-list>
-  <button class="btn btn-success" (click)="apply()" style="margin-left: 80%">
+  <button class="btn btn-primary" (click)="apply()" style="margin-left: 80%">
     APPLY
   </button>
 
-
+  
 </ion-content>
