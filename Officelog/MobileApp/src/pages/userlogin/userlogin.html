@@ -11,7 +11,7 @@
   <img  class="img-responsive img-circle" src="assets/imgs/logo1.png" style="width:45%; height:95px;margin-top:37px;"/>
         <br>
 </div>
-<form #f="ngForm" (ngSubmit)="onSignUp(f)">
+<form #f="ngForm">
 <div class="head">
  <h3> User Login</h3>
 
@@ -19,13 +19,13 @@
 <div class="inputss">
   <ion-item>
     <ion-label>Email</ion-label>
-    <ion-input type="email" ngModel name="email" required></ion-input>
+    <ion-input type="email" name="email"  required #userId></ion-input>
   </ion-item>
   <ion-item>
       <ion-label>PASSWORD</ion-label>
-      <ion-input type="password" ngModel name="password" required ></ion-input>
+      <ion-input type="password" name="password" required  #pwd></ion-input>
     </ion-item>
-    <button ion-button block  type="submit" (click)="login()" [disabled]="!f.valid">LOGIN</button>
+    <button ion-button block  type="submit" (click)="doLogin(userId.value,pwd.value)" [disabled]="!f.valid">LOGIN</button>
 </div>
 
 

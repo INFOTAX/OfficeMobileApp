@@ -27,7 +27,7 @@ import { ConversionListPage } from '../pages/conversion-list/conversion-list';
 import { MarketingReportProvider } from '../providers/marketing-report/marketing-report';
 import { AdminUserProfileMarketingReportPage } from '../pages/admin-user-profile-marketing-report/admin-user-profile-marketing-report';
 
-import { JwtHelperService, JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
+
 import { AdminUserProfileCompanyReportPage } from '../pages/admin-user-profile-company-report/admin-user-profile-company-report';
 import { CompanyReportProvider } from '../providers/company-report/company-report';
 import { AdminConsolidatedReportingProvider } from '../providers/admin-consolidated-reporting/admin-consolidated-reporting';
@@ -37,9 +37,7 @@ import { FilterModelPage } from '../pages/filter-model/filter-model';
 import { FilterModelForCompanyListPage } from '../pages/filter-model-for-company-list/filter-model-for-company-list';
 import { AuthProvider } from '../providers/auth/auth';
 import { TokenInterceptor } from '../providers/token.interceptor';
-export function tokenGetter() {
-  return localStorage.getItem("token");
-}
+
 
 @NgModule({
   declarations: [
@@ -72,15 +70,7 @@ export function tokenGetter() {
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    JwtModule.forRoot({
-      config: {
-
-        headerName: 'Authorization',
-        authScheme: 'Bearer ',
-        tokenGetter: tokenGetter,
-
-      }
-    })
+    
    
   ],
   bootstrap: [IonicApp],
@@ -115,8 +105,9 @@ export function tokenGetter() {
     MarketingReportProvider,
     CompanyReportProvider,
     AdminConsolidatedReportingProvider,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

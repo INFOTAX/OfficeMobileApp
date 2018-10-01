@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, filter, tap, catchError } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-import { JwtHelperService } from '@auth0/angular-jwt';
+import { Observable } from 'rxjs/Observable';
+import { tokenNotExpired } from 'angular2-jwt';
 
 /*
   Generated class for the AuthProvider provider.
@@ -16,14 +16,13 @@ export class AuthProvider {
     private token: ITokenResponse;
     profile: IUserProfile;
 
-  constructor(public http: HttpClient, private jwtHelper: JwtHelperService) {
+  constructor(public http: HttpClient) {
     console.log('Hello AuthProvider Provider');
   }
   isAuthenticated(): boolean {
 
-    const token = localStorage.getItem("token");
+    return tokenNotExpired('token');
 
-        return !this.jwtHelper.isTokenExpired(token);
     }
     public getToken(loginModel : ILogin): Observable<ITokenResponse> {
 

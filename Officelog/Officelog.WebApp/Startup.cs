@@ -41,16 +41,16 @@ namespace Officelog
             
             services.AddAutoMapper();
 
-            //  services.AddAuthentication(options =>
-            // {
-            //     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            //     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+             services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 
-            // }).AddJwtBearer(options =>
-            // {
-            //     options.Authority = Configuration.GetSection("Auth0Settings").GetSection("Host").Value;
-            //     options.Audience = Configuration.GetSection("Auth0Settings").GetSection("Audience").Value;
-            // });
+            }).AddJwtBearer(options =>
+            {
+                options.Authority = Configuration.GetSection("Auth0Settings").GetSection("Host").Value;
+                options.Audience = Configuration.GetSection("Auth0Settings").GetSection("Audience").Value;
+            });
             
             services.AddDbContext<ApplicationDbContext>(
                 options =>
@@ -80,7 +80,7 @@ namespace Officelog
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
            
-            // app.UseAuthentication();
+             app.UseAuthentication();
             app.UseMvc();
 
             app.UseSpa(spa =>
