@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { map, filter, tap, catchError } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
 import { tokenNotExpired } from 'angular2-jwt';
+import { AlertController } from 'ionic-angular';
 
 /*
   Generated class for the AuthProvider provider.
@@ -16,7 +17,7 @@ export class AuthProvider {
     private token: ITokenResponse;
     profile: IUserProfile;
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, private alertCtrl: AlertController) {
     console.log('Hello AuthProvider Provider');
   }
   isAuthenticated(): boolean {
@@ -39,8 +40,17 @@ export class AuthProvider {
                     },
           
           err => {
-                  if (err.status === 400)
-                  alert("Invalid Login Credentials");
+                  if (err.status === 400){
+                    
+                      let alert = this.alertCtrl.create({
+                        title: 'Login failed',
+                        message: 'Please check your credentials',
+                        buttons: ['OK']
+                      });
+                      alert.present();
+                    
+                  }
+                  //alert("Invalid Login Credentials");
                  }
 
           
