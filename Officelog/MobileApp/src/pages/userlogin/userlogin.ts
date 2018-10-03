@@ -44,15 +44,15 @@ export class UserloginPage {
 
   doLogin(userName: string, password: string):void{
 
-    // var online= navigator.onLine;
-    //     if(!online){
+    var online= navigator.onLine;
+        if(!online){
             
-    //     }
+        }
 
-    //     this.login = {
-    //       userName: userName,
-    //       password: password
-    //   };
+        this.login = {
+          userName: userName,
+          password: password
+      };
 
 
           this.busy = this.authprovider.getToken(this.login)
