@@ -57,7 +57,7 @@
                 <ion-list>
                     <ion-item>
                         <ion-label >
-                            <h5>Are you interested in our Service?</h5>
+                            <h5><b>Are you interested in our Service?</b></h5>
                         </ion-label>
                       <ion-select formControlName="serviceInterested">
                         <ion-option (ionSelect)="serviceInterestedYes()">Yes</ion-option>
@@ -135,7 +135,7 @@
                 <ion-list>
                         <ion-item>
                             <ion-label>
-                                <h5>Are you interested in our software?</h5>
+                                <h5><b>Are you interested in our software?</b></h5>
                             </ion-label>
                           <ion-select formControlName="softwareInterested">
                             <ion-option (ionSelect)="softwareInterestedYes()">Yes</ion-option>
@@ -151,7 +151,7 @@
                             <ion-list>
                                <ion-item>
                                    <ion-label>
-                                      <h4> <b>Please rate us.</b></h4>
+                                      <h5> <b>Please rate us.</b></h5>
                                    </ion-label>
                                  <ion-select  formControlName="rateUs">
                                    <ion-option>BAD</ion-option>
@@ -197,92 +197,20 @@
                           </ion-label>
                           <ion-textarea rows="5" formControlName="suggestionForNo" style="border: 1px solid rgb(199, 199, 199)"></ion-textarea>
               </ion-card>
-              <!--
-                <ion-card *ngIf="softwareYes">
-
-                    <ion-list radio-group formControlName="rateUs">
-                        <ion-list-header>
-                            <h5>Please rate us.</h5>
-                        </ion-list-header>
-
-                        <ion-row>
-                            <ion-col>
-                                <ion-item>
-                                    <ion-label>Bad</ion-label>
-                                    <ion-radio value="bad"></ion-radio>
-                                </ion-item>
-                            </ion-col>
-                            <ion-col>
-                                <ion-item>
-                                    <ion-label>Good</ion-label>
-                                    <ion-radio value="good"></ion-radio>
-                                </ion-item>
-                            </ion-col>
-                            <ion-col>
-                                <ion-item>
-                                    <ion-label>Very Good</ion-label>
-                                    <ion-radio value="Very Good"></ion-radio>
-                                </ion-item>
-                            </ion-col>
-                            <ion-col>
-                                <ion-item>
-                                    <ion-label>Excellent</ion-label>
-                                    <ion-radio value="Excellent"></ion-radio>
-                                </ion-item>
-                            </ion-col>
-                        </ion-row>
-                    </ion-list>
-                    <ion-label style="font-weight:bold; font-size: 16px; margin: 3%">
-                        Any Suggestion?
-                    </ion-label>
-                    <ion-textarea rows="5" formControlName="suggestionForYes" style="border: 1px solid rgb(199, 199, 199)"></ion-textarea>
-                    <ion-label style="font-weight:bold; font-size: 16px; margin-left: 3%">
-                        Fee
-                    </ion-label>
-                    <ion-input type="number" formControlName="fee" style="border: 1px solid rgb(199, 199, 199)"></ion-input>
-                    <br>
-                </ion-card>
-                <ion-card *ngIf="softwareNo">
-                    <ion-list radio-group formControlName="rateUsForNo">
-                        <ion-list-header>
-                            <h5>Choose a reason:</h5>
-                        </ion-list-header>
-
-                        <ion-row>
-                            <ion-col>
-                                <ion-item>
-                                    <ion-label>Not Friendly</ion-label>
-                                    <ion-radio value="notFriendly" (Click)="closeOtherReason();"></ion-radio>
-                                </ion-item>
-                            </ion-col>
-                            <ion-col>
-                                <ion-item>
-                                    <ion-label>Already Have</ion-label>
-                                    <ion-radio value="alreadyHave" (Click)="closeOtherReason();"></ion-radio>
-                                </ion-item>
-                            </ion-col>
-                            <ion-col>
-                                <ion-item>
-                                    <ion-label>Others</ion-label>
-                                    <ion-radio value="others" (click)="otherReason();"></ion-radio>
-                                </ion-item>
-                            </ion-col>
-                            <ion-card *ngIf="ifOther">
-                                    <ion-label style="font-weight:bold; font-size: 16px; margin: 3%">
-                                        Please give reasons and suggestion, so that we can improve.
-                                        </ion-label>
-                                        <ion-textarea rows="5" formControlName="suggestionForNo" style="border: 1px solid rgb(199, 199, 199)"></ion-textarea>
-                            </ion-card>
-                        </ion-row>
-                    </ion-list>
-                </ion-card>-->
+ 
                 
 
             </ion-list>
         </ion-grid>
-        <button type="submit" class="btn btn-primary btn-lg"> SAVE</button>
-    </form>
-
+        <ion-row>
+                <ion-col width-70 offset-4>
+        
+                  <button type="submit" class="btn btn-success" style="width: 50%; font-size:23px;">Save</button>
+                  <br>
+                  <br>
+                </ion-col>
+              </ion-row>
+</form>
 </ion-content>
 
 <!-- {{marketingForm.value | json}} -->

@@ -11,7 +11,8 @@
 </ion-header>
 
 
-<ion-content style="width:80%; height: 60%;background-color: gainsboro; margin-left: 10%; margin-top: 20%;">
+<ion-content style="width:80%; height: 60%; margin-left: 10%; margin-top: 20%;">
+ <!--filter field start-->
   <ion-grid>
     <ion-row>
       <ion-col col-10 >
@@ -26,8 +27,24 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+<!--filter head end-->
+<!--sub menu start-->
+<div padding>
+    <ion-segment [(ngModel)]="filters">
+      <ion-segment-button value="bydates" class="b">
+       By date
+      </ion-segment-button>
+      <ion-segment-button value="byserv">
+      By others 
+      </ion-segment-button>
+    </ion-segment>
+  </div>
 
-  
+<!--sub menu end-->
+<div [ngSwitch]="filters">
+
+  <!--filter by date start-->
+  <ion-list *ngSwitchCase="'bydates'">
   <h6>&nbsp;&nbsp;&nbsp;&nbsp;<b>Date</b></h6>
   <ion-item style="margin-left:5%; width: 90%">
     <ion-label>From</ion-label>
@@ -42,7 +59,11 @@
   <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <button class="btn btn-primary" (click)="filterByDate()"><i class="fa fa-search"></i></button>
   <br>
- 
+  </ion-list>
+  <!--filter by date end-->
+
+  <!--filet by querry and other start-->
+  <ion-list *ngSwitchCase="'byserv'">
     <ion-list style="margin-left: 5%;padding-right: 5%;background-color: gainsboro;">
      
 
@@ -90,5 +111,7 @@
     <button class="btn btn-success" (click)="apply()" style="margin-left: 80%">
       APPLY
     </button>
-
+    </ion-list>
+    </div>
+ <!--filet by querry and other end-->
 </ion-content>
