@@ -11,10 +11,11 @@
 </ion-header>
 
 
-<ion-content style="width:80%; height: 60%;background-color: gainsboro; margin-left: 10%; margin-top: 20%;">
+<ion-content style="width:80%; height: 60%; margin-left: 10%; margin-top: 20%;">
 
-
+ <!--filter tag heading open-->
   <ion-grid style="margin-top:0%">
+   
     <ion-row>
       <ion-col col-10>
         <h4>&nbsp;&nbsp;&nbsp;<b>Filter By:</b></h4>
@@ -27,7 +28,25 @@
         </ion-buttons>
       </ion-col>
     </ion-row>
+      
   </ion-grid>
+  <!--filter tag heading end-->
+<!--sub menu start-->
+<div padding>
+    <ion-segment [(ngModel)]="filters">
+      <ion-segment-button value="bydates">
+       By date
+      </ion-segment-button>
+      <ion-segment-button value="byserv">
+      By Service & software Intrested
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+<!--sub menu end-->
+<div [ngSwitch]="filters">
+   <!---filter by date field start-->
+   <ion-list *ngSwitchCase="'bydates'">
   <h6>&nbsp;&nbsp;&nbsp;&nbsp;<b>Date</b></h6>
   <ion-item style="margin-left:5%; width: 90%">
     <ion-label>From</ion-label>
@@ -42,6 +61,10 @@
   <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <button class="btn btn-primary" (click)="filterByDate()"><i class="fa fa-search"></i></button>
   <br>
+  </ion-list>
+  <!---filter by date field end-->
+  <!--software and service field start-->
+  <ion-list *ngSwitchCase="'byserv'">
   <h6>&nbsp;&nbsp;<b>Software Interested</b></h6>
   <ion-list radio-group [(ngModel)]="softwareInterested" style="margin-left: 5%;padding-right: 5%; padding-top:0%">
 
@@ -88,6 +111,7 @@
   <button class="btn btn-primary" (click)="apply()" style="margin-left: 80%">
     APPLY
   </button>
-
-  
+  </ion-list>
+ <!--software and service field start-->
+</div>
 </ion-content>

@@ -28,7 +28,7 @@
           <ion-row>
             <ion-col offset-6>
               <ion-item>
-                <ion-label>Date:</ion-label>
+                <ion-label  style="color:blue;">Date:</ion-label>
                 <ion-datetime  readonly="true"  [(ngModel)]="selectedDate"
                 [max]="today" [min]="today" [disabled]="true" type="date">
                 </ion-datetime>
@@ -39,11 +39,20 @@
         </ion-grid>
         <ion-item *ngIf="filterApplied">
           <h2><b>Showing Results For:</b></h2>
-          <h6>Start Date :&nbsp;{{filteredFromDate}}</h6>
-          <h6>End Date :&nbsp;{{filteredToDate}}</h6>
-          <h6>Service Interested :&nbsp;{{filteredServiceInterested}}</h6>
+              <span>Start Date :&nbsp;{{filteredFromDate|date:'dd/MM/yyyy'}} &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span>
+              <span>End Date :&nbsp;{{filteredToDate |date:'dd/MM/yyyy'}}</span>
+        
+        
+        
+            <h6>Service Interested :&nbsp;{{filteredServiceInterested}}</h6>
           <h6>Software Interested :&nbsp;{{filteredSoftwareInterested}}</h6>  
+
+
         </ion-item>
+
+
+
+
         <ion-list insert padding>
           <ion-item-sliding *ngFor="let item of marketing ; let i" [tabIndex]="i">
             <ion-item (click)="current = i">

@@ -17,3 +17,32 @@
 .activeHighlight{
     background-color: map-get($colors, light);
 }
+.content-md {
+    color: #000;
+    font-size: 1.7rem !important;
+    font-weight: 600 !important;
+    
+        background-color: #adb4dc8c !important;
+    
+}
+.item-md h2 {
+    color: #243324;
+    margin: 2px 0;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+    ion-tab>tabTitle{
+       
+        font-weight:700;
+        font-size:1.7em;
+        
+      }
+
+      .tabs-md .tab-button-text {
+        font-size: 1.1em;
+        color: #1d1e20;
+        text-transform: none;
+        font-weight: 700;
+      }
+   

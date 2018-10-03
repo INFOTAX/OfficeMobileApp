@@ -19,5 +19,25 @@ page-marketing-log-form {
       td{
           text-align: center
       }
+
+      .item-md {
+        padding-left: 16px;
+        padding-right: 0;
+        position: relative;
+        font-size: 1.7rem;
+        font-weight: bold;
+        text-transform: none;
+        color: #000;
+        background-color: #c8fac82b;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        -webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    item-label{
+        color:blue;
+        font-weight:700;
+    }
+
 }
  
