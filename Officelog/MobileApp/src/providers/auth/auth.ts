@@ -16,9 +16,10 @@ export class AuthProvider {
   private baseUrl = 'http://localhost:14339/api/Auth';
     private token: ITokenResponse;
     profile: IUserProfile;
+    userName:string;
 
   constructor(public http: HttpClient, private alertCtrl: AlertController) {
-    console.log('Hello AuthProvider Provider');
+    //console.log('Hello AuthProvider Provider');
   }
   isAuthenticated(): boolean {
 
@@ -46,6 +47,7 @@ export class AuthProvider {
                         title: 'Login failed',
                         message: 'Please check your credentials',
                         buttons: ['OK']
+                        
                       });
                       alert.present();
                     
@@ -56,13 +58,15 @@ export class AuthProvider {
           
       ));
   } 
-
+  
+  
   
   public getUserProfile(): IUserProfile {
 
       return this.profile = JSON.parse(localStorage.getItem('profile'));
 
   }
+  
 
   public getRole():IUserProfile {
       return this.profile = JSON.parse(localStorage.getItem('role')); 
@@ -73,11 +77,19 @@ export class AuthProvider {
       this.profile = JSON.parse(localStorage.getItem('profile'));
   }
 
-  public logOut(): void {
-      localStorage.removeItem('token');
-      localStorage.removeItem('profile');
-          }
 
+  logout() {
+    this.profile = null;
+    localStorage.removeItem('profile');
+  }
+
+ 
+  isAdmin() {
+    this.userName=this.token.userProfile.name;
+    return this.token.userProfile.role==="Admin";
+   
+  }
+  
 
 }
 

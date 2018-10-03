@@ -18,41 +18,6 @@
 
 <ion-content padding>
 
-  <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="getTopics()"></ion-searchbar>
-
-  <!-- <ion-scroll scrollX="true" scrollY="true" style="height: 100%">
-    <table class="table table-hover table-bordered">
-      <thead>
-        <tr>
-          <th class="trt">
-            Trade Name
-          </th>
-          <th class="trt">
-            Contact
-          </th>
-          <th class="trt">
-            Action
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let a of conversionList; let i" [tabIndex]="i">
-          <td>
-            {{a.name}}
-          </td>
-          <td>
-            {{a.contactNumber}}
-          </td>
-          <td>
-            <button class="btn btn-primary" (click)="edit(i)"><i class="fa fa-pencil"></i></button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </ion-scroll> -->
-  <!-- <br>
-  <br> -->
-<!-- <button class="btn btn-primary" (click)="itemSelected()">Expand</button> -->
 
   <ion-list insert padding>
     <ion-item-sliding *ngFor="let item of conversionList ; let i" [tabIndex]="i">
@@ -67,14 +32,7 @@
               <br>
               &nbsp;&nbsp;&nbsp;
             Contact Number:&nbsp;&nbsp;&nbsp;&nbsp;{{item.contactNumber}}</h4></div>
-            <!-- <div *ngIf="selected">
-              <h4>
-                <br>
-                &nbsp;&nbsp;&nbsp;
-                Contact Number:&nbsp;&nbsp;&nbsp;&nbsp;{{item.contactNumber}}</h4></div> -->
-            
-
-        
+       
       </ion-item>
 
       <ion-item-options side="right">

@@ -1,15 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav,Platform } from 'ionic-angular';
+import { Nav,Platform, App } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { TabsPage } from '../pages/tabs/tabs';
-import { AdminUserProfileMarketingReportPage } from '../pages/admin-user-profile-marketing-report/admin-user-profile-marketing-report';
-import { ConversionListPage } from '../pages/conversion-list/conversion-list';
-import { UserprofilePage } from '../pages/userprofile/userprofile';
 import { UserloginPage } from '../pages/userlogin/userlogin';
-import { AdminUserProfileCompanyReportPage } from '../pages/admin-user-profile-company-report/admin-user-profile-company-report';
-import { AdminConsolidatedMarketingReportingPage } from '../pages/admin-consolidated-marketing-reporting/admin-consolidated-marketing-reporting';
-import { AdminConsolidatedCompanyReportingPage } from '../pages/admin-consolidated-company-reporting/admin-consolidated-company-reporting';
+import { AuthProvider } from '../providers/auth/auth';
 
 
 
@@ -18,44 +12,30 @@ import { AdminConsolidatedCompanyReportingPage } from '../pages/admin-consolidat
 })
 
 export class MyApp {
-  @ViewChild(Nav) nav:Nav;
-  
+
   rootPage:any = UserloginPage;
   
-  activePage:any;
-  pages: Array<{title: string, component:any}>;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
+              private appCtrl: App, public authProvider: AuthProvider) {
 
     
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
     });
 
-    this.pages=[
-      {title:'Home', component:TabsPage},
-      {title:'User',component:UserprofilePage},
-      {title:'Conversion List',component:ConversionListPage},
-      {title:'Marketing Report',component:AdminUserProfileMarketingReportPage},
-      {title: 'Company Report', component:AdminUserProfileCompanyReportPage},
-      {title: 'Consolidated Marketing Report', component: AdminConsolidatedMarketingReportingPage},
-      {title: 'Consolidated Company Report', component: AdminConsolidatedCompanyReportingPage}
-    ];
-    this.activePage=this.pages[0];
+    // this.pages=[
+    //   {title:'Home', component:TabsPage},
+    //   {title:'User',component:UserprofilePage},
+    //   {title:'Conversion List',component:ConversionListPage},
+    //   {title:'Marketing Report',component:AdminUserProfileMarketingReportPage},
+    //   {title: 'Company Report', component:AdminUserProfileCompanyReportPage},
+    //   {title: 'Consolidated Marketing Report', component: AdminConsolidatedMarketingReportingPage},
+    //   {title: 'Consolidated Company Report', component: AdminConsolidatedCompanyReportingPage}
+    // ];
+    // this.activePage=this.pages[0];
+    
   }
-  
-  openPage(page){
-    this.nav.setRoot(page.component);
-    this.activePage=page;
-  }
-  checkActive(page){
-   return page==this.activePage;
-  }
-
- 
-  
   
 }

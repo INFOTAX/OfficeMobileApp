@@ -1,9 +1,10 @@
 import { Subscription } from 'rxjs/Subscription';
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { TabsPage } from '../tabs/tabs';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Nav } from 'ionic-angular';
 import { AuthProvider, ILogin } from '../../providers/auth/auth';
 import { NgForm } from '@angular/forms';
+import { SideMenuPage } from '../side-menu/side-menu';
+
 
 /**
  * Generated class for the UserloginPage page.
@@ -18,6 +19,7 @@ import { NgForm } from '@angular/forms';
   templateUrl: 'userlogin.html',
 })
 export class UserloginPage {
+  @ViewChild(Nav) nav:Nav;
 
   busy:Subscription
   login:ILogin;
@@ -58,11 +60,12 @@ export class UserloginPage {
                   // if (res. === 200)
                       this.onLoginSuccess();
               });
-    //this.navCtrl.push(TabsPage);
+    
   }
 
   onLoginSuccess(): void {
-    this.navCtrl.push(TabsPage);
+    
+    this.navCtrl.setRoot(SideMenuPage);
 
 }
 

@@ -37,6 +37,7 @@ import { FilterModelPage } from '../pages/filter-model/filter-model';
 import { FilterModelForCompanyListPage } from '../pages/filter-model-for-company-list/filter-model-for-company-list';
 import { AuthProvider } from '../providers/auth/auth';
 import { TokenInterceptor } from '../providers/token.interceptor';
+import { SideMenuPage } from '../pages/side-menu/side-menu';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { TokenInterceptor } from '../providers/token.interceptor';
     AdminConsolidatedMarketingReportingPage,
     AdminConsolidatedCompanyReportingPage,
     FilterModelPage,
-    FilterModelForCompanyListPage
+    FilterModelForCompanyListPage,
+    SideMenuPage
     
    
   ],
@@ -93,7 +95,8 @@ import { TokenInterceptor } from '../providers/token.interceptor';
     AdminConsolidatedMarketingReportingPage,
     AdminConsolidatedCompanyReportingPage,
     FilterModelPage,
-    FilterModelForCompanyListPage
+    FilterModelForCompanyListPage,
+    SideMenuPage
     
   ],
   providers: [
