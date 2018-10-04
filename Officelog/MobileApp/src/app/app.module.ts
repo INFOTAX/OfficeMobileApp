@@ -38,6 +38,7 @@ import { FilterModelForCompanyListPage } from '../pages/filter-model-for-company
 import { AuthProvider } from '../providers/auth/auth';
 import { TokenInterceptor } from '../providers/token.interceptor';
 import { SideMenuPage } from '../pages/side-menu/side-menu';
+import { AdminUserwiseDashboardReportPage } from '../pages/admin-userwise-dashboard-report/admin-userwise-dashboard-report';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { SideMenuPage } from '../pages/side-menu/side-menu';
     AdminUserProfileMarketingReportPage,
     AdminConsolidatedMarketingReportingPage,
     AdminConsolidatedCompanyReportingPage,
+    AdminUserwiseDashboardReportPage,
     FilterModelPage,
     FilterModelForCompanyListPage,
     SideMenuPage
@@ -91,6 +93,7 @@ import { SideMenuPage } from '../pages/side-menu/side-menu';
     MarketingListPage,
     ConversionFormPage,
     ConversionListPage,
+    AdminUserwiseDashboardReportPage,
     AdminUserProfileMarketingReportPage,
     AdminConsolidatedMarketingReportingPage,
     AdminConsolidatedCompanyReportingPage,
